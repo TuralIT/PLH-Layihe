@@ -531,3 +531,22 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); font-weight: 700; color: 
     opacity: 0.1;
     transform: scale(1.1) rotate(-5deg); /* Professional "kick" */
 }
+
+@media (max-width: 767px) {
+    .mobile-sticky-cta {
+        position: fixed;
+        bottom: 0; left: 0; width: 100%;
+        display: flex;
+        z-index: 10000;
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+    }
+    .mobile-cta-btn {
+        flex: 1;
+        padding: 15px;
+        text-align: center;
+        font-weight: 700;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+    }
+}
