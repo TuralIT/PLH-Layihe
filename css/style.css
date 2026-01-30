@@ -1,28 +1,35 @@
 /* --- 1. THE REFINED PALETTE --- */
 :root {
-    /* Brand Colors (Keep these) */
-    --plh-base: #0d3b4c;        /* Deep Teal */
-    --plh-accent: #29a9bd;      /* Cyan */
-    --plh-accent-glow: rgba(41, 169, 189, 0.2);
+    /* Brand Colors (Refined for 2026 Authority) */
+    --plh-base: #092c3a;        /* Darker, richer Deep Teal for authority */
+    --plh-accent: #c0a062;      /* Muted Gold/Bronze for premium "Old Money" feel */
+    --plh-accent-glow: rgba(192, 160, 98, 0.25);
+    --plh-cyan: #29a9bd;        /* Kept as a secondary "Tech" accent */
     
     /* NEW: Light Mode Colors */
     --plh-white: #ffffff;
-    --plh-light-bg: #f8fcfd;    /* Very subtle teal-tinted white for sections */
-    --plh-text-dark: #1a2c33;   /* Dark text for white backgrounds */
-    --plh-text-muted: #586e75;  /* Gray text for paragraphs */
+    --plh-light-bg: #f4f6f7;    /* Cool gray-white */
+    --plh-text-dark: #121e24;   /* Almost black */
+    --plh-text-muted: #5e6d75;  
     
     /* Typography */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
     --font-brand: 'Cinzel', serif;
+
+    /* Spacing & rounded corners */
+    --plh-radius-sm: 4px;
+    --plh-radius-lg: 12px;
 }
 
-/* BASE: Now White by default for better readability */
+/* BASE: Premium Readability */
 body {
     background-color: var(--plh-white);
     color: var(--plh-text-dark);
     font-family: var(--font-body);
     font-weight: 400;
+    font-size: 1.125rem; /* 18px base size */
+    line-height: 1.7;
 }
 
 /* Utilities */
@@ -432,6 +439,23 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); font-weight: 700; color: 
     opacity: 1;
 }
 
+/* --- GLASSMORPHISM UTILITY --- */
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    border-radius: var(--plh-radius-lg);
+    transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+    border-color: var(--plh-accent);
+}
+
 /* --- REVIEW GLASS CARD STYLES --- */
 .marquee-track-right {
     display: flex;
@@ -478,6 +502,95 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); font-weight: 700; color: 
 @keyframes scroll-right {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(0); }
+}
+
+/* --- TRUST TICKER (New) --- */
+.trust-ticker {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.marquee-content {
+    display: inline-flex;
+    animation: scroll-left 40s linear infinite;
+}
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* --- BENTO GRID (Services) --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 300px);
+    gap: 20px;
+}
+.bento-item {
+    position: relative;
+    padding: 30px;
+    border-radius: var(--plh-radius-lg);
+    background: white;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.bento-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border-color: var(--plh-accent);
+}
+.bento-span-4 { grid-column: span 4; }
+.bento-span-8 { grid-column: span 8; }
+.bento-span-6 { grid-column: span 6; }
+
+@media (max-width: 991px) {
+    .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .bento-span-4, .bento-span-8, .bento-span-6 { grid-column: span 1; }
+    .bento-item { min-height: 250px; }
+}
+
+/* --- ASSESSMENT ENGINE (Intake) --- */
+.assessment-step {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+.assessment-step.active { display: block; }
+
+.step-indicator {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+.step-dot {
+    height: 4px;
+    flex-grow: 1;
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+}
+.step-dot.active { background: var(--plh-accent); }
+.step-dot.completed { background: var(--plh-accent); }
+
+.choice-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: var(--plh-radius-sm);
+    transition: 0.2s;
+}
+.choice-btn:hover, .choice-btn.selected {
+    background: var(--plh-accent);
+    color: var(--plh-base);
+    border-color: var(--plh-accent);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* --- KINETIC FLOW CONNECTORS --- */

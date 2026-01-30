@@ -76,4 +76,41 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.classList.remove('nav-scrolled');
         }
     });
-});
+    });
+
+    // --- ASSESSMENT ENGINE LOGIC ---
+    window.nextStep = function(step) {
+        // Hide all steps
+        document.querySelectorAll('.assessment-step').forEach(el => el.classList.remove('active'));
+        // Show target step
+        const target = document.querySelector(`.assessment-step[data-step="${step}"]`);
+        if (target) target.classList.add('active');
+        
+        // Update dots
+        updateDots(step);
+    };
+
+    window.prevStep = function(step) {
+        nextStep(step);
+    };
+
+    window.selectOption = function(btn, step) {
+        // Visual selection
+        const siblings = btn.parentElement.querySelectorAll('.choice-btn');
+        siblings.forEach(el => el.classList.remove('selected'));
+        btn.classList.add('selected');
+        
+        // Brief delay before auto-advance
+        setTimeout(() => {
+            nextStep(step);
+        }, 300);
+    };
+
+    function updateDots(step) {
+        document.querySelectorAll('.step-dot').forEach(dot => {
+            const s = parseInt(dot.getAttribute('data-step'));
+            dot.classList.remove('active', 'completed');
+            if (s === step) dot.classList.add('active');
+            if (s < step) dot.classList.add('completed');
+        });
+    }
