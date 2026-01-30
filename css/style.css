@@ -33,10 +33,19 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); font-weight: 700; color: 
 
 /* --- 2. NAVBAR (Keeps Dark Identity) --- */
 .plh-nav {
-    background-color: var(--plh-base); 
+    background-color: transparent; /* Initial hidden state */
+    border-bottom: 1px solid transparent;
+    padding: 20px 0; /* Slightly taller at top for luxury feel */
+    transition: all 0.4s ease-in-out; /* Smooth transition */
+}
+
+/* State when scrolling begins */
+.plh-nav.nav-scrolled {
+    background-color: rgba(13, 59, 76, 0.98) !important; /* Your PLH Base color */
+    backdrop-filter: blur(10px); /* Modern glass effect */
     border-bottom: 1px solid rgba(255,255,255,0.08);
-    padding: 12px 0;
-    transition: 0.3s;
+    padding: 12px 0; /* Shrinks slightly for utility */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .nav-logo { height: 55px; width: auto; }
@@ -467,4 +476,68 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); font-weight: 700; color: 
         left: 50% !important;
         transform: translateX(-50%) !important;
     }
+}
+
+/* --- BRAND LOGOTYPE STYLING --- */
+.brand-logotype {
+    font-family: var(--font-brand); /* Cinzel */
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+    color: var(--plh-base);
+    transition: 0.4s;
+    cursor: default;
+}
+
+.brand-logotype:hover {
+    color: var(--plh-accent);
+    opacity: 1;
+}
+
+/* --- REVIEW GLASS CARD STYLES --- */
+.marquee-track-right {
+    display: flex;
+    gap: 30px;
+    padding: 20px 0;
+    animation: scroll-right 60s linear infinite; /* Slower for readability */
+}
+
+.review-glass-card {
+    min-width: 400px;
+    background: #ffffff;
+    border: 1px solid #eef2f3;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 40px rgba(13, 59, 76, 0.05);
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.review-glass-card:hover {
+    border-color: var(--plh-accent);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(13, 59, 76, 0.1);
+}
+
+.review-quote {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--plh-text-dark);
+    margin-bottom: 25px;
+}
+
+.author-role {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--plh-accent);
+    font-weight: 600;
+}
+
+@keyframes scroll-right {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
 }

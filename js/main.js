@@ -63,5 +63,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close on Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === "Escape") searchDropdown.classList.remove('active');
-    });    
+    });
+    
+    // DYNAMIC NAVBAR SCROLL LOGIC
+    const navbar = document.querySelector('.plh-nav');
+
+    window.addEventListener('scroll', () => {
+        // If scrolled more than 50px, add the background class
+        if (window.scrollY > 50) {
+            navbar.classList.add('nav-scrolled');
+        } else {
+            navbar.classList.remove('nav-scrolled');
+        }
+    });
 });
