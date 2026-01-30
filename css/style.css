@@ -80,11 +80,21 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); font-weight: 700; color: 
     font-family: var(--font-body);
     font-weight: 800;
     font-size: 2.2rem;
-    color: var(--plh-accent);
+    color: var(--plh-accent); /* Your Logo Cyan */
     text-decoration: none;
     letter-spacing: -1px;
     line-height: 1;
+    transition: all 0.3s ease; /* Essential for smooth animation */
+    display: inline-block;
 }
+
+.phone-cta:hover {
+    color: var(--plh-white) !important; /* Turns white for contrast */
+    text-shadow: 0 0 20px var(--plh-accent-glow); /* Soft cyan aura */
+    transform: translateY(-3px); /* Subtle "lift" off the page */
+}
+
+
 
 /* --- 3. HERO SECTION (Dark Impact) --- */
 .hero {
