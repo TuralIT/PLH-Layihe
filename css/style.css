@@ -204,7 +204,7 @@ a { text-decoration: none; transition: 0.3s; }
     border-bottom: 4px solid var(--plh-accent) !important;
     border-radius: 0;
 }
-@media all and (min-width: 992px) {
+@media all and (min-width: 1200px) {
     .megamenu { 
         width: 800px !important;
         left: 50% !important;
@@ -662,7 +662,18 @@ html, body {
 .container-fluid {
     padding-right: 0 !important;
     padding-left: 0 !important;
-    overflow-x: hidden;
+    /* overflow-x: hidden;  <-- REMOVED: This was clipping dropdowns/megamenus */
+}
+
+/* Fix for Mobile Menu Scrolling */
+@media (max-width: 1199px) { /* Matches navbar-expand-xl */
+    .navbar-collapse {
+        max-height: 80vh;
+        overflow-y: auto;
+        /* Custom scrollbar for better aesthetics */
+        scrollbar-width: thin; 
+        scrollbar-color: var(--plh-accent) transparent;
+    }
 }
 /* Restore gutter compensation where safe */
 .container .row {

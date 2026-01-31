@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="PROBIZ LEGAL HUB - Elit Korporativ Müdafiə və Strateji Çəkişmələr. Biz dünyanın ən iddialı müəssisələri üçün nəticələr yaradırıq.">
+    
+    <title>PROBIZ LEGAL HUB | Korporativ Müdafiə Strategiyası</title>
+    
+    <!-- External Dependencies -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    
+    <link rel="icon" href="../PLHLogo.png" type="image/png" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  
+  <body class="d-flex flex-column min-vh-100">
+    <div id="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="navbar navbar-expand-xl fixed-top plh-nav" aria-label="Main navigation">
+      <div class="container-fluid px-lg-5">
+        <a class="navbar-brand d-flex align-items-center" href="#" aria-label="PROBIZ Legal Hub Home">
+          <img src="../PLHLogo.png" alt="PROBIZ Legal Hub Logo" class="nav-logo">
+          <div class="brand-divider mx-3"></div>
+          <div class="brand-text">
+            <span class="d-block brand-title">PROBIZ</span>
+            <span class="d-block brand-subtitle">LEGAL HUB</span>
+          </div>
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#plhNavbar" aria-controls="plhNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list text-accent fs-1"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="plhNavbar">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#results">Nəticələrimiz</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#global-footer">Ofislərimiz</a>
+            </li>
+            <li class="nav-item dropdown has-megamenu">
+              <a class="nav-link btn-outlined-accent dropdown-toggle" href="#" id="practiceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Fəaliyyət Sahələri
+              </a>
+              <div class="dropdown-menu megamenu shadow-lg" aria-labelledby="practiceDropdown">
+                <div class="container py-4">
+                  <div class="row g-4 justify-content-center">
+                    <div class="col-md-3">
+                      <a href="#" class="mega-card-mini">
+                        <i class="bi bi-car-front text-accent"></i>
+                        <span>Avtomobil Qəzaları</span>
+                      </a>
+                    </div>
+                    <div class="col-md-3">
+                      <a href="#" class="mega-card-mini">
+                        <i class="bi bi-hospital text-accent"></i>
+                        <span>Tibbi Səhlənkarlıq</span>
+                      </a>
+                    </div>
+                    <div class="col-md-3">
+                      <a href="#" class="mega-card-mini">
+                        <i class="bi bi-person-walking text-accent"></i>
+                        <span>Bədbəxt Hadisələr</span>
+                      </a>
+                    </div>
+                    <div class="col-md-3">
+                      <a href="#" class="mega-card-mini">
+                        <i class="bi bi-truck text-accent"></i>
+                        <span>Yük Daşımaları</span>
+                      </a>
+                    </div>
+                    <div class="col-12 text-center mt-5 pt-3 border-top border-white-10">
+                      <a href="#" class="text-accent text-decoration-none fw-bold letter-spacing-2 small more-link">
+                        BÜTÜN SAHƏLƏRƏ BAXIN
+                        <i class="bi bi-arrow-right ms-2"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Haqqımızda</a></li>
+          </ul>
+
+          <div class="nav-utilities d-flex align-items-center ms-xl-4 gap-3 mt-3 mt-xl-0">
+             <!-- Language Switcher -->
+             <div class="dropdown">
+                <a href="#" class="text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-label="Change Language"><i class="bi bi-globe2 small"></i> AZ</a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="../en/index.html">English</a></li>
+                    <li><a class="dropdown-item active" href="../az/index.html">Azerbaijani</a></li>
+                    <li><a class="dropdown-item" href="../ru/index.html">Russian</a></li>
+                </ul>
+            </div>
+            
+            <button class="btn btn-link text-white p-0 border-0" id="search-trigger" aria-label="Toggle Search"><i class="bi bi-search"></i></button>
+            
+            <div id="search-dropdown" class="search-dropdown">
+              <div class="search-inner">
+                <label for="dropdown-search-input" class="visually-hidden">Search insights</label>
+                <input type="text" id="dropdown-search-input" class="dropdown-search-field" placeholder="Axtarış..." />
+                <button type="button" id="close-dropdown-search" class="search-submit-icon" aria-label="Submit Search">
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+            
+            <a href="tel:8776674265" class="phone-cta">(877) 667-4265</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex-grow-1">
+      
+      <!-- HERO -->
+      <header class="hero position-relative overflow-hidden">
+        <div class="video-bg-overlay"></div>
+        <div class="container position-relative z-2">
+          <div class="row min-vh-100 align-items-center pb-5">
+            <div class="col-lg-9 pt-5">
+              <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3 mb-4">
+                  <span class="d-inline-block py-1 px-3 border border-white-50 rounded-pill text-white small text-uppercase letter-spacing-2">
+                    <i class="bi bi-shield-check me-2 text-accent"></i> Elit Korporativ Müdafiə
+                  </span>
+                  <div class="d-flex gap-2">
+                      <span class="badge bg-white text-dark rounded-pill fw-bold small"><i class="bi bi-award-fill text-accent"></i> Top 100 Vəkil</span>
+                      <span class="badge bg-white text-dark rounded-pill fw-bold small"><i class="bi bi-star-fill text-accent"></i> Super Hüquqşünaslar</span>
+                  </div>
+              </div>
+              
+              <h1 class="display-2 fw-bold text-white mb-4 lh-sm">
+                Elit Korporativ Müdafiə və<br />
+                <span class="text-accent fst-italic">Strateji Çəkişmələr.</span>
+              </h1>
+              <p class="lead text-white-50 mb-5 col-lg-8">
+                Biz dünyanın ən iddialı müəssisələri üçün nəticələr yaradırıq. Yüksək riskli məhkəmə çəkişmələri və böhran idarəçiliyi üçün Fortune 500 şirkətləri bizə etibar edir.
+              </p>
+              
+              <div class="d-flex gap-3 flex-column flex-sm-row">
+                <a href="#assessmentForm" class="btn btn-accent px-5 py-3 shadow-lg hover-lift">
+                  <i class="bi bi-calendar-check me-2"></i> Konsultasiya Təyin Edin
+                </a>
+                <a href="#results" class="btn btn-outline-white px-5 py-3 hover-lift">
+                  Uğur Hekayələrimiz
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO BOTTOM CONTAINER (Ticker + Mobile CTA) -->
+        <div class="hero-bottom-wrapper position-absolute bottom-0 start-0 w-100 z-3">
+            
+            <!-- TRUST TICKER -->
+            <div class="trust-ticker py-3 bg-dark border-bottom border-top border-white-10" aria-label="Verified Results Ticker">
+                <div class="marquee-wrapper">
+                <div class="marquee-content d-flex gap-5 align-items-center">
+                    <span class="text-white-50 small text-uppercase letter-spacing-2">Təsdiqlənmiş Nəticələr:</span>
+                    
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="text-white fw-bold">$42.5M</span>
+                        <span class="text-secondary fw-normal text-uppercase">Ekoloji Uyğunluq</span>
+                    </div>
+                    <span class="brand-divider opacity-25" style="height: 15px"></span>
+                    
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="text-white fw-bold">$18.2M</span>
+                        <span class="text-secondary fw-normal text-uppercase">ƏM Oğurluğunun Bərpası</span>
+                    </div>
+                    <span class="brand-divider opacity-25" style="height: 15px"></span>
+                    
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="text-white fw-bold">$9.8M</span>
+                        <span class="text-secondary fw-normal text-uppercase">Daşınmaz Əmlak Mübahisələri</span>
+                    </div>
+                    <span class="brand-divider opacity-25" style="height: 15px"></span>
+                    
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="text-white fw-bold">RƏDD EDİLDİ</span>
+                        <span class="text-secondary fw-normal text-uppercase">Kollektiv İddia (NY)</span>
+                    </div>
+                    
+                    <!-- Duplicated for Infinite Effect -->
+                    <span class="brand-divider opacity-25" style="height: 15px"></span>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="text-white fw-bold">$42.5M</span>
+                        <span class="text-secondary fw-normal text-uppercase">Ekoloji Uyğunluq</span>
+                    </div>
+                    <span class="brand-divider opacity-25" style="height: 15px"></span>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="text-white fw-bold">$18.2M</span>
+                        <span class="text-secondary fw-normal text-uppercase">ƏM Oğurluğunun Bərpası</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+      </header>
+
+      <!-- PARTNERS LOGOS -->
+      <section class="py-5 bg-light-section border-bottom" aria-label="Institutional Partners">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-3 text-center text-lg-start mb-4 mb-lg-0">
+              <h6 class="text-accent text-uppercase mb-0 fw-bold letter-spacing-2" style="font-size: 0.75rem">
+                İnstitusional <br class="d-none d-lg-block" /> Tərəfdaşlar
+              </h6>
+            </div>
+            <div class="col-lg-9">
+              <div class="row align-items-center justify-content-between g-4 opacity-40">
+                <div class="col-6 col-md-2 d-flex justify-content-center">
+                  <div class="partner-logo-item"><i class="bi bi-apple"></i> Apple</div>
+                </div>
+                <div class="col-6 col-md-2 d-flex justify-content-center">
+                  <div class="partner-logo-item"><i class="bi bi-google"></i> Google</div>
+                </div>
+                <div class="col-6 col-md-2 d-flex justify-content-center">
+                  <div class="partner-logo-item"><i class="bi bi-microsoft"></i> Microsoft</div>
+                </div>
+                <div class="col-6 col-md-2 d-flex justify-content-center">
+                  <div class="partner-logo-item"><i class="bi bi-amazon"></i> Amazon</div>
+                </div>
+                <div class="col-6 col-md-2 d-flex justify-content-center">
+                  <div class="partner-logo-item"><i class="bi bi-meta"></i> Meta</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRACTICE AREAS (Bento Grid) -->
+      <section id="services" class="section-padding bg-white">
+        <div class="container">
+          <div class="row mb-5" data-aos="fade-up">
+            <div class="col-lg-8">
+              <h6 class="text-accent text-uppercase letter-spacing-2">Fəaliyyət Sahələri</h6>
+              <h2 class="display-4 text-dark">Strateji İmkanlar</h2>
+            </div>
+          </div>
+
+          <div class="bento-grid">
+            <!-- Main Feature -->
+            <div class="bento-item bento-span-8 d-flex flex-column justify-content-between" style="background: var(--plh-base); color: white;">
+              <div>
+                <i class="bi bi-shield-lock fs-1 text-accent mb-3"></i>
+                <h3 class="text-white">Korporativ Müdafiə və Məhkəmə</h3>
+                <p class="opacity-75 col-md-8">Yüksək riskli tənzimləmə problemlərinə və kollektiv iddialara qarşı müəssisə dəyərinin qorunması. Biz aktivləriniz ətrafında təhlükəsizlik divarları qururuq.</p>
+              </div>
+              <a href="#" class="text-accent text-decoration-none fw-bold small text-uppercase letter-spacing-2">
+                Sahəni Araşdırın <i class="bi bi-arrow-right ms-2"></i>
+              </a>
+            </div>
+
+            <!-- Secondary -->
+            <div class="bento-item bento-span-4" style="background: #f8f9fa;">
+              <i class="bi bi-cpu fs-2 text-dark mb-3"></i>
+              <h4>Əqli Mülkiyyət</h4>
+              <p class="text-muted small">Patentlərin, ticarət sirlərinin və rəqəmsal aktivlərin aqressiv qorunması.</p>
+            </div>
+
+            <!-- Third -->
+            <div class="bento-item bento-span-4" style="background: #f8f9fa;">
+              <i class="bi bi-building fs-2 text-dark mb-3"></i>
+              <h4>Kommersiya Daşınmaz Əmlakı</h4>
+              <p class="text-muted small">Bölgələşdirmə, satınalmalar və mürəkkəb inkişaf mübahisələrinin idarə edilməsi.</p>
+            </div>
+
+            <!-- Fourth -->
+            <div class="bento-item bento-span-8 d-flex align-items-center position-relative overflow-hidden">
+               <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80') center/cover; opacity: 0.1;"></div>
+               <div class="position-relative z-2">
+                 <i class="bi bi-briefcase fs-2 text-accent mb-3"></i>
+                 <h3>Birləşmələr və Satınalmalar</h3>
+                 <p class="text-dark col-md-9">Daxili və transsərhəd əməliyyatların qüsursuz icrası. Başqalarının gözdən qaçırdığı hüquqi ekspertizanı biz həll edirik.</p>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="section-padding bg-white overflow-hidden">
+        <div class="container-fluid px-0">
+          <div class="row mb-5 justify-content-center text-center px-3">
+            <div class="col-lg-8">
+              <h6 class="text-accent text-uppercase letter-spacing-2">Müştəri Rəyləri</h6>
+              <h2 class="display-5 text-dark">Strateji Rəylər</h2>
+            </div>
+          </div>
+
+          <div class="marquee-wrapper">
+            <div class="marquee-track-right">
+              <div class="review-glass-card">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                </div>
+                <p class="review-quote">"PROBIZ-in təqdim etdiyi strateji dərinlik Thorne məhkəmə çəkişməsi zamanı işimizi xilas etdi."</p>
+                <div class="review-author mt-auto">
+                  <span class="d-block fw-bold text-base">Alexander Wright</span>
+                  <span class="author-role">CEO, Thorne Dynamics</span>
+                </div>
+              </div>
+
+              <div class="review-glass-card">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                </div>
+                <p class="review-quote">"Tibbi səhlənkarlıq vəkilliyində ustad dərsi. Onların sübuta əsaslanan yanaşması bənzərsizdir."</p>
+                <div class="review-author mt-auto">
+                  <span class="d-block fw-bold text-base">Dr. Elena Vance</span>
+                  <span class="author-role">Baş Tibbi Direktor</span>
+                </div>
+              </div>
+
+              <div class="review-glass-card">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                </div>
+                <p class="review-quote">"Faktlara cərrahi dəqiqliklə yanaşan aqressiv məhkəmə prosesi. Onlar nəticə yaradırlar."</p>
+                <div class="review-author mt-auto">
+                  <span class="d-block fw-bold text-base">Marcus Sterling</span>
+                  <span class="author-role">İdarəedici Direktor</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROTOCOL (Methodology) -->
+      <section class="section-padding bg-white overflow-hidden">
+        <div class="container">
+          <div class="row mb-5" data-aos="fade-up">
+            <div class="col-lg-8">
+              <h6 class="text-accent text-uppercase letter-spacing-2">PLH Protokolu</h6>
+              <h2 class="display-4 text-dark">Qələbənin Arxitekturası</h2>
+            </div>
+          </div>
+          <div class="row g-4">
+             <!-- Step 1 -->
+             <div class="col-lg-4" data-aos="fade-up">
+                 <article class="protocol-card">
+                     <div class="protocol-bg" style="background-image: url('https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&q=80&w=600');"></div>
+                     <div class="protocol-overlay"></div>
+                     <div class="protocol-content">
+                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">01</div>
+                         <h3 class="h4 fw-bold mb-2">Dərhal Reaksiya</h3>
+                         <p class="small opacity-75">Böhran qrupumuzla 24/7 əlaqə saxlayın. Müstəntiqləri hadisə yerinə günlər deyil, saatlar ərzində göndəririk.</p>
+                     </div>
+                 </article>
+             </div>
+             <!-- Step 2 -->
+             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                 <article class="protocol-card">
+                     <div class="protocol-bg" style="background-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=600');"></div>
+                     <div class="protocol-overlay"></div>
+                     <div class="protocol-content">
+                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">02</div>
+                         <h3 class="h4 fw-bold mb-2">Strateji Məhkəmə Ekspertizası</h3>
+                         <p class="small opacity-75">Biz ekspert ifadələri, rekonstruksiya və əsaslı sübutlardan istifadə edərək "Qələbə Hekayəsi"ni qururuq.</p>
+                     </div>
+                 </article>
+             </div>
+             <!-- Step 3 -->
+             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                 <article class="protocol-card">
+                     <div class="protocol-bg" style="background-image: url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=600');"></div>
+                     <div class="protocol-overlay"></div>
+                     <div class="protocol-content">
+                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">03</div>
+                         <h3 class="h4 fw-bold mb-2">Qətiyyətli İcra</h3>
+                         <p class="small opacity-75">Biz dəqiqliklə mübahisə edirik. İstər barışıq, istərsə də məhkəmə döyüşü olsun, siz qalib gələnə qədər dayanmırıq.</p>
+                     </div>
+                 </article>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTS STATS -->
+      <section id="results" class="section-padding stats-bar mt-0">
+        <div class="container">
+          <div class="row mb-5 text-center">
+            <div class="col-12" data-aos="fade-up">
+              <h6 class="text-accent text-uppercase letter-spacing-2">İnstitusional Qələbələr</h6>
+              <h2 class="display-5 text-white">Böyük Sazişlər və Hökm Qərarları</h2>
+            </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-4" data-aos="zoom-in">
+              <div class="result-box p-4 border border-white-10">
+                <h3 class="text-accent fw-bold">$42,500,000</h3>
+                <p class="small text-uppercase text-white-50">Korporativ Səhlənkarlıq</p>
+                <hr class="border-white-10" />
+                <p class="text-light-blue small">Mürəkkəb ekoloji pozuntular və tənzimləmə uyğunluğunu əhatə edən çoxştatlı məhkəmə çəkişməsi.</p>
+              </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+              <div class="result-box p-4 border border-white-10">
+                <h3 class="text-accent fw-bold">$18,200,000</h3>
+                <p class="small text-uppercase text-white-50">Əqli Mülkiyyət Oğurluğu</p>
+                <hr class="border-white-10" />
+                <p class="text-light-blue small">Texnoloji yenilikçinin xüsusi alqoritmlərinin qlobal rəqibə qarşı aqressiv müdafiəsi.</p>
+              </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+              <div class="result-box p-4 border border-white-10">
+                <h3 class="text-accent fw-bold">$9,800,000</h3>
+                <p class="small text-uppercase text-white-50">Kommersiya Daşınmaz Əmlak Mübahisəsi</p>
+                <hr class="border-white-10" />
+                <p class="text-light-blue small">NYC maliyyə bölgəsində yüksək riskli tərəfdaşlığın ləğvinin uğurlu həlli.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ATTORNEYS -->
+      <section class="section-padding bg-light-section">
+        <div class="container">
+          <div class="row align-items-end mb-5">
+            <div class="col-lg-7" data-aos="fade-right">
+              <h6 class="text-accent text-uppercase letter-spacing-2">Elit Müşavirlər</h6>
+              <h2 class="display-5">Tayı-bərabəri Olmayan Hüquqi Zəka</h2>
+            </div>
+            <div class="col-lg-5 text-lg-end" data-aos="fade-left">
+              <a href="#" class="btn btn-outline-dark px-4 py-2 mb-2">Tam Komanda ilə Tanış Olun</a>
+            </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-lg-4" data-aos="fade-up">
+              <div class="card-attorney border-0">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Julian Thorne" />
+                <h4 class="mb-1">Julian Thorne, Esq.</h4>
+                <p class="text-accent small text-uppercase fw-bold">Təsisçi Tərəfdaş | Korporativ Strategiya</p>
+                <p class="text-secondary small">20 ildən artıq transsərhəd satınalmalar və yüksək riskli korporativ müdafiə üzrə ixtisaslaşmışdır.</p>
+              </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="card-attorney border-0">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Elena Vance" />
+                <h4 class="mb-1">Elena Vance, Esq.</h4>
+                <p class="text-accent small text-uppercase fw-bold">Baş Tərəfdaş | Əqli Mülkiyyət</p>
+                <p class="text-secondary small">Silikon Vadisi texnologiya firmaları və ƏM müdafiə strategiyaları üzrə milli səviyyədə tanınmış məsləhətçi.</p>
+              </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="card-attorney border-0">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Marcus Sterling" />
+                <h4 class="mb-1">Marcus Sterling</h4>
+                <p class="text-accent small text-uppercase fw-bold">Aparıcı Vəkil | Kommersiya Çəkişmələri</p>
+                <p class="text-secondary small">Federal məhkəmə mübahisələrində 95% uğur dərəcəsi ilə amansız bir müdafiəçi.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTAKE & ASSESSMENT -->
+      <section class="section-padding bg-light-section position-relative overflow-hidden">
+        <div class="bg-watermark">PLH</div>
+
+        <div class="container position-relative">
+          <div class="row g-0 shadow-lg">
+            <div class="col-lg-5 btn-accent p-5 d-flex flex-column justify-content-center">
+              <h2 class="text-white mb-4">Gələcəyinizi Bu Gün Qoruyun.</h2>
+              <p class="text-white opacity-75 mb-4">Məsləhətçilərimiz strateji müdafiənizi hazırlamağa hazırdır. 4 iş saatı ərzində cavab gözləyin.</p>
+              <ul class="list-unstyled text-white">
+                <li class="mb-2"><i class="bi bi-check-circle-fill me-2"></i> 100% Məxfi Məsləhətləşmə</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill me-2"></i> Qazanmasaq, Ödəniş Yoxdur</li>
+                <li><i class="bi bi-check-circle-fill me-2"></i> Tərəfdaşla Birbaşa Əlaqə</li>
+              </ul>
+            </div>
+            <div class="col-lg-7 bg-white p-5">
+              <!-- Assessment Engine Form -->
+              <form id="assessmentForm" class="assessment-engine">
+                <!-- Progress Indicator -->
+                <div class="step-indicator">
+                  <div class="step-dot active" data-step="1"></div>
+                  <div class="step-dot" data-step="2"></div>
+                  <div class="step-dot" data-step="3"></div>
+                </div>
+
+                <!-- Step 1: Case Type -->
+                <div class="assessment-step active" data-step="1">
+                  <h4 class="mb-4">Hansı növ hüquqi problemlə üzləşmisiniz?</h4>
+                  <div class="d-grid gap-2">
+                    <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
+                        <i class="bi bi-building me-2 text-accent"></i> Korporativ Çəkişmələr
+                    </button>
+                    <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
+                        <i class="bi bi-cpu me-2 text-accent"></i> Əqli Mülkiyyət
+                    </button>
+                    <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
+                        <i class="bi bi-shield-x me-2 text-accent"></i> Tənzimləmə Müdafiəsi
+                    </button>
+                    <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
+                        <i class="bi bi-globe me-2 text-accent"></i> Beynəlxalq Mübahisələr
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Step 2: Details -->
+                <div class="assessment-step" data-step="2">
+                  <h4 class="mb-4">Vəziyyəti qısaca təsvir edin.</h4>
+                  <p class="small text-muted mb-3"><i class="bi bi-lock-fill"></i> Məlumatlarınız şifrələnib və imtiyazlıdır.</p>
+                  <label for="caseDetails" class="visually-hidden">İşin Təfərrüatları</label>
+                  <textarea id="caseDetails" class="form-control rounded-0 border-light-subtle p-3 mb-4" rows="5" placeholder="Zəhmət olmasa, yüksək səviyyəli konteksti təqdim edin..."></textarea>
+                  <button type="button" class="btn btn-accent w-100" onclick="PROBIZ.assessment.next(3)">Davam Et <i class="bi bi-arrow-right ms-2"></i></button>
+                  <button type="button" class="btn btn-link text-muted w-100 mt-2 text-decoration-none small" onclick="PROBIZ.assessment.prev(1)">Geri</button>
+                </div>
+
+                <!-- Step 3: Contact -->
+                <div class="assessment-step" data-step="3">
+                  <h4 class="mb-4">Dosyeni hara göndərək?</h4>
+                  <div class="mb-3">
+                    <label for="fullName" class="form-label small fw-bold text-uppercase">Ad və Soyad</label>
+                    <input type="text" id="fullName" class="form-control rounded-0 border-light-subtle p-3" placeholder="Ad Soyad">
+                  </div>
+                  <div class="mb-4">
+                    <label for="email" class="form-label small fw-bold text-uppercase">İş E-poçtu</label>
+                    <input type="email" id="email" class="form-control rounded-0 border-light-subtle p-3" placeholder="ad@sirket.com">
+                  </div>
+                  <button type="submit" class="btn btn-accent w-100 py-3 fs-5">Prioritet Baxış Tələb Et</button>
+                  <button type="button" class="btn btn-link text-muted w-100 mt-2 text-decoration-none small" onclick="PROBIZ.assessment.prev(2)">Geri</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section-padding bg-white">
+        <div class="container">
+          <div class="row mb-5 justify-content-center text-center">
+            <div class="col-lg-8" data-aos="fade-up">
+              <h6 class="text-accent text-uppercase letter-spacing-2">Strateji Məlumatlandırma</h6>
+              <h2 class="display-5 text-dark">Strateji Suallar</h2>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <div class="accordion accordion-flush" id="faqAccordion">
+                <div class="accordion-item border-bottom py-3">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#q1" aria-expanded="true" aria-controls="q1">
+                      PROBIZ yeni iş sorğularına nə qədər tez cavab verir?
+                    </button>
+                  </h2>
+                  <div id="q1" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg">
+                       Elit cavablandırma qrupumuz 24/7 fəaliyyət göstərir. Korporativ məhkəmə çəkişmələri və təcili məsələlər üçün tərəfdaş sorğunuzu nəzərdən keçirəcək və 4 iş saatı ərzində cavab verəcəkdir.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item border-bottom py-3">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2" aria-expanded="false" aria-controls="q2">
+                      Butik korporativ müdafiə üçün ödəniş strukturu necədir?
+                    </button>
+                  </h2>
+                  <div id="q2" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg">
+                      İşin mürəkkəbliyinə uyğunlaşdırılmış çevik ödəniş razılaşmaları təklif edirik, o cümlədən sabit layihə ödənişləri, saatlıq məsləhət tarifləri və xüsusi məhkəmə çəkişmələri üçün nəticəyə əsaslanan modellər.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="plh-footer" id="global-footer">
+      <div class="container">
+        <div class="row align-items-center mb-5 pb-5 border-bottom border-white-10">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <h3 class="fw-bold mb-3 text-white">Qlobal Baş Qərargah</h3>
+            <div class="map-container shadow-lg mb-3">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3038.0061848378305!2d49.85997037601059!3d40.40871377144082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDI0JzMxLjQiTiA0OcKwNTEnNDUuMiJF!5e0!3m2!1sen!2saz!4v1769815983505!5m2!1sen!2saz" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PROBIZ HQ Map"></iframe>
+            </div>
+            <div class="d-flex gap-2 map-actions"></div>
+          </div>
+          <div class="col-lg-5 offset-lg-1">
+            <h3 class="fw-bold mb-4">Rəqiblərdən Öndə Olun.</h3>
+            <p class="mb-4 opacity-75">Bakıda və ya Nyu-Yorkda strateji məsləhətçilərimizlə birbaşa əlaqə saxlayın.</p>
+            <div class="d-flex gap-3">
+              <a href="#" class="btn btn-outline-white"><i class="bi bi-geo-alt-fill me-2"></i> Yol Tarifi Alın</a>
+              <a href="tel:8776674265" class="btn btn-accent"><i class="bi bi-telephone-fill me-2"></i> İndi Zəng Edin</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row g-5 mb-5 h-100">
+          <div class="col-lg-4">
+            <div class="d-flex align-items-center mb-4">
+              <img src="../PLHLogo.png" alt="PROBIZ Logo" width="100" class="me-3">
+              <span class="brand-footer-text">PROBIZ LEGAL HUB</span>
+            </div>
+            <p class="opacity-75">Mərkəzi Bakıda yerləşən və qlobal əhatəyə malik şirkət. Biz 2026-cı ilin iqtisadiyyatını formalaşdıran innovatorları müdafiə edirik.</p>
+          </div>
+          <div class="col-6 col-lg-2 offset-lg-1">
+            <h6 class="text-accent text-uppercase mb-3 small">Firma</h6>
+            <ul class="list-unstyled text-white opacity-75">
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Haqqımızda</a></li>
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Karyera</a></li>
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Mətbuat</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h6 class="text-accent text-uppercase mb-3 small">Ekspertiza</h6>
+            <ul class="list-unstyled text-white opacity-75">
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Korporativ</a></li>
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Məhkəmə</a></li>
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Əqli Mülkiyyət</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <h6 class="text-accent text-uppercase mb-3 small">Əlaqə</h6>
+            <ul class="list-unstyled opacity-75 mb-4">
+              <li class="mb-2"><i class="bi bi-geo-alt me-2 text-accent"></i> Bakı, Azərbaycan</li>
+              <li class="mb-2"><i class="bi bi-telephone me-2 text-accent"></i> (877) 667-4265</li>
+              <li class="mb-2"><i class="bi bi-envelope me-2 text-accent"></i> legal@probiz.com</li>
+            </ul>
+            
+            <h6 class="text-accent text-uppercase mb-3 small">Sosial Şəbəkələr</h6>
+            <div class="d-flex gap-2">
+              <a href="#" class="social-icon-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-4 border-top border-white-10">
+          <div class="col-md-6 text-center text-md-start"><p class="small opacity-50 mb-0">&copy; 2026 PROBIZ LEGAL HUB. Bütün Hüquqlar Qorunur. | <span class="text-accent">Strategiya: Tural</span></p></div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-sticky-cta d-md-none">
+        <a href="tel:8776674265" class="mobile-cta-btn bg-white text-dark border-end">İndi Zəng Edin</a>
+        <a href="#assessmentForm" class="mobile-cta-btn btn-accent text-white">Pulsuz Qiymətləndirmə</a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
