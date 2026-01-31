@@ -404,9 +404,7 @@ a { text-decoration: none; transition: 0.3s; }
 }
 
 /* 6.5 Assessment Engine */
-.assessment-engine { 
-    /* Container styles if needed */ 
-}
+
 .assessment-step {
     display: none;
     animation: fadeIn 0.5s ease;
