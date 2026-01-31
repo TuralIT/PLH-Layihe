@@ -243,7 +243,7 @@ a { text-decoration: none; transition: 0.3s; }
 
 /* 5.2 Hero Section */
 .hero {
-    min-height: 85vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     padding-top: 100px;
@@ -505,6 +505,30 @@ a { text-decoration: none; transition: 0.3s; }
     font-weight: 600;
 }
 
+/* 6.7.5 Social Icons (Refined) */
+.social-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: 50%;
+    color: var(--plh-accent);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    text-decoration: none;
+    margin-right: 5px;
+    opacity: 0.9;
+}
+.social-icon-btn:hover {
+    background: rgba(154, 123, 79, 0.1);
+    color: var(--plh-white);
+    transform: translateY(-3px);
+    text-shadow: 0 0 15px var(--plh-accent-glow);
+}
+
 /* 6.8 Search Dropdown */
 .nav-utilities { position: relative; }
 .search-dropdown {
@@ -527,6 +551,34 @@ a { text-decoration: none; transition: 0.3s; }
     display: block;
     opacity: 1;
     transform: translateY(0);
+}
+@media (max-width: 767px) {
+    /* Fixed Bottom CTA for Mobile */
+    .mobile-sticky-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        z-index: 9999;
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        animation: slideUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        transform: translateY(100%);
+    }
+    .mobile-cta-btn {
+        flex: 1;
+        padding: 18px;
+        text-align: center;
+        font-weight: 800;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+}
+
+@keyframes slideUp {
+    to { transform: translateY(0); }
 }
 @media (max-width: 1199px) {
     .search-dropdown {
@@ -578,4 +630,49 @@ a { text-decoration: none; transition: 0.3s; }
     background: var(--plh-accent);
     z-index: 10000;
     transition: width 0.1s ease-out;
+}
+
+/* --- Phase M: Mobile & Responsiveness Fixes --- */
+
+/* 1. Navbar Mobile Background */
+/* Ensure background is solid when navbar is expanded (open) */
+.navbar-collapse.show {
+    background-color: rgba(13, 59, 76, 0.98);
+    backdrop-filter: blur(15px);
+    margin: 0 -1rem;
+    padding: 1rem;
+    border-bottom: 2px solid var(--plh-accent);
+}
+
+/* 2. Brand Fixes on Mobile */
+@media (max-width: 576px) {
+    .brand-title { font-size: 1.2rem !important; }
+    .brand-subtitle { font-size: 0.6rem !important; letter-spacing: 2px !important; }
+    .brand-divider { height: 30px !important; }
+}
+
+/* 3. Overflow Fixes */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+.row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+.container-fluid {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    overflow-x: hidden;
+}
+/* Restore gutter compensation where safe */
+.container .row {
+    margin-right: -0.75rem !important;
+    margin-left: -0.75rem !important;
+}
+
+/* 4. Trust Ticker Mobile Tweak */
+@media (max-width: 768px) {
+    .marquee-content { gap: 2rem; }
 }
