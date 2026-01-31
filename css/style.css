@@ -6,9 +6,8 @@
 :root {
     /* Brand Colors (Refined for 2026 Authority) */
     --plh-base: #092c3a;        /* Darker, richer Deep Teal for authority */
-    --plh-accent: #9A7B4F;      /* Antique Bronze for AA Accessibility Compliance */
-    --plh-accent-glow: rgba(192, 160, 98, 0.25);
-    --plh-cyan: #29a9bd;        /* Kept as a secondary "Tech" accent */
+    --plh-accent: #29a9bd;      /* Cyan - Primary Accent */
+    --plh-accent-glow: rgba(41, 169, 189, 0.25);
     
     /* Light Mode Utils */
     --plh-white: #ffffff;
@@ -630,7 +629,7 @@ a { text-decoration: none; transition: 0.3s; }
     transition: width 0.1s ease-out;
 }
 
-/* --- Phase M: Mobile & Responsiveness Fixes --- */
+/* --- Mobile & Responsiveness Fixes --- */
 
 /* 1. Navbar Mobile Background */
 /* Ensure background is solid when navbar is expanded (open) */
