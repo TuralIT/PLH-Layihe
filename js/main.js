@@ -1,26 +1,18 @@
 'use strict';
 
-/**
- * PROBIZ LEGAL HUB - MAIN JAVASCRIPT
- * Includes: UI interactions, Assessment Engine, and Motion Effects (GSAP/Lenis).
- */
-
 window.PROBIZ = window.PROBIZ || {};
 
-/* --- 1. UI MODULE (Structure & Basic Interaction) --- */
+/* --- 1. UI MODULE --- */
 PROBIZ.ui = (function() {
     // Cache DOM Elements
     const navbar = document.querySelector('.plh-nav');
     const progressBar = document.getElementById("scroll-progress");
-    const searchTrigger = document.getElementById('search-trigger'); // Optional if exists later
 
     const init = () => {
         _bindScrollEvents();
+        _initTestimonials();
     };
 
-    /**
-     * Handles scroll-dependent UI updates using passive listeners for performance.
-     */
     const _bindScrollEvents = () => {
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
@@ -43,6 +35,28 @@ PROBIZ.ui = (function() {
                 else mobileCTA.classList.remove('cta-visible');
             }
         }, { passive: true });
+    };
+
+    /**
+     * Clones testimonial cards for infinite marquee effect.
+     * Removes the need for manual HTML duplication.
+     */
+    const _initTestimonials = () => {
+        const track = document.querySelector('.marquee-track-right');
+        if (!track) return;
+
+        // Clone all children to ensure seamless loop
+        const items = Array.from(track.children);
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            track.appendChild(clone);
+        });
+        
+        // Clone one more set for extra wide screens if needed
+         items.forEach(item => {
+            const clone = item.cloneNode(true);
+            track.appendChild(clone);
+        });
     };
 
     return { init };
@@ -77,10 +91,6 @@ PROBIZ.motion = (function() {
         if (!isMobile) {
             _magneticInteractions();
         }
-        
-        window.addEventListener("load", () => {
-            ScrollTrigger.refresh(true); // CRITICAL FIX: Refresh ScrollTrigger after full page load to fix refresh/pinning bugs caused by layout shifts (images loading pushing content down).
-        });
     };
 
     /**
@@ -214,12 +224,12 @@ PROBIZ.motion = (function() {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: pinContainer,
-                start: "top top",
-                end: "+=400%", // Scroll distance duration
+                start: "top 0%",
+                end: "+=175%", // Scroll distance duration
                 pin: true,
-                scrub: 1, 
-                anticipatePin: 1,
-                invalidateOnRefresh: true // Recalculate on resize
+                scrub: 1,
+                anticipatePin: 0,
+                invalidateOnRefresh: true, // Recalculate on resize
             }
         });
 

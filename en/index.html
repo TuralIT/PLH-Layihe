@@ -9,11 +9,11 @@
     
     <!-- External Dependencies (CDN) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
     
     <!-- Local Assets -->
-    <link rel="icon" href="../PLHLogo.png" type="image/png" />
+    <link rel="icon" href="../images/PLHLogo.png" type="image/png" />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   
@@ -26,7 +26,7 @@
     <nav class="navbar navbar-expand-lg fixed-top plh-nav" aria-label="Main navigation">
       <div class="container-fluid px-lg-5">
         <a class="navbar-brand d-flex align-items-center" href="#" aria-label="PROBIZ Legal Hub Home">
-          <img src="../PLHLogo.png" alt="PROBIZ Legal Hub Logo" class="nav-logo">
+          <img src="../images/PLHLogo.png" alt="PROBIZ Legal Hub Logo" class="nav-logo">
           <div class="brand-divider mx-3"></div>
           <div class="brand-text">
             <span class="d-block brand-title">PROBIZ</span>
@@ -360,15 +360,6 @@
                 </div>
               </div>
 
-              <!-- Duplicate Set for Smooth Scroll -->
-              <div class="review-glass-card">
-                <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i>
-                </div>
-                <p class="review-quote">"The strategic depth provided by PROBIZ saved our venture during the Thorne litigation."</p>
-                <div class="review-author mt-auto">
-                  <span class="d-block fw-bold text-base">Alexander Wright</span>
-                  <span class="author-role">CEO, Thorne Dynamics</span>
                 </div>
               </div>
             </div>
@@ -379,7 +370,7 @@
       <!-- 5. PROTOCOL (Interactive Pinned Section) -->
       <!-- Uses GSAP ScrollTrigger to pin the left side while cards reveal on the right -->
       <section id="protocol-section" class="bg-light-section position-relative">
-        <div class="protocol-pin-container" style="height: 100vh; overflow: hidden;">
+        <div class="protocol-pin-container">
             <div class="container h-100">
                 <div class="row h-100">
                     <!-- LEFT COL: Static Header (Pins) -->
@@ -402,7 +393,7 @@
                     <div class="col-lg-6 offset-lg-1 h-100 position-relative d-flex align-items-center justify-content-center" id="card-stack-wrapper">
                          <!-- Card 1 -->
                          <div class="protocol-stack-card card-1 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 1;">
-                             <div class="protocol-bg" style="background-image: url('../1.png');"></div>
+                             <div class="protocol-bg" style="background-image: url('../images/1.png');"></div>
                              <div class="protocol-overlay"></div>
                              <div class="protocol-content p-5 h-100 d-flex flex-column justify-content-end">
                                  <div class="d-flex justify-content-between align-items-end mb-4">
@@ -416,7 +407,7 @@
 
                          <!-- Card 2 -->
                          <div class="protocol-stack-card card-2 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 2; transform: translateY(110%);">
-                             <div class="protocol-bg" style="background-image: url('../2.png');"></div>
+                             <div class="protocol-bg" style="background-image: url('../images/2.png');"></div>
                              <div class="protocol-overlay"></div>
                              <div class="protocol-content p-5 h-100 d-flex flex-column justify-content-end">
                                  <div class="d-flex justify-content-between align-items-end mb-4">
@@ -430,7 +421,7 @@
 
                          <!-- Card 3 -->
                          <div class="protocol-stack-card card-3 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 3; transform: translateY(130%);">
-                             <div class="protocol-bg" style="background-image: url('../3.png');"></div>
+                             <div class="protocol-bg" style="background-image: url('../images/3.png');"></div>
                              <div class="protocol-overlay"></div>
                              <div class="protocol-content p-5 h-100 d-flex flex-column justify-content-end">
                                  <div class="d-flex justify-content-between align-items-end mb-4">
@@ -712,7 +703,6 @@
             <div class="map-container shadow-lg mb-3">
               <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3038.0061848378305!2d49.85997037601059!3d40.40871377144082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDI0JzMxLjQiTiA0OcKwNTEnNDUuMiJF!5e0!3m2!1sen!2saz!4v1769815983505!5m2!1sen!2saz" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PROBIZ HQ Map"></iframe>
             </div>
-            <div class="d-flex gap-2 map-actions"></div>
           </div>
           <div class="col-lg-5 offset-lg-1">
             <h3 class="fw-bold mb-4">Stay Ahead of the Curve.</h3>
@@ -727,7 +717,7 @@
         <div class="row g-5 mb-5 h-100">
           <div class="col-lg-4">
             <div class="d-flex align-items-center mb-4">
-              <img src="../PLHLogo.png" alt="PROBIZ Logo" width="100" class="me-3">
+              <img src="../images/PLHLogo.png" alt="PROBIZ Logo" width="100" class="me-3">
               <span class="brand-footer-text">PROBIZ LEGAL HUB</span>
             </div>
             <p class="opacity-75">Your trusted legal partner in Baku. We defend the people and businesses shaping the future of Azerbaijan.</p>
@@ -781,9 +771,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Libraries -->
-    <script src="../libraries/gsap/node_modules/gsap/dist/gsap.min.js"></script>
-    <script src="../libraries/gsap/node_modules/gsap/dist/ScrollTrigger.min.js"></script>
-    <script src="../libraries/Lenis/node_modules/lenis/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
 
     <!-- App Logic -->
     <script src="../js/main.js"></script>
