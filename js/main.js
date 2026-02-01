@@ -5,36 +5,37 @@ window.PROBIZ = window.PROBIZ || {};
 /* --- 1. UI MODULE (Structure & Interaction) --- */
 PROBIZ.ui = (function() {
     const navbar = document.querySelector('.plh-nav');
+    const progressBar = document.getElementById("scroll-progress");
+
+    // Optional Search Elements (May not exist on all pages)
     const searchDropdown = document.getElementById('search-dropdown');
     const searchTrigger = document.getElementById('search-trigger');
     const searchInput = document.getElementById('dropdown-search-input');
 
     const init = () => {
         _bindScrollEvents();
-        _bindSearchEvents();
+        if (searchTrigger) _bindSearchEvents();
     };
 
     const _bindScrollEvents = () => {
+        // Use passive listener for better scroll performance
         window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+
             // Navbar Transition
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
+            if (scrollY > 50) navbar.classList.add('nav-scrolled');
+            else navbar.classList.remove('nav-scrolled');
 
             // Reading Progress Bar
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            const progressBar = document.getElementById("scroll-progress");
-            if(progressBar) progressBar.style.width = scrolled + "%";
-        });
+            if (progressBar) {
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (scrollY / height) * 100;
+                progressBar.style.width = `${scrolled}%`;
+            }
+        }, { passive: true });
     };
 
     const _bindSearchEvents = () => {
-        if (!searchTrigger || !searchDropdown) return;
-
         searchTrigger.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -46,14 +47,17 @@ PROBIZ.ui = (function() {
 
         // Close when clicking outside
         document.addEventListener('click', (e) => {
-            if (!searchDropdown.contains(e.target) && !searchTrigger.contains(e.target)) {
+            if (searchDropdown && 
+                searchDropdown.classList.contains('active') && 
+                !searchDropdown.contains(e.target) && 
+                !searchTrigger.contains(e.target)) {
                 searchDropdown.classList.remove('active');
             }
         });
 
         // Close on Escape
         document.addEventListener('keydown', (e) => {
-            if (e.key === "Escape") searchDropdown.classList.remove('active');
+            if (e.key === "Escape" && searchDropdown) searchDropdown.classList.remove('active');
         });
     };
 
@@ -74,32 +78,36 @@ PROBIZ.effects = (function() {
     };
 
     const _initCounters = () => {
-        // Optimized IntersectionObserver for Counters (if any exist on page)
         const counters = document.querySelectorAll('.counter');
         if (counters.length === 0) return;
 
-        const speed = 200;
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const counter = entry.target;
                     const target = +counter.getAttribute('data-target');
-                    
-                    const updateCount = () => {
-                        const count = +counter.innerText;
-                        const inc = target / speed;
-                        if (count < target) {
-                            counter.innerText = Math.ceil(count + inc);
-                            setTimeout(updateCount, 15);
+                    const duration = 2000; 
+                    let startTimestamp = null;
+
+                    const step = (timestamp) => {
+                        if (!startTimestamp) startTimestamp = timestamp;
+                        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                        const currentCount = Math.floor(progress * target);
+                        
+                        counter.innerText = currentCount.toLocaleString();
+
+                        if (progress < 1) {
+                            window.requestAnimationFrame(step);
                         } else {
-                            counter.innerText = target;
+                            counter.innerText = target.toLocaleString();
                         }
                     };
-                    updateCount();
+                    
+                    window.requestAnimationFrame(step);
                     observer.unobserve(counter);
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.25 });
 
         counters.forEach(counter => observer.observe(counter));
     };
@@ -126,9 +134,7 @@ PROBIZ.assessment = (function() {
         btn.classList.add('selected');
         
         // Auto-advance
-        setTimeout(() => {
-            next(step);
-        }, 300);
+        setTimeout(() => next(step), 300);
     };
 
     // Private Helpers
@@ -160,5 +166,4 @@ PROBIZ.assessment = (function() {
 document.addEventListener('DOMContentLoaded', () => {
     PROBIZ.ui.init();
     PROBIZ.effects.init();
-    // Assessment engine is lazy-loaded via user interaction, no init needed
 });

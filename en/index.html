@@ -21,7 +21,7 @@
     <div id="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
     <!-- MAIN NAVIGATION -->
-    <nav class="navbar navbar-expand-xl fixed-top plh-nav" aria-label="Main navigation">
+    <nav class="navbar navbar-expand-lg fixed-top plh-nav" aria-label="Main navigation">
       <div class="container-fluid px-lg-5">
         <a class="navbar-brand d-flex align-items-center" href="#" aria-label="PROBIZ Legal Hub Home">
           <img src="../PLHLogo.png" alt="PROBIZ Legal Hub Logo" class="nav-logo">
@@ -42,50 +42,27 @@
               <a class="nav-link" href="#results">Our Results</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#global-footer">Locations</a>
+              <a class="nav-link" href="#">PLH Team</a>
             </li>
-            <li class="nav-item dropdown has-megamenu">
-              <a class="nav-link btn-outlined-accent dropdown-toggle" href="#" id="practiceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="practiceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Practice Areas
               </a>
-              <div class="dropdown-menu megamenu shadow-lg" aria-labelledby="practiceDropdown">
-                <div class="container py-4">
-                  <div class="row g-4 justify-content-center">
-                    <div class="col-md-3">
-                      <a href="#" class="mega-card-mini">
-                        <i class="bi bi-car-front text-accent"></i>
-                        <span>Car Accidents</span>
-                      </a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="#" class="mega-card-mini">
-                        <i class="bi bi-hospital text-accent"></i>
-                        <span>Medical Malpractice</span>
-                      </a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="#" class="mega-card-mini">
-                        <i class="bi bi-person-walking text-accent"></i>
-                        <span>Slip & Fall</span>
-                      </a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="#" class="mega-card-mini">
-                        <i class="bi bi-truck text-accent"></i>
-                        <span>Trucking Accidents</span>
-                      </a>
-                    </div>
-                    <div class="col-12 text-center mt-5 pt-3 border-top border-white-10">
-                      <a href="#" class="text-accent text-decoration-none fw-bold letter-spacing-2 small more-link">
-                        VIEW ALL PRACTICE AREAS
-                        <i class="bi bi-arrow-right ms-2"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ul class="dropdown-menu shadow-lg" aria-labelledby="practiceDropdown">
+                <li><a class="dropdown-item" href="#"><i class="bi bi-car-front me-2"></i> Car Accidents</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-hospital me-2"></i> Medical Malpractice</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-person-walking me-2"></i> Slip & Fall</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-truck me-2"></i> Trucking Accidents</a></li>
+                <li><hr class="dropdown-divider bg-light opacity-10 my-2"></li>
+                <li>
+                    <a class="dropdown-item fw-bold text-accent small" href="#">VIEW ALL AREAS <i class="bi bi-arrow-right ms-1"></i></a>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+
+            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
           </ul>
 
           <div class="nav-utilities d-flex align-items-center ms-xl-4 gap-3 mt-3 mt-xl-0">
@@ -98,20 +75,6 @@
                     <li><a class="dropdown-item" href="../ru/index.html">Russian</a></li>
                 </ul>
             </div>
-            
-            <button class="btn btn-link text-white p-0 border-0" id="search-trigger" aria-label="Toggle Search"><i class="bi bi-search"></i></button>
-            
-            <div id="search-dropdown" class="search-dropdown">
-              <div class="search-inner">
-                <label for="dropdown-search-input" class="visually-hidden">Search insights</label>
-                <input type="text" id="dropdown-search-input" class="dropdown-search-field" placeholder="Search insights..." />
-                <button type="button" id="close-dropdown-search" class="search-submit-icon" aria-label="Submit Search">
-                  <i class="bi bi-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-            
-            <a href="tel:8776674265" class="phone-cta">(877) 667-4265</a>
           </div>
         </div>
       </div>
@@ -126,7 +89,7 @@
           <div class="row min-vh-100 align-items-center pb-5">
             <div class="col-lg-9 pt-5">
               <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3 mb-4">
-                  <span class="d-inline-block py-1 px-3 border border-white-50 rounded-pill text-white small text-uppercase letter-spacing-2">
+                  <span class="d-inline-block py-1 px-3 border border-white-50 rounded-pill text-white small text-caps">
                     <i class="bi bi-shield-check me-2 text-accent"></i> Trusted Legal Protection
                   </span>
                   <div class="d-flex gap-2">
@@ -136,7 +99,7 @@
               </div>
               
               <h1 class="display-2 fw-bold text-white mb-4 lh-sm">
-                Expert Legal Help for Your Business &<br />
+                Expert Legal Help for Your Business & <br />
                 <span class="text-accent fst-italic">Your Life.</span>
               </h1>
               <p class="lead text-white-50 mb-5 col-lg-8">
@@ -155,14 +118,11 @@
           </div>
         </div>
 
-        <!-- HERO BOTTOM CONTAINER (Ticker + Mobile CTA) -->
+        <!-- HERO BOTTOM CONTAINER (Ticker) -->
         <div class="hero-bottom-wrapper position-absolute bottom-0 start-0 w-100 z-3">
-            
-            <!-- TRUST TICKER -->
             <div class="trust-ticker py-3 bg-dark border-bottom border-top border-white-10" aria-label="Verified Results Ticker">
                 <div class="marquee-wrapper">
                 <div class="marquee-content d-flex gap-5 align-items-center">
-
                     <div class="d-flex align-items-center gap-2">
                         <span class="text-white fw-bold">$42.5M</span>
                         <span class="text-secondary fw-normal text-uppercase">Corporate Case</span>
@@ -208,8 +168,8 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-3 text-center text-lg-start mb-4 mb-lg-0">
-              <h6 class="text-accent text-uppercase mb-0 fw-bold letter-spacing-2" style="font-size: 0.75rem">
-                Institutional <br class="d-none d-lg-block" /> Partners
+              <h6 class="text-accent fw-bold letter-spacing-2 text-uppercase mb-0" style="font-size: 0.9rem">
+                Who We <br class="d-none d-lg-block" /> Represent
               </h6>
             </div>
             <div class="col-lg-9">
@@ -240,8 +200,8 @@
         <div class="container">
           <div class="row mb-5" data-aos="fade-up">
             <div class="col-lg-8">
-              <h6 class="text-accent text-uppercase letter-spacing-2">Areas of Practice</h6>
-              <h2 class="display-4 text-dark">Strategic Capabilities</h2>
+              <h6 class="text-accent text-caps">Areas of Practice</h6>
+              <h2 class="display-4 text-dark">How We Help</h2>
             </div>
           </div>
 
@@ -249,36 +209,45 @@
             <!-- Main Feature -->
             <div class="bento-item bento-span-8 d-flex flex-column justify-content-between" style="background: var(--plh-base); color: white;">
               <div>
-                <i class="bi bi-shield-lock fs-1 text-accent mb-3"></i>
-                <h3 class="text-white">Corporate Defense & Litigation</h3>
-                <p class="opacity-75 col-md-8">Protecting enterprise value against high-stakes regulatory challenges and class action lawsuits. We build firewalls around your assets.</p>
+                <i class="bi bi-building fs-1 text-accent mb-3"></i>
+                <h3 class="text-white">Business Law & Defense</h3>
+                <p class="opacity-75 col-md-8">We protect your company from lawsuits and legal risks in the Azerbaijani market.</p>
               </div>
-              <a href="#" class="text-accent text-decoration-none fw-bold small text-uppercase letter-spacing-2">
+              <a href="#" class="text-accent text-decoration-none fw-bold small text-caps">
                 Explore Practice <i class="bi bi-arrow-right ms-2"></i>
               </a>
             </div>
 
             <!-- Secondary -->
             <div class="bento-item bento-span-4" style="background: #f8f9fa;">
-              <i class="bi bi-cpu fs-2 text-dark mb-3"></i>
-              <h4>Intellectual Property</h4>
-              <p class="text-muted small">Aggressive protection of patents, trade secrets, and digital assets.</p>
+              <i class="bi bi-shield-lock fs-2 text-dark mb-3"></i>
+              <h4>Protecting Your Ideas</h4>
+              <p class="text-muted small">We help you secure patents, trademarks, and digital rights for your tech or brand.</p>
+              <a href="#" class="text-accent text-decoration-none fw-bold small text-caps">
+                Explore Practice <i class="bi bi-arrow-right ms-2"></i>
+              </a>
             </div>
 
             <!-- Third -->
             <div class="bento-item bento-span-4" style="background: #f8f9fa;">
-              <i class="bi bi-building fs-2 text-dark mb-3"></i>
-              <h4>Commercial Real Estate</h4>
-              <p class="text-muted small">Navigating zoning, acquisitions, and complex development disputes.</p>
+              <i class="bi bi-house fs-2 text-dark mb-3"></i>
+              <h4>Property & Real Estate</h4>
+              <p class="text-muted small">Professional help with buying, selling, or property disputes in Baku and beyond.</p>
+              <a href="#" class="text-accent text-decoration-none fw-bold small text-caps">
+                Explore Practice <i class="bi bi-arrow-right ms-2"></i>
+              </a>
             </div>
 
             <!-- Fourth -->
             <div class="bento-item bento-span-8 d-flex align-items-center position-relative overflow-hidden">
                <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80') center/cover; opacity: 0.1;"></div>
                <div class="position-relative z-2">
-                 <i class="bi bi-briefcase fs-2 text-accent mb-3"></i>
-                 <h3>Mergers & Acquisitions</h3>
-                 <p class="text-dark col-md-9">Seamless execution of domestic and cross-border transactions. We handle the due diligence that others miss.</p>
+                 <i class="bi bi-person-raised-hand fs-2 text-accent mb-3"></i>
+                 <h3>Personal Rights & Accidents</h3>
+                 <p class="text-dark col-md-9">Support for individuals with injury claims, medical issues, and personal legal needs.</p>
+                 <a href="#" class="text-accent text-decoration-none fw-bold small text-caps">
+                   Explore Practice <i class="bi bi-arrow-right ms-2"></i>
+                 </a>               
                </div>
             </div>
           </div>
@@ -290,13 +259,14 @@
         <div class="container-fluid px-0">
           <div class="row mb-5 justify-content-center text-center px-3">
             <div class="col-lg-8">
-              <h6 class="text-accent text-uppercase letter-spacing-2">Client Testimonials</h6>
-              <h2 class="display-5 text-dark">Strategic Feedback</h2>
+              <h6 class="text-accent text-caps">What Our Clients Say</h6>
+              <h2 class="display-5 text-dark">Client Stories</h2>
             </div>
           </div>
 
           <div class="marquee-wrapper">
             <div class="marquee-track-right">
+              <!-- Review 1 -->
               <div class="review-glass-card">
                 <div class="d-flex align-items-center mb-3">
                   <i class="bi bi-star-fill text-accent me-1 small"></i>
@@ -312,6 +282,7 @@
                 </div>
               </div>
 
+              <!-- Review 2 -->
               <div class="review-glass-card">
                 <div class="d-flex align-items-center mb-3">
                   <i class="bi bi-star-fill text-accent me-1 small"></i>
@@ -327,6 +298,56 @@
                 </div>
               </div>
 
+              <!-- Review 3 -->
+              <div class="review-glass-card">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                </div>
+                <p class="review-quote">"Aggressive litigation with a surgical focus on the facts. They engineer outcomes."</p>
+                <div class="review-author mt-auto">
+                  <span class="d-block fw-bold text-base">Marcus Sterling</span>
+                  <span class="author-role">Managing Director</span>
+                </div>
+              </div>
+
+              <!-- Duplicated for Loop -->
+              <!-- Review 1 -->
+              <div class="review-glass-card">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                </div>
+                <p class="review-quote">"The strategic depth provided by PROBIZ saved our venture during the Thorne litigation."</p>
+                <div class="review-author mt-auto">
+                  <span class="d-block fw-bold text-base">Alexander Wright</span>
+                  <span class="author-role">CEO, Thorne Dynamics</span>
+                </div>
+              </div>
+
+              <!-- Review 2 -->
+              <div class="review-glass-card">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                </div>
+                <p class="review-quote">"A masterclass in medical negligence advocacy. Their evidence-first approach is unmatched."</p>
+                <div class="review-author mt-auto">
+                  <span class="d-block fw-bold text-base">Dr. Elena Vance</span>
+                  <span class="author-role">Chief Medical Officer</span>
+                </div>
+              </div>
+
+              <!-- Review 3 -->
               <div class="review-glass-card">
                 <div class="d-flex align-items-center mb-3">
                   <i class="bi bi-star-fill text-accent me-1 small"></i>
@@ -351,44 +372,44 @@
         <div class="container">
           <div class="row mb-5" data-aos="fade-up">
             <div class="col-lg-8">
-              <h6 class="text-accent text-uppercase letter-spacing-2">The PLH Protocol</h6>
-              <h2 class="display-4 text-dark">The Architecture of Victory</h2>
+              <h6 class="text-accent text-caps">Our 3-Step Process</h6>
+              <h2 class="display-4 text-dark">How We Win for You</h2>
             </div>
           </div>
           <div class="row g-4">
              <!-- Step 1 -->
              <div class="col-lg-4" data-aos="fade-up">
                  <article class="protocol-card">
-                     <div class="protocol-bg" style="background-image: url('https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&q=80&w=600');"></div>
+                     <div class="protocol-bg" style="background-image: url('../1.png');"></div>
                      <div class="protocol-overlay"></div>
                      <div class="protocol-content">
-                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">01</div>
-                         <h3 class="h4 fw-bold mb-2">Immediate Response</h3>
-                         <p class="small opacity-75">Contact our 24/7 team. We begin working on your case within hours.</p>
+                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">1</div>
+                         <h3 class="h4 fw-bold mb-2">Fast Start</h3>
+                         <p class="small opacity-75">Contact our 24/7 team. We begin working on your case within hours, not days.</p>
                      </div>
                  </article>
              </div>
              <!-- Step 2 -->
              <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                  <article class="protocol-card">
-                     <div class="protocol-bg" style="background-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=600');"></div>
+                     <div class="protocol-bg" style="background-image: url('../2.png');"></div>
                      <div class="protocol-overlay"></div>
                      <div class="protocol-content">
-                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">02</div>
+                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">2</div>
                          <h3 class="h4 fw-bold mb-2">Clear Strategy</h3>
-                         <p class="small opacity-75">We analyze the facts and build a custom plan to win your case.</p>
+                         <p class="small opacity-75">We analyze the facts and build an effective plan to win your case.</p>
                      </div>
                  </article>
              </div>
              <!-- Step 3 -->
              <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                  <article class="protocol-card">
-                     <div class="protocol-bg" style="background-image: url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=600');"></div>
+                     <div class="protocol-bg" style="background-image: url('../3.png');"></div>
                      <div class="protocol-overlay"></div>
                      <div class="protocol-content">
-                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">03</div>
-                         <h3 class="h4 fw-bold mb-2">Proven Results</h3>
-                         <p class="small opacity-75">We represent you in court or at the table until the job is done.</p>
+                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">3</div>
+                         <h3 class="h4 fw-bold mb-2">Winning Results</h3>
+                         <p class="small opacity-75">We represent you in court or during negotiations until the job is done.</p>
                      </div>
                  </article>
              </div>
@@ -397,41 +418,58 @@
       </section>
 
       <!-- RESULTS STATS -->
-      <section id="results" class="section-padding stats-bar mt-0">
-        <div class="container">
-          <div class="row mb-5 text-center">
-            <div class="col-12" data-aos="fade-up">
-              <h6 class="text-accent text-uppercase letter-spacing-2">Institutional Victories</h6>
-              <h2 class="display-5 text-white">Major Settlements & Verdicts</h2>
-            </div>
+      <section id="results" class="section-padding stats-bar mt-0 overflow-hidden">
+          <div class="container">
+              <div class="row mb-5" data-aos="fade-up">
+                  <div class="col-lg-8">
+                      <h6 class="text-accent text-caps">Our Proven Results</h6>
+                      <h2 class="display-4 text-white">Winning for Our Clients</h2>
+                  </div>
+              </div>
+              <div class="row g-4">
+                  <div class="col-lg-8" data-aos="fade-up">
+                      <div class="bento-result-card featured p-5">
+                          <div class="d-flex justify-content-between align-items-start mb-4">
+                              <h3 class="display-3 fw-bold text-accent mb-0">
+                                  $<span class="counter" data-target="42500000">0</span>
+                              </h3>
+                              <i class="bi bi-briefcase text-white-50 fs-2"></i>
+                          </div>
+                          <h4 class="text-white h5 text-caps mb-3">Business Lawsuit & Defense</h4>
+                          <p class="text-white-50 lead mb-0">Successfully defended a major construction firm against breach of contract claims, preserving millions in revenue.</p>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                      <div class="bento-result-card p-4 h-100 d-flex flex-column justify-content-center">
+                          <h3 class="display-5 fw-bold text-accent mb-2">
+                              $<span class="counter" data-target="18200000">0</span>
+                          </h3>
+                          <h4 class="text-white small text-caps mb-3">Protecting Your Ideas</h4>
+                          <p class="text-white-50 small mb-0">Recovered millions for a tech company whose software and ideas were used by a competitor.</p>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                      <div class="bento-result-card p-4">
+                          <h3 class="display-5 fw-bold text-accent mb-2">
+                              $<span class="counter" data-target="9800000">0</span>
+                          </h3>
+                          <h4 class="text-white small text-caps mb-3">Property & Business Disputes</h4>
+                          <p class="text-white-50 small mb-0">Successfully resolved a complex property dispute, protecting ownership rights and assets.</p>
+                      </div>
+                  </div>
+                  
+                  <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+                      <div class="bento-result-card d-flex align-items-center justify-content-center p-5 border-dashed">
+                          <div class="text-center">
+                              <h3 class="text-white h4 mb-3">Your Success Story Starts Here.</h3>
+                              <a href="#assessmentForm" class="btn btn-outline-white btn-sm px-4">Discuss Your Case</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
-          <div class="row g-4">
-            <div class="col-md-4" data-aos="zoom-in">
-              <div class="result-box p-4 border border-white-10">
-                <h3 class="text-accent fw-bold">$42,500,000</h3>
-                <p class="small text-uppercase text-white-50">Corporate Negligence</p>
-                <hr class="border-white-10" />
-                <p class="text-light-blue small">Multi-state litigation involving complex environmental violations and regulatory compliance.</p>
-              </div>
-            </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-              <div class="result-box p-4 border border-white-10">
-                <h3 class="text-accent fw-bold">$18,200,000</h3>
-                <p class="small text-uppercase text-white-50">Intellectual Property Theft</p>
-                <hr class="border-white-10" />
-                <p class="text-light-blue small">Aggressive defense of a tech innovator's proprietary algorithms against a global competitor.</p>
-              </div>
-            </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-              <div class="result-box p-4 border border-white-10">
-                <h3 class="text-accent fw-bold">$9,800,000</h3>
-                <p class="small text-uppercase text-white-50">Commercial Real Estate Dispute</p>
-                <hr class="border-white-10" />
-                <p class="text-light-blue small">Successful resolution of a high-stakes partnership dissolution in the NYC financial district.</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       <!-- ATTORNEYS -->
@@ -439,7 +477,7 @@
         <div class="container">
           <div class="row align-items-end mb-5">
             <div class="col-lg-7" data-aos="fade-right">
-              <h6 class="text-accent text-uppercase letter-spacing-2">Elite Counsel</h6>
+              <h6 class="text-accent text-caps">Elite Counsel</h6>
               <h2 class="display-5">Unmatched Legal Intellect</h2>
             </div>
             <div class="col-lg-5 text-lg-end" data-aos="fade-left">
@@ -451,7 +489,7 @@
               <div class="card-attorney border-0">
                 <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Julian Thorne" />
                 <h4 class="mb-1">Julian Thorne, Esq.</h4>
-                <p class="text-accent small text-uppercase fw-bold">Founding Partner | Corporate Strategy</p>
+                <p class="text-accent small text-caps fw-bold">Founding Partner | Corporate Strategy</p>
                 <p class="text-secondary small">Specializing in cross-border acquisitions and high-stakes corporate defense for 20+ years.</p>
               </div>
             </div>
@@ -459,7 +497,7 @@
               <div class="card-attorney border-0">
                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Elena Vance" />
                 <h4 class="mb-1">Elena Vance, Esq.</h4>
-                <p class="text-accent small text-uppercase fw-bold">Senior Partner | Intellectual Property</p>
+                <p class="text-accent small text-caps fw-bold">Senior Partner | Intellectual Property</p>
                 <p class="text-secondary small">Nationally recognized advisor for Silicon Valley tech firms and IP protection strategies.</p>
               </div>
             </div>
@@ -467,7 +505,7 @@
               <div class="card-attorney border-0">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Marcus Sterling" />
                 <h4 class="mb-1">Marcus Sterling</h4>
-                <p class="text-accent small text-uppercase fw-bold">Lead Counsel | Commercial Litigation</p>
+                <p class="text-accent small text-caps fw-bold">Lead Counsel | Commercial Litigation</p>
                 <p class="text-secondary small">A relentless advocate with a 95% trial success rate in federal court disputes.</p>
               </div>
             </div>
@@ -482,7 +520,7 @@
         <div class="container position-relative">
           <div class="row g-0 shadow-lg">
             <div class="col-lg-5 btn-accent p-5 d-flex flex-column justify-content-center">
-              <h2 class="text-white mb-4">Protect Your Business Today.</h2>
+              <h2 class="text-white mb-4">Protect Your Rights Today.</h2>
               <p class="text-white opacity-75 mb-4">Our team is ready to help. Expect a response from a lawyer within 4 business hours.</p>
               <ul class="list-unstyled text-white">
                 <li class="mb-2"><i class="bi bi-check-circle-fill me-2"></i> 100% Confidential Consultation</li>
@@ -502,19 +540,19 @@
 
                 <!-- Step 1: Case Type -->
                 <div class="assessment-step active" data-step="1">
-                  <h4 class="mb-4">What kind of legal challenge are you facing?</h4>
+                  <h4 class="mb-4">What kind of legal help do you need?</h4>
                   <div class="d-grid gap-2">
                     <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
-                        <i class="bi bi-building me-2 text-accent"></i> Corporate Litigation
+                        <i class="bi bi-building me-2 text-accent"></i> Business & Corporate 
                     </button>
                     <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
-                        <i class="bi bi-cpu me-2 text-accent"></i> Intellectual Property
+                        <i class="bi bi-person-raised-hand me-2 text-accent"></i> Personal Injury or Rights
                     </button>
                     <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
-                        <i class="bi bi-shield-x me-2 text-accent"></i> Regulatory Defense
+                        <i class="bi bi-house me-2 text-accent"></i> Property & Real Estate
                     </button>
                     <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
-                        <i class="bi bi-globe me-2 text-accent"></i> International Dispute
+                        <i class="bi bi-shield-lock me-2 text-accent"></i> Criminal Defense
                     </button>
                   </div>
                 </div>
@@ -533,11 +571,11 @@
                 <div class="assessment-step" data-step="3">
                   <h4 class="mb-4">Where should we send the dossier?</h4>
                   <div class="mb-3">
-                    <label for="fullName" class="form-label small fw-bold text-uppercase">Full Name</label>
+                    <label for="fullName" class="form-label small fw-bold text-caps">Full Name</label>
                     <input type="text" id="fullName" class="form-control rounded-0 border-light-subtle p-3" placeholder="John Doe">
                   </div>
                   <div class="mb-4">
-                    <label for="email" class="form-label small fw-bold text-uppercase">Work Email</label>
+                    <label for="email" class="form-label small fw-bold text-caps">Work Email</label>
                     <input type="email" id="email" class="form-control rounded-0 border-light-subtle p-3" placeholder="john@company.com">
                   </div>
                   <button type="submit" class="btn btn-accent w-100 py-3 fs-5">Send My Request</button>
@@ -554,8 +592,8 @@
         <div class="container">
           <div class="row mb-5 justify-content-center text-center">
             <div class="col-lg-8" data-aos="fade-up">
-              <h6 class="text-accent text-uppercase letter-spacing-2">Strategic Briefing</h6>
-              <h2 class="display-5 text-dark">Strategic FAQ</h2>
+              <h6 class="text-accent text-caps">Frequently Asked Questions</h6>
+              <h2 class="display-5 text-dark">Questions & Answers</h2>
             </div>
           </div>
           <div class="row justify-content-center">
@@ -569,7 +607,7 @@
                   </h2>
                   <div id="q1" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
                     <div class="accordion-body text-secondary lh-lg">
-                      Our elite response team is available 24/7. For corporate litigation and urgent matters, a partner will review your inquiry and respond within 4 business hours.
+                      Our team is available 24/7. For urgent matters in Azerbaijan, a lawyer will review your case and contact you within 4 business hours.
                     </div>
                   </div>
                 </div>
@@ -577,12 +615,51 @@
                 <div class="accordion-item border-bottom py-3">
                   <h2 class="accordion-header" id="headingTwo">
                     <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2" aria-expanded="false" aria-controls="q2">
-                      What is the fee structure for boutique corporate defense?
+                      Who do you represent?
                     </button>
                   </h2>
                   <div id="q2" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
                     <div class="accordion-body text-secondary lh-lg">
-                      We offer flexible fee arrangements tailored to the complexity of the case, including fixed-fee project billing, hourly advisory rates, and contingency-based models for specific litigation.
+                      We work with local Azerbaijani companies, international businesses, and individuals (locals and foreigners) who need legal protection in Azerbaijan.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item border-bottom py-3">
+                  <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3" aria-expanded="false" aria-controls="q3">
+                      Do you handle international cases?
+                    </button>
+                  </h2>
+                  <div id="q3" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg">
+                      Yes, we represent foreign investors and companies entering the Azerbaijani market, as well as Azerbaijani clients with international legal needs.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item border-bottom py-3">
+                  <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4" aria-expanded="false" aria-controls="q4">
+                      How do you handle sensitive client information?
+                    </button>
+                  </h2>
+                  <div id="q4" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg">
+                      Confidentiality is our top priority. All client information is protected under attorney-client privilege and strict data security protocols.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item border-bottom py-3">
+                  <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6" aria-expanded="false" aria-controls="q6">
+                      How do I start a case with PLH? 
+                    </button>
+                  </h2>
+                  <div id="q6" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg">
+                      You can contact us through our website, email, or phone. Our team will schedule an initial consultation to discuss your case and determine the best legal strategy.
                     </div>
                   </div>
                 </div>
@@ -607,7 +684,7 @@
           </div>
           <div class="col-lg-5 offset-lg-1">
             <h3 class="fw-bold mb-4">Stay Ahead of the Curve.</h3>
-            <p class="mb-4 opacity-75">Connect with our strategic advisors directly in Baku or New York.</p>
+            <p class="mb-4 opacity-75">Connect with our strategic advisors directly in Baku.</p>
             <div class="d-flex gap-3">
               <a href="#" class="btn btn-outline-white"><i class="bi bi-geo-alt-fill me-2"></i> Get Directions</a>
               <a href="tel:8776674265" class="btn btn-accent"><i class="bi bi-telephone-fill me-2"></i> Call Now</a>
@@ -621,10 +698,10 @@
               <img src="../PLHLogo.png" alt="PROBIZ Logo" width="100" class="me-3">
               <span class="brand-footer-text">PROBIZ LEGAL HUB</span>
             </div>
-            <p class="opacity-75">Headquartered in Baku with global reach. We defend the innovators shaping the 2026 economy.</p>
+            <p class="opacity-75">Your trusted legal partner in Baku. We defend the people and businesses shaping the future of Azerbaijan.</p>
           </div>
           <div class="col-6 col-lg-2 offset-lg-1">
-            <h6 class="text-accent text-uppercase mb-3 small">Firm</h6>
+            <h6 class="text-accent text-caps mb-3 small">Firm</h6>
             <ul class="list-unstyled text-white opacity-75">
               <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">About Us</a></li>
               <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Careers</a></li>
@@ -632,7 +709,7 @@
             </ul>
           </div>
           <div class="col-6 col-lg-2">
-            <h6 class="text-accent text-uppercase mb-3 small">Expertise</h6>
+            <h6 class="text-accent text-caps mb-3 small">Expertise</h6>
             <ul class="list-unstyled text-white opacity-75">
               <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Corporate</a></li>
               <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Litigation</a></li>
@@ -640,14 +717,14 @@
             </ul>
           </div>
           <div class="col-lg-3">
-            <h6 class="text-accent text-uppercase mb-3 small">Contact</h6>
+            <h6 class="text-accent text-caps mb-3 small">Contact</h6>
             <ul class="list-unstyled opacity-75 mb-4">
               <li class="mb-2"><i class="bi bi-geo-alt me-2 text-accent"></i> Baku, Azerbaijan</li>
               <li class="mb-2"><i class="bi bi-telephone me-2 text-accent"></i> (877) 667-4265</li>
               <li class="mb-2"><i class="bi bi-envelope me-2 text-accent"></i> legal@probiz.com</li>
             </ul>
             
-            <h6 class="text-accent text-uppercase mb-3 small">Socials</h6>
+            <h6 class="text-accent text-caps mb-3 small">Socials</h6>
             <div class="d-flex gap-2">
               <a href="#" class="social-icon-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
               <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
