@@ -80,7 +80,7 @@ PROBIZ.motion = (function() {
      * Initialize Lenis Smooth Scrolling.
      */
     const _initLenis = () => {
-        if (typeof Lenis === 'undefined') return;
+        if (typeof Lenis === 'undefined' || isMobile) return;
 
         const lenis = new Lenis({
             lerp: 0.05,             // Lower = Smoother, Higher = More responsive
