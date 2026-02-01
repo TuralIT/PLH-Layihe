@@ -571,7 +571,7 @@ html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibi
         height: 100vh !important;
         height: 100dvh !important; /* Dynamic Viewport Height */
         position: relative;
-        overflow: hidden !important;
+        overflow: visible !important;
         background-color: var(--plh-white); 
     }
     
