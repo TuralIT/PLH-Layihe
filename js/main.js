@@ -70,6 +70,10 @@ PROBIZ.motion = (function() {
         if (!isMobile) {
             _magneticInteractions();
         }
+        
+        window.addEventListener("load", () => {
+            ScrollTrigger.refresh(true); // CRITICAL FIX: Refresh ScrollTrigger after full page load to fix refresh/pinning bugs caused by layout shifts (images loading pushing content down).
+        });
     };
 
     /**
