@@ -35,6 +35,13 @@ PROBIZ.ui = (function() {
                 const scrolled = (scrollY / height) * 100;
                 progressBar.style.width = `${scrolled}%`;
             }
+
+            // 3. Mobile Sticky CTA Visibility
+            const mobileCTA = document.querySelector('.mobile-sticky-cta');
+            if (mobileCTA) {
+                if (scrollY > 300) mobileCTA.classList.add('cta-visible');
+                else mobileCTA.classList.remove('cta-visible');
+            }
         }, { passive: true });
     };
 

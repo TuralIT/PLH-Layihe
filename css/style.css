@@ -151,6 +151,11 @@ a { text-decoration: none; transition: 0.3s; }
     position: fixed; bottom: 0; left: 0; width: 100%;
     z-index: 9999; display: flex;
     box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+    transform: translateY(100%); /* Start hidden */
+    transition: transform 0.4s ease-in-out;
+}
+.mobile-sticky-cta.cta-visible {
+    transform: translateY(0); /* Slide in */
 }
 .mobile-cta-btn {
     flex: 1; text-align: center; padding: 15px;
@@ -628,6 +633,12 @@ html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibi
     .plh-nav { padding: 12px 20px !important; }
     .plh-nav.nav-scrolled { padding: 8px 20px !important; }
     .marquee-content { gap: 2rem; }
+    
+    /* Faster reviews on mobile */
+    .marquee-track-right { animation-duration: 5.5s; }
+
+    /* Ensure footer content is visible above sticky CTA */
+    .plh-footer { padding-bottom: 80px !important; }
 }
 
 @media (max-width: 576px) {
