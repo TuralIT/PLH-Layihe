@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
     
     <link rel="icon" href="../PLHLogo.png" type="image/png" />
     <link rel="stylesheet" href="../css/style.css" />
@@ -84,38 +84,101 @@
       
       <!-- HERO -->
       <header class="hero position-relative overflow-hidden">
-        <div class="video-bg-overlay"></div>
-        <div class="container position-relative z-2">
-          <div class="row min-vh-100 align-items-center pb-5">
-            <div class="col-lg-9 pt-5">
-              <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3 mb-4">
-                  <span class="d-inline-block py-1 px-3 border border-white-50 rounded-pill text-white small text-caps">
-                    <i class="bi bi-shield-check me-2 text-accent"></i> Trusted Legal Protection
-                  </span>
-                  <div class="d-flex gap-2">
-                      <span class="badge bg-white text-dark rounded-pill fw-bold small"><i class="bi bi-award-fill text-accent"></i> The Caspian Region’s Trusted Legal Advisors</span>
-                      <span class="badge bg-white text-dark rounded-pill fw-bold small"><i class="bi bi-star-fill text-accent"></i> Super Lawyers</span>
-                  </div>
-              </div>
-              
-              <h1 class="display-2 fw-bold text-white mb-4 lh-sm">
-                Expert Legal Help for Your Business & <br />
-                <span class="text-accent fst-italic">Your Life.</span>
-              </h1>
-              <p class="lead text-white-50 mb-5 col-lg-8">
-                Whether you are running a global company or protecting your family's rights, we provide the expert help you deserve. Based in Baku, we are here to win your most important battles.
-              </p>
-              
-              <div class="d-flex gap-3 flex-column flex-sm-row">
-                <a href="#assessmentForm" class="btn btn-accent px-5 py-3 shadow-lg hover-lift">
-                  <i class="bi bi-calendar-check me-2"></i> Get a Free Consultation
-                </a>
-                <a href="#results" class="btn btn-outline-white px-5 py-3 hover-lift">
-                  See Our Wins
-                </a>
-              </div>
+        <!-- GSAP Slider Wrapper -->
+        <div class="hero-slider-wrapper position-absolute top-0 start-0 w-100 h-100 z-1">
+            <!-- Slide 1 (Active) -->
+            <div class="hero-slide active position-absolute top-0 start-0 w-100 h-100" style="opacity: 1; visibility: visible;">
+                <div class="slide-bg position-absolute w-100 h-100" style="background: linear-gradient(135deg, rgba(13, 59, 76, 0.95) 0%, rgba(6, 30, 40, 0.90) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80'); background-size: cover; background-position: center;"></div>
+                <div class="container h-100 position-relative z-2">
+                    <div class="row min-vh-100 align-items-center pb-5">
+                        <div class="col-lg-9 pt-5">
+                            <div class="slide-content">
+                                <span class="d-inline-block py-1 px-3 border border-white-50 rounded-pill text-white small text-caps mb-4 slide-badge">
+                                    <i class="bi bi-shield-check me-2 text-accent"></i> Trusted Legal Protection
+                                </span>
+                                <h1 class="display-2 fw-bold text-white mb-4 lh-sm slide-title">
+                                    Expert Legal Help for Your Business & <br />
+                                    <span class="text-accent fst-italic">Your Life.</span>
+                                </h1>
+                                <p class="lead text-white-50 mb-5 col-lg-8 slide-desc">
+                                    Whether you are running a global company or protecting your family's rights, we provide the expert help you deserve.
+                                </p>
+                                <div class="d-flex gap-3 flex-column flex-sm-row slide-btns">
+                                    <a href="#assessmentForm" class="btn btn-accent px-5 py-3 shadow-lg hover-lift">
+                                        <i class="bi bi-calendar-check me-2"></i> Get a Free Consultation
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide position-absolute top-0 start-0 w-100 h-100" style="opacity: 0; visibility: hidden;">
+                <div class="slide-bg position-absolute w-100 h-100" style="background: linear-gradient(135deg, rgba(13, 59, 76, 0.95) 0%, rgba(6, 30, 40, 0.90) 100%), url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80'); background-size: cover; background-position: center;"></div>
+                <div class="container h-100 position-relative z-2">
+                    <div class="row min-vh-100 align-items-center pb-5">
+                        <div class="col-lg-9 pt-5">
+                            <div class="slide-content">
+                                <span class="d-inline-block py-1 px-3 border border-white-50 rounded-pill text-white small text-caps mb-4 slide-badge">
+                                    <i class="bi bi-building me-2 text-accent"></i> Corporate Defense
+                                </span>
+                                <h1 class="display-2 fw-bold text-white mb-4 lh-sm slide-title">
+                                    Guarding Your Enterprise <br />
+                                    <span class="text-accent fst-italic">Against Risk.</span>
+                                </h1>
+                                <p class="lead text-white-50 mb-5 col-lg-8 slide-desc">
+                                    Strategic litigation and defense for the world's most ambitious companies operating in the Caspian region.
+                                </p>
+                                <div class="d-flex gap-3 flex-column flex-sm-row slide-btns">
+                                    <a href="#services" class="btn btn-outline-white px-5 py-3 hover-lift">
+                                        Explore Corporate Services
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+             <!-- Slide 3 -->
+            <div class="hero-slide position-absolute top-0 start-0 w-100 h-100" style="opacity: 0; visibility: hidden;">
+                <div class="slide-bg position-absolute w-100 h-100" style="background: linear-gradient(135deg, rgba(13, 59, 76, 0.95) 0%, rgba(6, 30, 40, 0.90) 100%), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80'); background-size: cover; background-position: center top;"></div>
+                <div class="container h-100 position-relative z-2">
+                    <div class="row min-vh-100 align-items-center pb-5">
+                        <div class="col-lg-9 pt-5">
+                            <div class="slide-content">
+                                <span class="d-inline-block py-1 px-3 border border-white-50 rounded-pill text-white small text-caps mb-4 slide-badge">
+                                    <i class="bi bi-gavel me-2 text-accent"></i> Justice Served
+                                </span>
+                                <h1 class="display-2 fw-bold text-white mb-4 lh-sm slide-title">
+                                    Relentless Advocacy <br />
+                                    <span class="text-accent fst-italic">In The Courtroom.</span>
+                                </h1>
+                                <p class="lead text-white-50 mb-5 col-lg-8 slide-desc">
+                                    When the stakes are high, you need a trial team with a proven record of winning the impossible cases.
+                                </p>
+                                <div class="d-flex gap-3 flex-column flex-sm-row slide-btns">
+                                    <a href="#results" class="btn btn-accent px-5 py-3 shadow-lg hover-lift">
+                                        See Our Case Results
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slider Controls -->
+        <div class="slider-controls position-absolute z-3 d-flex gap-2" style="bottom: 110px; right: 5vw;">
+            <button class="btn btn-outline-white border-white-10 rounded-circle p-0 d-flex align-items-center justify-content-center" id="prevSlide" style="width: 50px; height: 50px;">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+            <button class="btn btn-outline-white border-white-10 rounded-circle p-0 d-flex align-items-center justify-content-center" id="nextSlide" style="width: 50px; height: 50px;">
+                <i class="bi bi-arrow-right"></i>
+            </button>
         </div>
 
         <!-- HERO BOTTOM CONTAINER (Ticker) -->
@@ -198,7 +261,7 @@
       <!-- PRACTICE AREAS (Bento Grid) -->
       <section id="services" class="section-padding bg-white">
         <div class="container">
-          <div class="row mb-5" data-aos="fade-up">
+          <div class="row mb-5">
             <div class="col-lg-8">
               <h6 class="text-accent text-caps">Areas of Practice</h6>
               <h2 class="display-4 text-dark">How We Help</h2>
@@ -367,67 +430,87 @@
         </div>
       </section>
 
-      <!-- PROTOCOL (Methodology) -->
-      <section class="section-padding bg-white overflow-hidden">
-        <div class="container">
-          <div class="row mb-5" data-aos="fade-up">
-            <div class="col-lg-8">
-              <h6 class="text-accent text-caps">Our 3-Step Process</h6>
-              <h2 class="display-4 text-dark">How We Win for You</h2>
+      <section id="protocol-section" class="bg-light-section position-relative">
+        <!-- Main Pin Wrapper (Height controlled by JS or CSS) -->
+        <div class="protocol-pin-container" style="height: 100vh; overflow: hidden;">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <!-- LEFT COL: Static Header -->
+                    <div class="col-lg-5 h-100 d-flex flex-column justify-content-center position-relative z-2">
+                         <div class="protocol-header-content">
+                             <h6 class="text-accent text-caps mb-3">Our 3-Step Process</h6>
+                             <h2 class="display-3 text-dark fw-bold mb-4">How We Win <br> For You.</h2>
+                             <p class="lead text-secondary opacity-75">
+                                 We don't rely on luck. We rely on a proven, battle-tested strategy that engineered millions in results.
+                             </p>
+                             <div class="d-none d-lg-block mt-5">
+                                 <div class="d-flex align-items-center gap-3 mb-3 text-accent fw-bold">
+                                     <i class="bi bi-arrow-down-circle fs-3 p-0"></i> <span>Scroll to Explore</span>
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+
+                    <!-- RIGHT COL: Card Stack -->
+                    <div class="col-lg-6 offset-lg-1 h-100 position-relative d-flex align-items-center justify-content-center" id="card-stack-wrapper">
+                         <!-- Stack Card 1 -->
+                         <div class="protocol-stack-card card-1 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 1; ">
+                             <div class="protocol-bg" style="background-image: url('../1.png');"></div>
+                             <div class="protocol-overlay"></div>
+                             <div class="protocol-content p-5 h-100 d-flex flex-column justify-content-end">
+                                 <div class="d-flex justify-content-between align-items-end mb-4">
+                                    <div class="step-num-large text-white display-1 fw-bold opacity-25 lh-1">1</div>
+                                    <i class="bi bi-rocket-takeoff-fill text-accent fs-1"></i>
+                                 </div>
+                                 <h3 class="h2 text-white fw-bold mb-3">Fast Start</h3>
+                                 <p class="text-white opacity-80 lead">Contact our 24/7 team. We begin working on your case within hours, securing evidence immediately.</p>
+                             </div>
+                         </div>
+
+                         <!-- Stack Card 2 -->
+                         <div class="protocol-stack-card card-2 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 2; transform: translateY(110%);">
+                             <div class="protocol-bg" style="background-image: url('../2.png');"></div>
+                             <div class="protocol-overlay"></div>
+                             <div class="protocol-content p-5 h-100 d-flex flex-column justify-content-end">
+                                 <div class="d-flex justify-content-between align-items-end mb-4">
+                                    <div class="step-num-large text-white display-1 fw-bold opacity-25 lh-1">2</div>
+                                    <i class="bi bi-strategy text-accent fs-1"></i>
+                                 </div>
+                                 <h3 class="h2 text-white fw-bold mb-3">Clear Strategy</h3>
+                                 <p class="text-white opacity-80 lead">We analyze the facts and map out every potential outcome to ensure victory before we even step into court.</p>
+                             </div>
+                         </div>
+
+                         <!-- Stack Card 3 -->
+                         <div class="protocol-stack-card card-3 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 3; transform: translateY(130%);">
+                             <div class="protocol-bg" style="background-image: url('../3.png');"></div>
+                             <div class="protocol-overlay"></div>
+                             <div class="protocol-content p-5 h-100 d-flex flex-column justify-content-end">
+                                 <div class="d-flex justify-content-between align-items-end mb-4">
+                                    <div class="step-num-large text-white display-1 fw-bold opacity-25 lh-1">3</div>
+                                    <i class="bi bi-trophy-fill text-accent fs-1"></i>
+                                 </div>
+                                 <h3 class="h2 text-white fw-bold mb-3">Winning Results</h3>
+                                 <p class="text-white opacity-80 lead">We represent you in court or during negotiations until the job is done. Your success is our singular focus.</p>
+                             </div>
+                         </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="row g-4">
-             <!-- Step 1 -->
-             <div class="col-lg-4" data-aos="fade-up">
-                 <article class="protocol-card">
-                     <div class="protocol-bg" style="background-image: url('../1.png');"></div>
-                     <div class="protocol-overlay"></div>
-                     <div class="protocol-content">
-                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">1</div>
-                         <h3 class="h4 fw-bold mb-2">Fast Start</h3>
-                         <p class="small opacity-75">Contact our 24/7 team. We begin working on your case within hours, not days.</p>
-                     </div>
-                 </article>
-             </div>
-             <!-- Step 2 -->
-             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                 <article class="protocol-card">
-                     <div class="protocol-bg" style="background-image: url('../2.png');"></div>
-                     <div class="protocol-overlay"></div>
-                     <div class="protocol-content">
-                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">2</div>
-                         <h3 class="h4 fw-bold mb-2">Clear Strategy</h3>
-                         <p class="small opacity-75">We analyze the facts and build an effective plan to win your case.</p>
-                     </div>
-                 </article>
-             </div>
-             <!-- Step 3 -->
-             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                 <article class="protocol-card">
-                     <div class="protocol-bg" style="background-image: url('../3.png');"></div>
-                     <div class="protocol-overlay"></div>
-                     <div class="protocol-content">
-                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">3</div>
-                         <h3 class="h4 fw-bold mb-2">Winning Results</h3>
-                         <p class="small opacity-75">We represent you in court or during negotiations until the job is done.</p>
-                     </div>
-                 </article>
-             </div>
-          </div>
         </div>
       </section>
 
       <!-- RESULTS STATS -->
       <section id="results" class="section-padding stats-bar mt-0 overflow-hidden">
           <div class="container">
-              <div class="row mb-5" data-aos="fade-up">
+              <div class="row mb-5">
                   <div class="col-lg-8">
                       <h6 class="text-accent text-caps">Our Proven Results</h6>
                       <h2 class="display-4 text-white">Winning for Our Clients</h2>
                   </div>
               </div>
               <div class="row g-4">
-                  <div class="col-lg-8" data-aos="fade-up">
+                  <div class="col-lg-8 result-card-gsap">
                       <div class="bento-result-card featured p-5">
                           <div class="d-flex justify-content-between align-items-start mb-4">
                               <h3 class="display-3 fw-bold text-accent mb-0">
@@ -440,7 +523,7 @@
                       </div>
                   </div>
 
-                  <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                  <div class="col-lg-4 result-card-gsap">
                       <div class="bento-result-card p-4 h-100 d-flex flex-column justify-content-center">
                           <h3 class="display-5 fw-bold text-accent mb-2">
                               $<span class="counter" data-target="18200000">0</span>
@@ -450,7 +533,7 @@
                       </div>
                   </div>
 
-                  <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                  <div class="col-lg-4 result-card-gsap">
                       <div class="bento-result-card p-4">
                           <h3 class="display-5 fw-bold text-accent mb-2">
                               $<span class="counter" data-target="9800000">0</span>
@@ -460,7 +543,7 @@
                       </div>
                   </div>
                   
-                  <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+                  <div class="col-lg-8 result-card-gsap">
                       <div class="bento-result-card d-flex align-items-center justify-content-center p-5 border-dashed">
                           <div class="text-center">
                               <h3 class="text-white h4 mb-3">Your Success Story Starts Here.</h3>
@@ -476,16 +559,16 @@
       <section class="section-padding bg-light-section">
         <div class="container">
           <div class="row align-items-end mb-5">
-            <div class="col-lg-7" data-aos="fade-right">
+            <div class="col-lg-7">
               <h6 class="text-accent text-caps">Elite Counsel</h6>
               <h2 class="display-5">Unmatched Legal Intellect</h2>
             </div>
-            <div class="col-lg-5 text-lg-end" data-aos="fade-left">
+            <div class="col-lg-5 text-lg-end">
               <a href="#" class="btn btn-outline-dark px-4 py-2 mb-2">Meet the Full Team</a>
             </div>
           </div>
           <div class="row g-4">
-            <div class="col-lg-4" data-aos="fade-up">
+            <div class="col-lg-4 attorney-card-gsap">
               <div class="card-attorney border-0">
                 <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Julian Thorne" />
                 <h4 class="mb-1">Julian Thorne, Esq.</h4>
@@ -493,7 +576,7 @@
                 <p class="text-secondary small">Specializing in cross-border acquisitions and high-stakes corporate defense for 20+ years.</p>
               </div>
             </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4 attorney-card-gsap">
               <div class="card-attorney border-0">
                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Elena Vance" />
                 <h4 class="mb-1">Elena Vance, Esq.</h4>
@@ -501,7 +584,7 @@
                 <p class="text-secondary small">Nationally recognized advisor for Silicon Valley tech firms and IP protection strategies.</p>
               </div>
             </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-4 attorney-card-gsap">
               <div class="card-attorney border-0">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Marcus Sterling" />
                 <h4 class="mb-1">Marcus Sterling</h4>
@@ -591,7 +674,7 @@
       <section class="section-padding bg-white">
         <div class="container">
           <div class="row mb-5 justify-content-center text-center">
-            <div class="col-lg-8" data-aos="fade-up">
+            <div class="col-lg-8">
               <h6 class="text-accent text-caps">Frequently Asked Questions</h6>
               <h2 class="display-5 text-dark">Questions & Answers</h2>
             </div>
@@ -747,7 +830,11 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+    <!-- GSAP & Lenis -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="../js/main.js"></script>
   </body>
 </html>
