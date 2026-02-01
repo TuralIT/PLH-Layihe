@@ -5,7 +5,7 @@
    3. Utilities (Color, Spacing, Animation)
    4. Components (Buttons, Glossary)
    5. Layout Regions (Nav, Hero, Footer)
-   6. Page Modules (Bento, Protocol, Stats, Assessment)
+   6. Page Modules (Bento, Protocol, Stats)
    7. Responsive Overrides (Mobile)
    8. Motion & Libs (GSAP/Lenis)
    ========================================================================== */
@@ -400,27 +400,7 @@ a { text-decoration: none; transition: 0.3s; }
     box-shadow: 0 -20px 60px rgba(0,0,0,0.3);
 }
 
-/* 6.5 Assessment Engine */
-.assessment-step { display: none; animation: fadeIn 0.5s ease; }
-.assessment-step.active { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-.step-indicator { display: flex; gap: 5px; margin-bottom: 20px; }
-.step-dot { height: 4px; flex-grow: 1; background: rgba(255,255,255,0.2); border-radius: 2px; }
-.step-dot.active, .step-dot.completed { background: var(--plh-accent); }
-
-.choice-btn {
-    display: block; width: 100%; text-align: left;
-    background: #f1f4f6; border: 1px solid #e2e8ea;
-    color: var(--plh-base);
-    padding: 18px 25px; margin-bottom: 12px;
-    border-radius: var(--plh-radius-sm);
-    transition: all 0.3s ease; font-weight: 500;
-}
-.choice-btn:hover, .choice-btn.selected {
-    background: var(--plh-base); color: white;
-    border-color: var(--plh-base); transform: translateX(5px);
-}
 
 /* 6.6 Result Boxes */
 .bento-result-card {

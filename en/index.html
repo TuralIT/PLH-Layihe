@@ -106,8 +106,8 @@
                                     Whether you are running a global company or protecting your family's rights, we provide the expert help you deserve.
                                 </p>
                                 <div class="d-flex gap-3 flex-column flex-sm-row slide-btns">
-                                    <a href="#assessmentForm" class="btn btn-accent px-5 py-3 shadow-lg hover-lift">
-                                        <i class="bi bi-calendar-check me-2"></i> Get a Free Consultation
+                                    <a href="#global-footer" class="btn btn-accent px-5 py-3 shadow-lg hover-lift">
+                                        <i class="bi bi-telephone-fill me-2"></i> Contact Us Now
                                     </a>
                                 </div>
                             </div>
@@ -398,7 +398,6 @@
                              <div class="protocol-content p-5 h-100 d-flex flex-column justify-content-end">
                                  <div class="d-flex justify-content-between align-items-end mb-4">
                                     <div class="step-num-large text-white display-1 fw-bold opacity-25 lh-1">1</div>
-                                    <i class="bi bi-rocket-takeoff-fill text-accent fs-1"></i>
                                  </div>
                                  <h3 class="h2 text-white fw-bold mb-3">Fast Start</h3>
                                  <p class="text-white opacity-80 lead">Contact our 24/7 team. We begin working on your case within hours, securing evidence immediately.</p>
@@ -426,7 +425,6 @@
                              <div class="protocol-content p-5 h-100 d-flex flex-column justify-content-end">
                                  <div class="d-flex justify-content-between align-items-end mb-4">
                                     <div class="step-num-large text-white display-1 fw-bold opacity-25 lh-1">3</div>
-                                    <i class="bi bi-trophy-fill text-accent fs-1"></i>
                                  </div>
                                  <h3 class="h2 text-white fw-bold mb-3">Winning Results</h3>
                                  <p class="text-white opacity-80 lead">We represent you in court or during negotiations until the job is done. Your success is our singular focus.</p>
@@ -454,7 +452,6 @@
                               <h3 class="display-3 fw-bold text-accent mb-0">
                                   $<span class="counter" data-target="42500000">0</span>
                               </h3>
-                              <i class="bi bi-briefcase text-white-50 fs-2"></i>
                           </div>
                           <h4 class="text-white h5 text-caps mb-3">Business Lawsuit & Defense</h4>
                           <p class="text-white-50 lead mb-0">Successfully defended a major construction firm against breach of contract claims, preserving millions in revenue.</p>
@@ -485,7 +482,7 @@
                       <div class="bento-result-card d-flex align-items-center justify-content-center p-5 border-dashed">
                           <div class="text-center">
                               <h3 class="text-white h4 mb-3">Your Success Story Starts Here.</h3>
-                              <a href="#assessmentForm" class="btn btn-outline-white btn-sm px-4">Discuss Your Case</a>
+                              <a href="#global-footer" class="btn btn-outline-white btn-sm px-4">Contact Us</a>
                           </div>
                       </div>
                   </div>
@@ -537,77 +534,7 @@
         </div>
       </section>
 
-      <!-- 8. INTAKE FORM (Assessment Engine) -->
-      <section class="section-padding bg-light-section position-relative overflow-hidden">
-        <div class="bg-watermark">PLH</div>
 
-        <div class="container position-relative">
-          <div class="row g-0 shadow-lg">
-            <div class="col-lg-5 btn-accent p-5 d-flex flex-column justify-content-center">
-              <h2 class="text-white mb-4">Protect Your Rights Today.</h2>
-              <p class="text-white opacity-75 mb-4">Our team is ready to help. Expect a response from a lawyer within 4 business hours.</p>
-              <ul class="list-unstyled text-white">
-                <li class="mb-2"><i class="bi bi-check-circle-fill me-2"></i> 100% Confidential Consultation</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill me-2"></i> No Fee Unless We Win</li>
-                <li><i class="bi bi-check-circle-fill me-2"></i> Direct Partner Access</li>
-              </ul>
-            </div>
-            <div class="col-lg-7 bg-white p-5">
-              <form id="assessmentForm" class="assessment-engine">
-                <div class="step-indicator">
-                  <div class="step-dot active" data-step="1"></div>
-                  <div class="step-dot" data-step="2"></div>
-                  <div class="step-dot" data-step="3"></div>
-                </div>
-
-                <!-- Step 1 -->
-                <div class="assessment-step active" data-step="1">
-                  <h4 class="mb-4">What kind of legal help do you need?</h4>
-                  <div class="d-grid gap-2">
-                    <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
-                        <i class="bi bi-building me-2 text-accent"></i> Business & Corporate 
-                    </button>
-                    <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
-                        <i class="bi bi-person-raised-hand me-2 text-accent"></i> Personal Injury or Rights
-                    </button>
-                    <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
-                        <i class="bi bi-house me-2 text-accent"></i> Property & Real Estate
-                    </button>
-                    <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
-                        <i class="bi bi-shield-lock me-2 text-accent"></i> Criminal Defense
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="assessment-step" data-step="2">
-                  <h4 class="mb-4">Briefly describe the situation.</h4>
-                  <p class="small text-muted mb-3"><i class="bi bi-lock-fill"></i> Your details are encrypted and privileged.</p>
-                  <label for="caseDetails" class="visually-hidden">Case Details</label>
-                  <textarea id="caseDetails" class="form-control rounded-0 border-light-subtle p-3 mb-4" rows="5" placeholder="Please provide high-level context..."></textarea>
-                  <button type="button" class="btn btn-accent w-100" onclick="PROBIZ.assessment.next(3)">Continue <i class="bi bi-arrow-right ms-2"></i></button>
-                  <button type="button" class="btn btn-link text-muted w-100 mt-2 text-decoration-none small" onclick="PROBIZ.assessment.prev(1)">Back</button>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="assessment-step" data-step="3">
-                  <h4 class="mb-4">Where should we send the dossier?</h4>
-                  <div class="mb-3">
-                    <label for="fullName" class="form-label small fw-bold text-caps">Full Name</label>
-                    <input type="text" id="fullName" class="form-control rounded-0 border-light-subtle p-3" placeholder="John Doe">
-                  </div>
-                  <div class="mb-4">
-                    <label for="email" class="form-label small fw-bold text-caps">Work Email</label>
-                    <input type="email" id="email" class="form-control rounded-0 border-light-subtle p-3" placeholder="john@company.com">
-                  </div>
-                  <button type="submit" class="btn btn-accent w-100 py-3 fs-5">Send My Request</button>
-                  <button type="button" class="btn btn-link text-muted w-100 mt-2 text-decoration-none small" onclick="PROBIZ.assessment.prev(2)">Back</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <!-- 9. FAQ -->
       <section class="section-padding bg-white">
@@ -764,7 +691,7 @@
     <!-- Mobile CTA -->
     <div class="mobile-sticky-cta d-md-none">
         <a href="tel:8776674265" class="mobile-cta-btn bg-white text-dark border-end">Call Now</a>
-        <a href="#assessmentForm" class="mobile-cta-btn btn-accent text-white">Free Assessment</a>
+        <a href="mailto:legal@probiz.com" class="mobile-cta-btn btn-accent text-white">Email Us</a>
     </div>
 
     <!-- Scripts -->

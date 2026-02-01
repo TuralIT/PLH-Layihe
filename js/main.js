@@ -318,41 +318,7 @@ PROBIZ.motion = (function() {
     return { init };
 })();
 
-/* --- 3. ASSESSMENT MODULE (Intake Form) --- */
-PROBIZ.assessment = (function() {
-    const next = (step) => _showStep(step);
-    const prev = (step) => _showStep(step);
-    
-    const selectOption = (btn, step) => {
-        // Visual select state
-        const siblings = btn.parentElement.querySelectorAll('.choice-btn');
-        siblings.forEach(el => el.classList.remove('selected'));
-        btn.classList.add('selected');
-        
-        // Auto-advance
-        setTimeout(() => next(step), 300);
-    };
 
-    const _showStep = (step) => {
-        document.querySelectorAll('.assessment-step').forEach(el => el.classList.remove('active'));
-        const target = document.querySelector(`.assessment-step[data-step="${step}"]`);
-        if (target) {
-            target.classList.add('active');
-            _updateDots(step);
-        }
-    };
-
-    const _updateDots = (step) => {
-        document.querySelectorAll('.step-dot').forEach(dot => {
-            const s = parseInt(dot.getAttribute('data-step'));
-            dot.classList.remove('active', 'completed');
-            if (s === step) dot.classList.add('active');
-            if (s < step) dot.classList.add('completed');
-        });
-    };
-
-    return { next, prev, selectOption };
-})();
 
 // App Bootstrap
 document.addEventListener('DOMContentLoaded', () => {
