@@ -1,31 +1,35 @@
 'use strict';
 
+/**
+ * PROBIZ LEGAL HUB - MAIN JAVASCRIPT
+ * Includes: UI interactions, Assessment Engine, and Motion Effects (GSAP/Lenis).
+ */
+
 window.PROBIZ = window.PROBIZ || {};
 
-/* --- 1. UI MODULE (Structure & Interaction) --- */
+/* --- 1. UI MODULE (Structure & Basic Interaction) --- */
 PROBIZ.ui = (function() {
+    // Cache DOM Elements
     const navbar = document.querySelector('.plh-nav');
     const progressBar = document.getElementById("scroll-progress");
-
-    // Optional Search Elements
-    const searchDropdown = document.getElementById('search-dropdown');
-    const searchTrigger = document.getElementById('search-trigger');
-    const searchInput = document.getElementById('dropdown-search-input');
+    const searchTrigger = document.getElementById('search-trigger'); // Optional if exists later
 
     const init = () => {
         _bindScrollEvents();
-        if (searchTrigger) _bindSearchEvents();
     };
 
+    /**
+     * Handles scroll-dependent UI updates using passive listeners for performance.
+     */
     const _bindScrollEvents = () => {
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
 
-            // Navbar Transition
+            // 1. Navbar Glassmorphism Transition
             if (scrollY > 50) navbar.classList.add('nav-scrolled');
             else navbar.classList.remove('nav-scrolled');
 
-            // Reading Progress Bar
+            // 2. Reading Progress Bar (Top of screen)
             if (progressBar) {
                 const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 const scrolled = (scrollY / height) * 100;
@@ -34,95 +38,82 @@ PROBIZ.ui = (function() {
         }, { passive: true });
     };
 
-    const _bindSearchEvents = () => {
-        searchTrigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            searchDropdown.classList.toggle('active');
-            if (searchDropdown.classList.contains('active')) {
-                setTimeout(() => searchInput.focus(), 100);
-            }
-        });
-
-        document.addEventListener('click', (e) => {
-            if (searchDropdown && 
-                searchDropdown.classList.contains('active') && 
-                !searchDropdown.contains(e.target) && 
-                !searchTrigger.contains(e.target)) {
-                searchDropdown.classList.remove('active');
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "Escape" && searchDropdown) searchDropdown.classList.remove('active');
-        });
-    };
-
     return { init };
 })();
 
 /* --- 2. MOTION MODULE (GSAP & Lenis) --- */
+/**
+ * Manages all GSAP animations and smooth scrolling.
+ * Checks for library existence to prevent runtime errors.
+ */
 PROBIZ.motion = (function() {
-    
-    // Config
     const isMobile = window.innerWidth < 992;
     let heroSliderInterval;
 
     const init = () => {
-        if (typeof gsap === 'undefined') {
-            console.warn('PROBIZ: GSAP not loaded. Motion module disabled.');
+        // Safety Check: Ensure GSAP is loaded via local libraries
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+            console.warn('PROBIZ Motion: GSAP or ScrollTrigger not found. Animations disabled.');
             return;
         }
 
         _initLenis();
         _registerGSAP();
 
-        // Animations
-        _heroCarousel(); // Replaces single hero sequence
-        _processPinning(); // New Scroll Process
-        _scrollReveals();
-        _initCounters();
+        // Initialize Sequences
+        _heroCarousel();      // Hero Slider Logic
+        _processPinning();    // Protocol Section (Scroll Pinning)
+        _scrollReveals();     // Standard Fade-ins
+        _initCounters();      // Number Counting
 
+        // Desktop Only: Magnetic Buttons
         if (!isMobile) {
             _magneticInteractions();
         }
     };
 
+    /**
+     * Initialize Lenis Smooth Scrolling.
+     */
     const _initLenis = () => {
         if (typeof Lenis === 'undefined') return;
 
         const lenis = new Lenis({
-            lerp: 0.05,             
+            lerp: 0.05,             // Lower = Smoother, Higher = More responsive
             wheelMultiplier: 0.9,   
             smoothWheel: true,
             wrapper: window,        
             content: document.body 
         });
 
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
+        // Sync Lenis with GSAP ScrollTrigger
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000); // Standardize time for Lenis
+        });
+        gsap.ticker.lagSmoothing(0);
     };
 
     const _registerGSAP = () => {
-        if (typeof ScrollTrigger !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
-            gsap.defaults({ ease: "power3.out", duration: 1.0 });
-        }
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.defaults({ ease: "power3.out", duration: 1.0 });
     };
 
-    // NEW: Hero Carousel Logic
+    /**
+     * Hero Section Custom Carousel.
+     * Manages slide transitions, text reveals, and auto-play.
+     */
     const _heroCarousel = () => {
         const slides = document.querySelectorAll('.hero-slide');
         const nextBtn = document.getElementById('nextSlide');
         const prevBtn = document.getElementById('prevSlide');
+        
+        if (!slides.length) return;
+
         let currentIndex = 0;
         let isAnimating = false;
 
-        // Initial Animate In (First Slide)
+        // Animate first slide on load
         _animateSlideContent(slides[0]);
 
         const changeSlide = (direction) => {
@@ -132,12 +123,18 @@ PROBIZ.motion = (function() {
             const currentSlide = slides[currentIndex];
             let nextIndex = (direction === 'next') ? currentIndex + 1 : currentIndex - 1;
 
+            // Loop logic
             if (nextIndex >= slides.length) nextIndex = 0;
             if (nextIndex < 0) nextIndex = slides.length - 1;
 
             const nextSlide = slides[nextIndex];
 
-            // Timeline for transition
+            // 1. Set Initial State for Incoming Slide (Hidden/Offset)
+            gsap.set(nextSlide.querySelectorAll('.slide-badge, .slide-title, .slide-desc, .slide-btns'), { 
+                y: 30, autoAlpha: 0 
+            });
+
+            // 2. Timeline Sequence
             const tl = gsap.timeline({
                 onComplete: () => {
                     currentIndex = nextIndex;
@@ -147,50 +144,31 @@ PROBIZ.motion = (function() {
                 }
             });
 
-            // Reset next slide content for animation
-            gsap.set(nextSlide.querySelectorAll('.slide-badge, .slide-title, .slide-desc, .slide-btns'), { 
-                y: 30, autoAlpha: 0 
-            });
-
-            // 1. Crossfade Backgrounds
+            // Crossfade Slides
             tl.to(currentSlide, { autoAlpha: 0, duration: 1.2, ease: "power2.inOut" })
               .to(nextSlide, { autoAlpha: 1, duration: 1.2, ease: "power2.inOut" }, "-=1.2");
 
-            // 2. Animate Content In
-            // We use a helper function to animate internal elements
-             tl.add(_getSlideContentTween(nextSlide), "-=0.8");
-
-        };
-
-        // Helper to return tween for slide content
-        const _getSlideContentTween = (slide) => {
-            const tl = gsap.timeline();
-            const elements = slide.querySelectorAll('.slide-badge, .slide-title, .slide-desc, .slide-btns');
-            
+            // Animate Text Elements (Staggered)
+            const elements = nextSlide.querySelectorAll('.slide-badge, .slide-title, .slide-desc, .slide-btns');
             tl.to(elements, {
                 y: 0,
                 autoAlpha: 1,
                 duration: 0.8,
                 stagger: 0.1,
                 ease: "power3.out"
-            });
-            return tl;
+            }, "-=0.8");
         };
 
-        // Helper for initial load
+        // Helper: Initial Slide Animation
         function _animateSlideContent(slide) {
             const elements = slide.querySelectorAll('.slide-badge, .slide-title, .slide-desc, .slide-btns');
-            gsap.set(elements, { y: 30, autoAlpha: 0 }); // Ensure hidden first
+            gsap.set(elements, { y: 30, autoAlpha: 0 });
             gsap.to(elements, {
-                y: 0,
-                autoAlpha: 1,
-                duration: 1,
-                stagger: 0.15,
-                delay: 0.5
+                y: 0, autoAlpha: 1, duration: 1, stagger: 0.15, delay: 0.5
             });
         }
 
-        // Binds
+        // Event Listeners
         if (nextBtn) nextBtn.addEventListener('click', () => {
             clearInterval(heroSliderInterval);
             changeSlide('next');
@@ -203,58 +181,50 @@ PROBIZ.motion = (function() {
             _startAutoPlay();
         });
 
-        // Auto Play
         const _startAutoPlay = () => {
             heroSliderInterval = setInterval(() => changeSlide('next'), 6000);
         };
         _startAutoPlay();
     };
 
-    // NEW: Scroll Process Pinning (Sequential Reveal)
+    /**
+     * Protocol Section Pinning.
+     * Pins the left column and reveals cards one by one on scroll.
+     */
     const _processPinning = () => {
-        if (typeof ScrollTrigger === 'undefined') return;
-
         const pinContainer = document.querySelector('.protocol-pin-container');
         const cards = document.querySelectorAll('.protocol-stack-card');
 
         if (!pinContainer || cards.length === 0) return;
 
-        // 1. Initial State: Hide all cards (Push them down)
-        // We do this in JS so if JS fails, CSS keeps them visible (Progressive Enhancement)
+        // Setup: Move cards off-screen (down)
         gsap.set(cards, { y: "150%" }); 
         
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: pinContainer,
                 start: "top top",
-                end: "+=400%", // Reduced slightly for better pacing
+                end: "+=400%", // Scroll distance duration
                 pin: true,
                 scrub: 1, 
                 anticipatePin: 1,
-                invalidateOnRefresh: true
+                invalidateOnRefresh: true // Recalculate on resize
             }
         });
 
-        // Step 1: Animate Card 1 Up
-        tl.to('.protocol-stack-card.card-1', { 
-            y: "0%", 
-            ease: "power1.inOut", // Smoother easing
-            duration: 1 
-        })
-        // Step 2: Animate Card 2 Up
-        .to('.protocol-stack-card.card-2', { 
-            y: "0%", 
-            ease: "power1.inOut", 
-            duration: 1 
-        })
-        // Step 3: Animate Card 3 Up
-        .to('.protocol-stack-card.card-3', { 
-            y: "0%", 
-            ease: "power1.inOut", 
-            duration: 1 
+        // Sequence: Lift each card into view
+        cards.forEach((card, index) => {
+            tl.to(card, { 
+                y: "0%", 
+                ease: "power1.inOut", 
+                duration: 1 
+            });
         });
     };
 
+    /**
+     * Standard fade-up reveals for sections.
+     */
     const _scrollReveals = () => {
         const revealElements = document.querySelectorAll('.class-to-animate, .row.mb-5');
 
@@ -273,21 +243,16 @@ PROBIZ.motion = (function() {
             );
         });
 
+        // Staggered reveals for grids
         _staggerReveal('.result-card-gsap', 0.15);
         _staggerReveal('.attorney-card-gsap', 0.2);
     };
 
     const _staggerReveal = (targetClass, staggerAmount) => {
-        if (typeof ScrollTrigger === 'undefined') return;
-
         ScrollTrigger.batch(targetClass, {
             onEnter: batch => gsap.fromTo(batch, 
                 { y: 60, autoAlpha: 0 }, 
-                { 
-                    y: 0, autoAlpha: 1, 
-                    stagger: staggerAmount, 
-                    overwrite: true 
-                }
+                { y: 0, autoAlpha: 1, stagger: staggerAmount, overwrite: true }
             ),
             start: "top 85%",
             once: true 
@@ -295,8 +260,7 @@ PROBIZ.motion = (function() {
     };
 
     const _initCounters = () => {
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
+        document.querySelectorAll('.counter').forEach(counter => {
             const target = +counter.getAttribute('data-target');
             gsap.to(counter, {
                 innerText: target,
@@ -308,6 +272,7 @@ PROBIZ.motion = (function() {
                     once: true
                 },
                 onUpdate: function() {
+                    // Format number with commas during animation
                     this.targets()[0].innerText = Math.ceil(this.targets()[0].innerText).toLocaleString();
                 }
             });
@@ -316,7 +281,6 @@ PROBIZ.motion = (function() {
 
     const _magneticInteractions = () => {
         const buttons = document.querySelectorAll('.btn-accent, .btn-outline-white');
-        
         buttons.forEach(btn => {
             btn.addEventListener('mousemove', (e) => {
                 const rect = btn.getBoundingClientRect();
@@ -333,15 +297,21 @@ PROBIZ.motion = (function() {
     return { init };
 })();
 
+/* --- 3. ASSESSMENT MODULE (Intake Form) --- */
 PROBIZ.assessment = (function() {
     const next = (step) => _showStep(step);
     const prev = (step) => _showStep(step);
+    
     const selectOption = (btn, step) => {
+        // Visual select state
         const siblings = btn.parentElement.querySelectorAll('.choice-btn');
         siblings.forEach(el => el.classList.remove('selected'));
         btn.classList.add('selected');
+        
+        // Auto-advance
         setTimeout(() => next(step), 300);
     };
+
     const _showStep = (step) => {
         document.querySelectorAll('.assessment-step').forEach(el => el.classList.remove('active'));
         const target = document.querySelector(`.assessment-step[data-step="${step}"]`);
@@ -350,6 +320,7 @@ PROBIZ.assessment = (function() {
             _updateDots(step);
         }
     };
+
     const _updateDots = (step) => {
         document.querySelectorAll('.step-dot').forEach(dot => {
             const s = parseInt(dot.getAttribute('data-step'));
@@ -358,9 +329,11 @@ PROBIZ.assessment = (function() {
             if (s < step) dot.classList.add('completed');
         });
     };
+
     return { next, prev, selectOption };
 })();
 
+// App Bootstrap
 document.addEventListener('DOMContentLoaded', () => {
     PROBIZ.ui.init();
     PROBIZ.motion.init(); 

@@ -1,5 +1,6 @@
 /* ==========================================================================
    PROBIZ LEGAL HUB - MAIN STYLESHEET
+   Version: 2.1 (Performance & Structure Optimized)
    ========================================================================== 
    TABLE OF CONTENTS:
    1. Variables & Palette
@@ -43,12 +44,11 @@ html, body {
 }
 
 /* Responsive Typography - Root Scaling */
-html { font-size: 16px; } /* Default Desktop */
+html { font-size: 16px; } /* Desktop Default */
 
 @media (max-width: 1199px) { html { font-size: 15px; } }
 @media (max-width: 991px)  { html { font-size: 14.5px; } }
 @media (max-width: 768px)  { html { font-size: 14px; } }
-
 @media (max-width: 576px) { 
     html { font-size: 13px; } 
     /* Clamp display headings so they don't break layout on very small screens */
@@ -60,7 +60,7 @@ body {
     color: var(--plh-text-dark);
     font-family: var(--font-body);
     font-weight: 400;
-    font-size: 1.125rem; /* 18px base size */
+    font-size: 1.125rem; /* ~18px base text */
     line-height: 1.7;
 }
 
@@ -78,6 +78,7 @@ a { text-decoration: none; transition: 0.3s; }
 .opacity-75 { opacity: 0.75; }
 .opacity-40 { opacity: 0.40; }
 .opacity-25 { opacity: 0.25; }
+.opacity-10 { opacity: 0.10; }
 
 /* Spacing & Typography Helpers */
 .section-padding { padding: 60px 0; }
@@ -148,11 +149,16 @@ a { text-decoration: none; transition: 0.3s; }
 }
 .btn-outline-dark:hover { background-color: var(--plh-base); color: white; }
 
-.btn-outlined-accent {
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 4px;
-    margin-top: 5px; 
-    color: var(--plh-white) !important;
+/* Mobile Sticky CTA */
+.mobile-sticky-cta {
+    position: fixed; bottom: 0; left: 0; width: 100%;
+    z-index: 9999; display: flex;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+}
+.mobile-cta-btn {
+    flex: 1; text-align: center; padding: 15px;
+    text-decoration: none; font-weight: 700; text-transform: uppercase;
+    font-size: 0.9rem; letter-spacing: 1px;
 }
 
 /* --- 5. LAYOUT REGIONS --- */
@@ -258,7 +264,6 @@ a { text-decoration: none; transition: 0.3s; }
 }
 .dropdown-divider { border-top: 1px solid rgba(255,255,255,0.1) !important; }
 
-
 /* 5.2 Hero Section */
 .hero {
     min-height: 100vh;
@@ -353,7 +358,7 @@ a { text-decoration: none; transition: 0.3s; }
 }
 .card-attorney:hover img { filter: grayscale(0%); transform: scale(1.02); }
 
-/* 6.4 Protocol Cards (Used in Bento or elsewhere) - Deprecated for Scroll ? No, keep for utility */
+/* 6.4 Protocol / 3-Step Process (Pinned Layout) */
 .protocol-bg {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -374,7 +379,7 @@ a { text-decoration: none; transition: 0.3s; }
     z-index: 2;
 }
 
-/* 6.4.2 Stack Cards (New) */
+/* Stack Cards for Sequential Reveal */
 .protocol-stack-card {
     border-radius: var(--plh-radius-lg);
     overflow: hidden;
@@ -385,12 +390,6 @@ a { text-decoration: none; transition: 0.3s; }
 }
 .protocol-stack-card:hover {
     box-shadow: 0 -20px 60px rgba(0,0,0,0.3);
-}
-
-/* Peeking States for Desktop */
-@media (min-width: 992px) {
-    .protocol-stack-card.card-2 { transform: translateY(84%); } /* Peek ~16% */
-    .protocol-stack-card.card-3 { transform: translateY(92%); } /* Peek ~8% */
 }
 
 /* 6.5 Assessment Engine */
@@ -503,21 +502,11 @@ a { text-decoration: none; transition: 0.3s; }
 /* --- 8. MOTION & LIBS --- */
 
 /* Lenis Recommended CSS */
-html.lenis {
-    height: auto;
-}
-.lenis.lenis-smooth {
-    scroll-behavior: auto;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-}
-.lenis.lenis-stopped {
-    overflow: hidden;
-}
-.lenis.lenis-scrolling iframe {
-    pointer-events: none;
-}
+html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibility */
+.lenis.lenis-smooth { scroll-behavior: auto; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
 
 /* --- 9. RESPONSIVE OVERRIDES --- */
 
@@ -574,16 +563,16 @@ html.lenis {
     .nav-utilities .dropdown-menu { right: 0 !important; left: auto !important; margin-top: 15px !important; }
 }
 
-/* Mobile Breakpoints */
+/* Mobile Layout Shifts */
 @media (max-width: 991px) {
     .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
     .bento-span-4, .bento-span-8, .bento-span-6 { grid-column: span 1; }
     .bento-item { min-height: 250px; }
 
-    /* Protocol Stack Mobile Override - ABSOLUTE SAFE MODE */
+    /* Protocol Stack Mobile - Convert to Simple Scroll List */
     .protocol-pin-container { 
         height: 100vh !important;
-        height: 100svh !important;
+        height: 100dvh !important; /* Dynamic Viewport Height */
         position: relative;
         overflow: hidden !important;
         background-color: var(--plh-white); 
@@ -627,11 +616,9 @@ html.lenis {
         height: 60vh !important; 
         max-height: none !important;
         aspect-ratio: auto !important;
-        transform: translateY(110%); /* Reset by default */
+        transform: translateY(110%); /* JS will handle reveal */
         box-shadow: 0 -10px 30px rgba(0,0,0,0.15) !important;
     }
-    
-    /* Remove Peeking - All cards strictly controlled by JS now */
     
     .protocol-content { padding: 1.25rem !important; }
     .protocol-content h3 { font-size: 1.3rem; margin-bottom: 0.25rem; }

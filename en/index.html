@@ -7,20 +7,22 @@
     
     <title>PROBIZ LEGAL HUB | Corporate Defense Strategy</title>
     
-    <!-- External Dependencies -->
+    <!-- External Dependencies (CDN) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
     
+    <!-- Local Assets -->
     <link rel="icon" href="../PLHLogo.png" type="image/png" />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   
   <body class="d-flex flex-column min-vh-100">
+    <!-- Smooth Scroll Progress Bar -->
     <div id="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
     <!-- MAIN NAVIGATION -->
+    <!-- Fixed top with glassmorphism effect on scroll -->
     <nav class="navbar navbar-expand-lg fixed-top plh-nav" aria-label="Main navigation">
       <div class="container-fluid px-lg-5">
         <a class="navbar-brand d-flex align-items-center" href="#" aria-label="PROBIZ Legal Hub Home">
@@ -38,12 +40,8 @@
 
         <div class="collapse navbar-collapse" id="plhNavbar">
           <ul class="navbar-nav ms-auto align-items-center">
-            <li class="nav-item">
-              <a class="nav-link" href="#results">Our Results</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">PLH Team</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="#results">Our Results</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">PLH Team</a></li>
             
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="practiceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,13 +78,17 @@
       </div>
     </nav>
 
+    <!-- MAIN CONTENT WRAPPER -->
     <main class="flex-grow-1">
       
-      <!-- HERO -->
+      <!-- 1. HERO SECTION -->
+      <!-- Features a custom GSAP Carousel with separated logic for backgrounds and content -->
       <header class="hero position-relative overflow-hidden">
-        <!-- GSAP Slider Wrapper -->
+        
+        <!-- SLIDER WRAPPER -->
         <div class="hero-slider-wrapper position-absolute top-0 start-0 w-100 h-100 z-1">
-            <!-- Slide 1 (Active) -->
+            
+            <!-- Slide 1: General Introduction -->
             <div class="hero-slide active position-absolute top-0 start-0 w-100 h-100" style="opacity: 1; visibility: visible;">
                 <div class="slide-bg position-absolute w-100 h-100" style="background: linear-gradient(135deg, rgba(13, 59, 76, 0.95) 0%, rgba(6, 30, 40, 0.90) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80'); background-size: cover; background-position: center;"></div>
                 <div class="container h-100 position-relative z-2">
@@ -114,7 +116,7 @@
                 </div>
             </div>
 
-            <!-- Slide 2 -->
+            <!-- Slide 2: Corporate Focus -->
             <div class="hero-slide position-absolute top-0 start-0 w-100 h-100" style="opacity: 0; visibility: hidden;">
                 <div class="slide-bg position-absolute w-100 h-100" style="background: linear-gradient(135deg, rgba(13, 59, 76, 0.95) 0%, rgba(6, 30, 40, 0.90) 100%), url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80'); background-size: cover; background-position: center;"></div>
                 <div class="container h-100 position-relative z-2">
@@ -142,7 +144,7 @@
                 </div>
             </div>
             
-             <!-- Slide 3 -->
+             <!-- Slide 3: Litigation Focus -->
             <div class="hero-slide position-absolute top-0 start-0 w-100 h-100" style="opacity: 0; visibility: hidden;">
                 <div class="slide-bg position-absolute w-100 h-100" style="background: linear-gradient(135deg, rgba(13, 59, 76, 0.95) 0%, rgba(6, 30, 40, 0.90) 100%), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80'); background-size: cover; background-position: center top;"></div>
                 <div class="container h-100 position-relative z-2">
@@ -171,62 +173,57 @@
             </div>
         </div>
         
-        <!-- Slider Controls -->
+        <!-- Custom Navigation Buttons -->
         <div class="slider-controls position-absolute z-3 d-flex gap-2" style="bottom: 110px; right: 5vw;">
-            <button class="btn btn-outline-white border-white-10 rounded-circle p-0 d-flex align-items-center justify-content-center" id="prevSlide" style="width: 50px; height: 50px;">
+            <button class="btn btn-outline-white border-white-10 rounded-circle p-0 d-flex align-items-center justify-content-center hover-lift" id="prevSlide" aria-label="Previous Slide" style="width: 50px; height: 50px;">
                 <i class="bi bi-arrow-left"></i>
             </button>
-            <button class="btn btn-outline-white border-white-10 rounded-circle p-0 d-flex align-items-center justify-content-center" id="nextSlide" style="width: 50px; height: 50px;">
+            <button class="btn btn-outline-white border-white-10 rounded-circle p-0 d-flex align-items-center justify-content-center hover-lift" id="nextSlide" aria-label="Next Slide" style="width: 50px; height: 50px;">
                 <i class="bi bi-arrow-right"></i>
             </button>
         </div>
 
-        <!-- HERO BOTTOM CONTAINER (Ticker) -->
+        <!-- TICKER: Proof Points -->
         <div class="hero-bottom-wrapper position-absolute bottom-0 start-0 w-100 z-3">
             <div class="trust-ticker py-3 bg-dark border-bottom border-top border-white-10" aria-label="Verified Results Ticker">
                 <div class="marquee-wrapper">
-                <div class="marquee-content d-flex gap-5 align-items-center">
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="text-white fw-bold">$42.5M</span>
-                        <span class="text-secondary fw-normal text-uppercase">Corporate Case</span>
+                    <div class="marquee-content d-flex gap-5 align-items-center">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-white fw-bold">$42.5M</span>
+                            <span class="text-secondary fw-normal text-uppercase">Corporate Case</span>
+                        </div>
+                        <span class="brand-divider opacity-25" style="height: 15px"></span>
+                        
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-white fw-bold">$18.2M</span>
+                            <span class="text-secondary fw-normal text-uppercase">IP Theft Recovery</span>
+                        </div>
+                        <span class="brand-divider opacity-25" style="height: 15px"></span>
+                        
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-white fw-bold">$9.8M</span>
+                            <span class="text-secondary fw-normal text-uppercase">Real Estate Dispute</span>
+                        </div>
+                        <span class="brand-divider opacity-25" style="height: 15px"></span>
+                        
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-white fw-bold">$1.2M</span>
+                            <span class="text-secondary fw-normal text-uppercase">Personal Injury</span>
+                        </div>
+                        
+                        <!-- Loop Item -->
+                        <span class="brand-divider opacity-25" style="height: 15px"></span>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-white fw-bold">Won</span>
+                            <span class="text-secondary fw-normal text-uppercase">Medical Rights</span>
+                        </div>
                     </div>
-                    <span class="brand-divider opacity-25" style="height: 15px"></span>
-                    
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="text-white fw-bold">$18.2M</span>
-                        <span class="text-secondary fw-normal text-uppercase">IP Theft Recovery</span>
-                    </div>
-                    <span class="brand-divider opacity-25" style="height: 15px"></span>
-                    
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="text-white fw-bold">$9.8M</span>
-                        <span class="text-secondary fw-normal text-uppercase">Real Estate Dispute</span>
-                    </div>
-                    <span class="brand-divider opacity-25" style="height: 15px"></span>
-                    
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="text-white fw-bold">$1.2M</span>
-                        <span class="text-secondary fw-normal text-uppercase">Personal Injury</span>
-                    </div>
-                    
-                    <!-- Duplicated for Infinite Effect -->
-                    <span class="brand-divider opacity-25" style="height: 15px"></span>
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="text-white fw-bold">Won</span>
-                        <span class="text-secondary fw-normal text-uppercase">Medical Rights</span>
-                    </div>
-                    <span class="brand-divider opacity-25" style="height: 15px"></span>
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="text-white fw-bold">Resolved</span>
-                        <span class="text-secondary fw-normal text-uppercase">Business Dispute</span>
-                    </div>
-                </div>
                 </div>
             </div>
         </div>
       </header>
 
-      <!-- PARTNERS LOGOS -->
+      <!-- 2. PARTNERS -->
       <section class="py-5 bg-light-section border-bottom" aria-label="Institutional Partners">
         <div class="container">
           <div class="row align-items-center">
@@ -258,10 +255,10 @@
         </div>
       </section>
 
-      <!-- PRACTICE AREAS (Bento Grid) -->
+      <!-- 3. PRACTICE AREAS (Bento Grid) -->
       <section id="services" class="section-padding bg-white">
         <div class="container">
-          <div class="row mb-5">
+          <div class="row mb-5 class-to-animate">
             <div class="col-lg-8">
               <h6 class="text-accent text-caps">Areas of Practice</h6>
               <h2 class="display-4 text-dark">How We Help</h2>
@@ -269,8 +266,8 @@
           </div>
 
           <div class="bento-grid">
-            <!-- Main Feature -->
-            <div class="bento-item bento-span-8 d-flex flex-column justify-content-between" style="background: var(--plh-base); color: white;">
+            <!-- P1: Business -->
+            <div class="bento-item bento-span-8 d-flex flex-column justify-content-between class-to-animate" style="background: var(--plh-base); color: white;">
               <div>
                 <i class="bi bi-building fs-1 text-accent mb-3"></i>
                 <h3 class="text-white">Business Law & Defense</h3>
@@ -281,8 +278,8 @@
               </a>
             </div>
 
-            <!-- Secondary -->
-            <div class="bento-item bento-span-4" style="background: #f8f9fa;">
+            <!-- P2: IP -->
+            <div class="bento-item bento-span-4 class-to-animate" style="background: #f8f9fa;">
               <i class="bi bi-shield-lock fs-2 text-dark mb-3"></i>
               <h4>Protecting Your Ideas</h4>
               <p class="text-muted small">We help you secure patents, trademarks, and digital rights for your tech or brand.</p>
@@ -291,8 +288,8 @@
               </a>
             </div>
 
-            <!-- Third -->
-            <div class="bento-item bento-span-4" style="background: #f8f9fa;">
+            <!-- P3: Property -->
+            <div class="bento-item bento-span-4 class-to-animate" style="background: #f8f9fa;">
               <i class="bi bi-house fs-2 text-dark mb-3"></i>
               <h4>Property & Real Estate</h4>
               <p class="text-muted small">Professional help with buying, selling, or property disputes in Baku and beyond.</p>
@@ -301,8 +298,8 @@
               </a>
             </div>
 
-            <!-- Fourth -->
-            <div class="bento-item bento-span-8 d-flex align-items-center position-relative overflow-hidden">
+            <!-- P4: Personal/Immigration -->
+            <div class="bento-item bento-span-8 d-flex align-items-center position-relative overflow-hidden class-to-animate">
                <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80') center/cover; opacity: 0.1;"></div>
                <div class="position-relative z-2">
                  <i class="bi bi-person-raised-hand fs-2 text-accent mb-3"></i>
@@ -317,10 +314,10 @@
         </div>
       </section>
 
-      <!-- TESTIMONIALS -->
+      <!-- 4. TESTIMONIALS -->
       <section class="section-padding bg-white overflow-hidden">
         <div class="container-fluid px-0">
-          <div class="row mb-5 justify-content-center text-center px-3">
+          <div class="row mb-5 justify-content-center text-center px-3 class-to-animate">
             <div class="col-lg-8">
               <h6 class="text-accent text-caps">What Our Clients Say</h6>
               <h2 class="display-5 text-dark">Client Stories</h2>
@@ -329,14 +326,10 @@
 
           <div class="marquee-wrapper">
             <div class="marquee-track-right">
-              <!-- Review 1 -->
+              <!-- Review Cards (Infinite Loop) -->
               <div class="review-glass-card">
                 <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i>
                 </div>
                 <p class="review-quote">"The strategic depth provided by PROBIZ saved our venture during the Thorne litigation."</p>
                 <div class="review-author mt-auto">
@@ -344,15 +337,10 @@
                   <span class="author-role">CEO, Thorne Dynamics</span>
                 </div>
               </div>
-
-              <!-- Review 2 -->
+              
               <div class="review-glass-card">
                 <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i>
                 </div>
                 <p class="review-quote">"A masterclass in medical negligence advocacy. Their evidence-first approach is unmatched."</p>
                 <div class="review-author mt-auto">
@@ -361,14 +349,9 @@
                 </div>
               </div>
 
-              <!-- Review 3 -->
               <div class="review-glass-card">
                 <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i>
                 </div>
                 <p class="review-quote">"Aggressive litigation with a surgical focus on the facts. They engineer outcomes."</p>
                 <div class="review-author mt-auto">
@@ -377,52 +360,15 @@
                 </div>
               </div>
 
-              <!-- Duplicated for Loop -->
-              <!-- Review 1 -->
+              <!-- Duplicate Set for Smooth Scroll -->
               <div class="review-glass-card">
                 <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i>
                 </div>
                 <p class="review-quote">"The strategic depth provided by PROBIZ saved our venture during the Thorne litigation."</p>
                 <div class="review-author mt-auto">
                   <span class="d-block fw-bold text-base">Alexander Wright</span>
                   <span class="author-role">CEO, Thorne Dynamics</span>
-                </div>
-              </div>
-
-              <!-- Review 2 -->
-              <div class="review-glass-card">
-                <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                </div>
-                <p class="review-quote">"A masterclass in medical negligence advocacy. Their evidence-first approach is unmatched."</p>
-                <div class="review-author mt-auto">
-                  <span class="d-block fw-bold text-base">Dr. Elena Vance</span>
-                  <span class="author-role">Chief Medical Officer</span>
-                </div>
-              </div>
-
-              <!-- Review 3 -->
-              <div class="review-glass-card">
-                <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                </div>
-                <p class="review-quote">"Aggressive litigation with a surgical focus on the facts. They engineer outcomes."</p>
-                <div class="review-author mt-auto">
-                  <span class="d-block fw-bold text-base">Marcus Sterling</span>
-                  <span class="author-role">Managing Director</span>
                 </div>
               </div>
             </div>
@@ -430,12 +376,13 @@
         </div>
       </section>
 
+      <!-- 5. PROTOCOL (Interactive Pinned Section) -->
+      <!-- Uses GSAP ScrollTrigger to pin the left side while cards reveal on the right -->
       <section id="protocol-section" class="bg-light-section position-relative">
-        <!-- Main Pin Wrapper (Height controlled by JS or CSS) -->
         <div class="protocol-pin-container" style="height: 100vh; overflow: hidden;">
             <div class="container h-100">
                 <div class="row h-100">
-                    <!-- LEFT COL: Static Header -->
+                    <!-- LEFT COL: Static Header (Pins) -->
                     <div class="col-lg-5 h-100 d-flex flex-column justify-content-center position-relative z-2">
                          <div class="protocol-header-content">
                              <h6 class="text-accent text-caps mb-3">Our 3-Step Process</h6>
@@ -451,10 +398,10 @@
                          </div>
                     </div>
 
-                    <!-- RIGHT COL: Card Stack -->
+                    <!-- RIGHT COL: Card Stack (Scrolls) -->
                     <div class="col-lg-6 offset-lg-1 h-100 position-relative d-flex align-items-center justify-content-center" id="card-stack-wrapper">
-                         <!-- Stack Card 1 -->
-                         <div class="protocol-stack-card card-1 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 1; ">
+                         <!-- Card 1 -->
+                         <div class="protocol-stack-card card-1 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 1;">
                              <div class="protocol-bg" style="background-image: url('../1.png');"></div>
                              <div class="protocol-overlay"></div>
                              <div class="protocol-content p-5 h-100 d-flex flex-column justify-content-end">
@@ -467,7 +414,7 @@
                              </div>
                          </div>
 
-                         <!-- Stack Card 2 -->
+                         <!-- Card 2 -->
                          <div class="protocol-stack-card card-2 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 2; transform: translateY(110%);">
                              <div class="protocol-bg" style="background-image: url('../2.png');"></div>
                              <div class="protocol-overlay"></div>
@@ -481,7 +428,7 @@
                              </div>
                          </div>
 
-                         <!-- Stack Card 3 -->
+                         <!-- Card 3 -->
                          <div class="protocol-stack-card card-3 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 3; transform: translateY(130%);">
                              <div class="protocol-bg" style="background-image: url('../3.png');"></div>
                              <div class="protocol-overlay"></div>
@@ -500,10 +447,10 @@
         </div>
       </section>
 
-      <!-- RESULTS STATS -->
+      <!-- 6. RESULTS STATS -->
       <section id="results" class="section-padding stats-bar mt-0 overflow-hidden">
           <div class="container">
-              <div class="row mb-5">
+              <div class="row mb-5 class-to-animate">
                   <div class="col-lg-8">
                       <h6 class="text-accent text-caps">Our Proven Results</h6>
                       <h2 class="display-4 text-white">Winning for Our Clients</h2>
@@ -522,7 +469,7 @@
                           <p class="text-white-50 lead mb-0">Successfully defended a major construction firm against breach of contract claims, preserving millions in revenue.</p>
                       </div>
                   </div>
-
+                  <!-- Stats Card 2 -->
                   <div class="col-lg-4 result-card-gsap">
                       <div class="bento-result-card p-4 h-100 d-flex flex-column justify-content-center">
                           <h3 class="display-5 fw-bold text-accent mb-2">
@@ -532,7 +479,7 @@
                           <p class="text-white-50 small mb-0">Recovered millions for a tech company whose software and ideas were used by a competitor.</p>
                       </div>
                   </div>
-
+                  <!-- Stats Card 3 -->
                   <div class="col-lg-4 result-card-gsap">
                       <div class="bento-result-card p-4">
                           <h3 class="display-5 fw-bold text-accent mb-2">
@@ -542,7 +489,7 @@
                           <p class="text-white-50 small mb-0">Successfully resolved a complex property dispute, protecting ownership rights and assets.</p>
                       </div>
                   </div>
-                  
+                  <!-- Call to Action -->
                   <div class="col-lg-8 result-card-gsap">
                       <div class="bento-result-card d-flex align-items-center justify-content-center p-5 border-dashed">
                           <div class="text-center">
@@ -555,10 +502,10 @@
           </div>
       </section>
 
-      <!-- ATTORNEYS -->
+      <!-- 7. ELITE COUNSEL -->
       <section class="section-padding bg-light-section">
         <div class="container">
-          <div class="row align-items-end mb-5">
+          <div class="row align-items-end mb-5 class-to-animate">
             <div class="col-lg-7">
               <h6 class="text-accent text-caps">Elite Counsel</h6>
               <h2 class="display-5">Unmatched Legal Intellect</h2>
@@ -568,6 +515,7 @@
             </div>
           </div>
           <div class="row g-4">
+            <!-- Attorney 1 -->
             <div class="col-lg-4 attorney-card-gsap">
               <div class="card-attorney border-0">
                 <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Julian Thorne" />
@@ -576,6 +524,7 @@
                 <p class="text-secondary small">Specializing in cross-border acquisitions and high-stakes corporate defense for 20+ years.</p>
               </div>
             </div>
+            <!-- Attorney 2 -->
             <div class="col-lg-4 attorney-card-gsap">
               <div class="card-attorney border-0">
                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Elena Vance" />
@@ -584,6 +533,7 @@
                 <p class="text-secondary small">Nationally recognized advisor for Silicon Valley tech firms and IP protection strategies.</p>
               </div>
             </div>
+            <!-- Attorney 3 -->
             <div class="col-lg-4 attorney-card-gsap">
               <div class="card-attorney border-0">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Marcus Sterling" />
@@ -596,7 +546,7 @@
         </div>
       </section>
 
-      <!-- INTAKE & ASSESSMENT -->
+      <!-- 8. INTAKE FORM (Assessment Engine) -->
       <section class="section-padding bg-light-section position-relative overflow-hidden">
         <div class="bg-watermark">PLH</div>
 
@@ -612,16 +562,14 @@
               </ul>
             </div>
             <div class="col-lg-7 bg-white p-5">
-              <!-- Assessment Engine Form -->
               <form id="assessmentForm" class="assessment-engine">
-                <!-- Progress Indicator -->
                 <div class="step-indicator">
                   <div class="step-dot active" data-step="1"></div>
                   <div class="step-dot" data-step="2"></div>
                   <div class="step-dot" data-step="3"></div>
                 </div>
 
-                <!-- Step 1: Case Type -->
+                <!-- Step 1 -->
                 <div class="assessment-step active" data-step="1">
                   <h4 class="mb-4">What kind of legal help do you need?</h4>
                   <div class="d-grid gap-2">
@@ -640,7 +588,7 @@
                   </div>
                 </div>
 
-                <!-- Step 2: Details -->
+                <!-- Step 2 -->
                 <div class="assessment-step" data-step="2">
                   <h4 class="mb-4">Briefly describe the situation.</h4>
                   <p class="small text-muted mb-3"><i class="bi bi-lock-fill"></i> Your details are encrypted and privileged.</p>
@@ -650,7 +598,7 @@
                   <button type="button" class="btn btn-link text-muted w-100 mt-2 text-decoration-none small" onclick="PROBIZ.assessment.prev(1)">Back</button>
                 </div>
 
-                <!-- Step 3: Contact -->
+                <!-- Step 3 -->
                 <div class="assessment-step" data-step="3">
                   <h4 class="mb-4">Where should we send the dossier?</h4>
                   <div class="mb-3">
@@ -670,7 +618,7 @@
         </div>
       </section>
 
-      <!-- FAQ -->
+      <!-- 9. FAQ -->
       <section class="section-padding bg-white">
         <div class="container">
           <div class="row mb-5 justify-content-center text-center">
@@ -695,6 +643,7 @@
                   </div>
                 </div>
 
+                <!-- (Other FAQ Items preserved) -->
                 <div class="accordion-item border-bottom py-3">
                   <h2 class="accordion-header" id="headingTwo">
                     <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2" aria-expanded="false" aria-controls="q2">
@@ -733,7 +682,7 @@
                     </div>
                   </div>
                 </div>
-
+                
                 <div class="accordion-item border-bottom py-3">
                   <h2 class="accordion-header" id="headingSix">
                     <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6" aria-expanded="false" aria-controls="q6">
@@ -830,11 +779,13 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
-    <!-- GSAP & Lenis -->
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Libraries -->
+    <script src="../libraries/gsap/node_modules/gsap/dist/gsap.min.js"></script>
+    <script src="../libraries/gsap/node_modules/gsap/dist/ScrollTrigger.min.js"></script>
+    <script src="../libraries/Lenis/node_modules/lenis/dist/lenis.min.js"></script>
+
+    <!-- App Logic -->
     <script src="../js/main.js"></script>
   </body>
 </html>
