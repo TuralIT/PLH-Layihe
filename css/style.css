@@ -6,7 +6,7 @@
    4. Components (Buttons, Glossary)
    5. Layout Regions (Nav, Hero, Footer)
    6. Page Modules (Bento, Protocol, Stats)
-   7. Responsive Overrides (Mobile)
+   7. Responsive Overrides (Mobile) 
    8. Motion & Libs (GSAP/Lenis)
    ========================================================================== */
 
@@ -62,6 +62,18 @@ body {
 }
 
 h1, h2, h3, h4, h5 { font-family: var(--font-heading); font-weight: 700; color: var(--plh-base); }
+
+/* Desktop Typography Scale */
+@media (min-width: 992px) {
+    h1, .h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1.5rem; }
+    h2, .h2 { font-size: 2.75rem; line-height: 1.2; margin-bottom: 1.25rem; }
+    h3, .h3 { font-size: 2.15rem; line-height: 1.3; margin-bottom: 1rem; }
+    h4, .h4 { font-size: 1.75rem; line-height: 1.35; }
+    h5, .h5 { font-size: 1.35rem; }
+    
+    p.lead { font-size: 1.35rem; font-weight: 300; line-height: 1.6; }
+    p { margin-bottom: 1.5rem; }
+}
 a { text-decoration: none; transition: 0.3s; }
 
 /* --- 3. UTILITIES --- */
@@ -169,8 +181,8 @@ a { text-decoration: none; transition: 0.3s; }
 .plh-nav {
     background-color: transparent;
     border-bottom: 1px solid transparent;
-    padding: 20px 40px;
-    transition: all 0.4s ease-in-out;
+    padding: 35px 40px;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .plh-nav.nav-scrolled {
     background-color: rgba(13, 59, 76, 0.98) !important;
@@ -180,37 +192,76 @@ a { text-decoration: none; transition: 0.3s; }
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-.nav-logo { height: 55px; width: auto; }
+.nav-logo { 
+    height: 90px;
+    width: auto; 
+    transition: height 0.4s ease;
+}
+.plh-nav.nav-scrolled .nav-logo {
+    height: 70px;
+}
 .brand-divider { height: 40px; width: 1px; background-color: rgba(255,255,255,0.15); }
 
 /* Brand Text */
 .brand-text .brand-title {
     font-family: var(--font-brand);
     font-weight: 500;
-    font-size: 1.6rem;
+    font-size: 2rem;
     letter-spacing: 1px;
     line-height: 1;
     color: var(--plh-white);
     text-transform: uppercase;
+    transition: font-size 0.4s ease;
 }
+.plh-nav.nav-scrolled .brand-text .brand-title {
+    font-size: 1.4rem;
+}
+
 .brand-text .brand-subtitle {
     font-family: var(--font-brand);
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     letter-spacing: 3px;
     color: var(--plh-accent);
     margin-top: 4px;
     font-weight: 600;
+    transition: all 0.4s ease;
 }
+.plh-nav.nav-scrolled .brand-text .brand-subtitle {
+    font-size: 0.7rem;
+}
+
 
 /* Nav Link Items */
 .navbar-nav .nav-link {
     color: rgba(255,255,255,0.85) !important;
     font-weight: 500;
+    font-size: 1.2rem !important;
     padding: 10px 15px !important;
+    transition: color 0.3s ease, font-size 0.4s ease !important;
+}
+.plh-nav.nav-scrolled .navbar-nav .nav-link {
+    font-size: 1rem !important;
 }
 .navbar-nav .nav-link:hover { color: var(--plh-accent) !important; }
 
 /* Dropdown Menus (Global) */
+/* Language & Utilities Toggle */
+/* Language & Utilities Toggle */
+.plh-nav .dropdown-toggle {
+    color: rgba(255,255,255,0.85) !important;
+    font-size: 1.2rem !important; /* Match Nav Links */
+    padding: 10px 0 !important;
+    transition: all 0.3s ease;
+    display: flex; align-items: center; gap: 8px;
+}
+.plh-nav .dropdown-toggle:hover, .plh-nav .dropdown-toggle:focus {
+    color: var(--plh-accent) !important;
+}
+.plh-nav.nav-scrolled .dropdown-toggle {
+    font-size: 1rem !important; /* Shrink to match Nav Links */
+}
+
+/* Dropdown Menu Container */
 .dropdown-menu {
     background-color: rgba(13, 59, 76, 0.98) !important;
     backdrop-filter: blur(15px);
@@ -243,26 +294,36 @@ a { text-decoration: none; transition: 0.3s; }
     color: rgba(255, 255, 255, 0.85) !important;
     padding: 10px 20px;
     font-weight: 500;
-    font-size: 0.95rem;
-    transition: all 0.2s ease;
+    font-size: 1.4rem; /* Match Nav Links */
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     border-left: 2px solid transparent;
+}
+
+.plh-nav.nav-scrolled .dropdown-menu .dropdown-item {
+    font-size: 1.2rem; /* Shrink to match */
+    padding: 8px 20px; 
 }
 .dropdown-menu .dropdown-item i {
     color: var(--plh-accent);
     transition: transform 0.3s ease;
     font-size: 1.1em;
 }
-.dropdown-menu .dropdown-item:hover {
+.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item.active {
     background-color: rgba(41, 169, 189, 0.1) !important;
     color: #fff !important;
     border-left-color: var(--plh-accent);
     padding-left: 25px; /* Slide effect */
 }
-.dropdown-menu .dropdown-item:hover i {
+.dropdown-menu .dropdown-item.active {
+    background-color: rgba(41, 169, 189, 0.2) !important; /* Slightly stronger for active */
+    color: var(--plh-accent) !important;
+}
+.dropdown-menu .dropdown-item:hover i, .dropdown-menu .dropdown-item.active i {
     transform: translateX(3px);
     filter: drop-shadow(0 0 5px var(--plh-accent-glow));
+    color: var(--plh-accent);
 }
 .dropdown-divider { border-top: 1px solid rgba(255,255,255,0.1) !important; }
 
@@ -559,14 +620,14 @@ html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibi
 
     /* Protocol Stack Mobile - Convert to Simple Scroll List */
     .protocol-pin-container { 
-        height: auto !important;
+        height: 100vh !important;
         position: relative;
         overflow: visible;
         background-color: var(--plh-white); 
     }
     
     .protocol-header-content {
-        position: absolute !important;
+        position: relative !important;
         top: 80px; 
         left: 0; 
         width: 100%;
@@ -590,7 +651,7 @@ html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibi
         top: 25%; 
         left: 0;
         width: 100%;
-        height: 75%; 
+        height: 100vh; 
         display: block !important; 
         z-index: 5;
     }
@@ -615,8 +676,50 @@ html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibi
 }
 
 @media (max-width: 768px) {
-    .plh-nav { padding: 12px 20px !important; }
-    .plh-nav.nav-scrolled { padding: 8px 20px !important; }
+    /* Dynamic Mobile Navbar */
+    .plh-nav { 
+        padding: 25px 20px !important; /* Start larger on mobile */
+        transition: padding 0.4s ease;
+    }
+    .plh-nav.nav-scrolled { 
+        padding: 10px 20px !important; /* Shrink */
+    }
+
+    /* Mobile Logo Scaling - Forced Priority */
+    .nav-logo { 
+        height: 70px !important; /* Force Large Size */
+        transition: height 0.4s ease; 
+    }
+    .plh-nav.nav-scrolled .nav-logo { 
+        height: 50px !important; /* Explicit shrink */
+    }
+
+    /* Mobile Brand Text Scaling */
+    .brand-text .brand-title { 
+        font-size: 1.5rem !important; 
+        transition: font-size 0.4s ease;
+    }
+    .plh-nav.nav-scrolled .brand-text .brand-title { 
+        font-size: 1.2rem !important; 
+    }
+
+    .brand-text .brand-subtitle { 
+        font-size: 0.8rem !important; 
+        transition: font-size 0.4s ease;
+    }
+    .plh-nav.nav-scrolled .brand-text .brand-subtitle { 
+        font-size: 0.65rem !important; margin-top: 0;
+    }
+
+    /* Mobile Toggler Icon Scaling */
+    .navbar-toggler i {
+        font-size: 2.5rem !important; /* Start Big */
+        transition: font-size 0.4s ease;
+    }
+    .plh-nav.nav-scrolled .navbar-toggler i {
+        font-size: 1.75rem !important; /* Shrink to match flow */
+    }
+
     .marquee-content { gap: 2rem; }
     
     /* Faster reviews on mobile */
@@ -626,9 +729,32 @@ html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibi
     .plh-footer { padding-bottom: 80px !important; }
 }
 
-@media (max-width: 576px) {
-    .brand-title { font-size: 1.1rem !important; }
-    .brand-subtitle { font-size: 0.55rem !important; letter-spacing: 1.5px !important; }
+@media (max-width: 411px) {
+    /* Small Screen - Allow slight shrinking */
+    .brand-title { 
+        font-size: 1.3rem !important; 
+        transition: font-size 0.4s ease;
+    }
+    .plh-nav.nav-scrolled .brand-title { 
+        font-size: 1.1rem !important; 
+    }
+
+    .brand-subtitle { 
+        font-size: 0.7rem !important; 
+        letter-spacing: 1.5px !important;
+        transition: font-size 0.4s ease;
+    }
+    .plh-nav.nav-scrolled .brand-subtitle { 
+        font-size: 0.55rem !important; 
+    }
+
     .brand-divider { height: 30px !important; }
-    .nav-logo { height: 40px !important; }
+    
+    .nav-logo { 
+        height: 60px !important; 
+        transition: height 0.4s ease;
+    }
+    .plh-nav.nav-scrolled .nav-logo { 
+        height: 40px !important; 
+    }
 }

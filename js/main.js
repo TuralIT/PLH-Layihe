@@ -215,25 +215,27 @@ PROBIZ.motion = (function() {
     const _processPinning = () => {
         const pinContainer = document.querySelector('.protocol-pin-container');
         const cards = document.querySelectorAll('.protocol-stack-card');
-
+        
         if (!pinContainer || cards.length === 0) return;
 
-        // Setup: Move cards off-screen (down)
-        gsap.set(cards, { y: "150%" }); 
+        // Move cards off-screen (down)
+        const offset = isMobile ? "150%" : "175%";
+        gsap.set(cards, { y: offset, autoAlpha: 1 }); 
         
+        // Define ScrollTrigger
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: pinContainer,
-                start: "top 0%",
-                end: "+=175%", // Scroll distance duration
-                pin: true,
-                scrub: 1,
-                anticipatePin: 0,
-                invalidateOnRefresh: true, // Recalculate on resize
+                start: "top top", // Start immediately when section hits top
+                end: isMobile ? "+=300%" : "+=200%", // Duration of the pin (how long to stay)
+                pin: true,       // Pin the container
+                scrub: 1,        // Smooth scrubbing
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
             }
         });
 
-        // Sequence: Lift each card into view
+        // Lift each card into view
         cards.forEach((card, index) => {
             tl.to(card, { 
                 y: "0%", 
