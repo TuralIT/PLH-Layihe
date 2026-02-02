@@ -7,24 +7,19 @@
     
     <title>PROBIZ LEGAL HUB | Korporativ Müdafiə Strategiyası</title>
     
-    <!-- External Dependencies (CDN) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
     
-    <!-- Local Assets -->
     <link rel="icon" href="../images/PLHLogo.png" type="image/png" />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   
   <body class="d-flex flex-column min-vh-100">
-    <!-- Smooth Scroll Progress Bar -->
     <div id="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
-    <!-- MAIN NAVIGATION -->
-    <!-- Fixed top with glassmorphism effect on scroll -->
-    <nav class="navbar navbar-expand-md fixed-top plh-nav" aria-label="Əsas naviqasiya">
-      <div class="container-fluid px-md-5">
+    <nav class="navbar navbar-expand-lg fixed-top plh-nav" aria-label="Əsas naviqasiya">
+      <div class="container-fluid px-lg-5">
         <a class="navbar-brand d-flex align-items-center" href="#" aria-label="PROBIZ Legal Hub Əsas Səhifə">
           <img src="../images/PLHLogo.png" alt="PROBIZ Legal Hub Loqosu" class="nav-logo">
           <div class="brand-divider mx-3"></div>
@@ -64,7 +59,6 @@
           </ul>
 
           <div class="nav-utilities d-flex align-items-center ms-xl-4 gap-3 mt-3 mt-xl-0">
-            <!-- Language Switcher -->
             <div class="dropdown">
                 <a href="#" class="text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-label="Dili Dəyişin"><i class="bi bi-globe2 small"></i> AZ</a>
                 <ul class="dropdown-menu dropdown-menu-dark">
@@ -78,17 +72,12 @@
       </div>
     </nav>
 
-    <!-- MAIN CONTENT WRAPPER -->
     <main class="flex-grow-1">
       
-      <!-- 1. HERO SECTION -->
-      <!-- Features a custom GSAP Carousel with separated logic for backgrounds and content -->
       <header class="hero position-relative overflow-hidden">
         
-        <!-- SLIDER WRAPPER -->
         <div class="hero-slider-wrapper position-absolute top-0 start-0 w-100 h-100 z-1">
             
-            <!-- Slide 1: General Introduction -->
             <div class="hero-slide active position-absolute top-0 start-0 w-100 h-100" style="opacity: 1; visibility: visible;">
                 <div class="slide-bg position-absolute w-100 h-100" style="background: linear-gradient(135deg, rgba(13, 59, 76, 0.6) 0%, rgba(6, 30, 40, 0.6) 100%), url('../images/Carusel1.png'); background-size: cover; background-position: center;"></div>
                 <div class="container h-100 position-relative z-2">
@@ -117,7 +106,6 @@
                 </div>
             </div>
 
-            <!-- Slide 2: Corporate Focus -->
             <div class="hero-slide position-absolute top-0 start-0 w-100 h-100" style="opacity: 0; visibility: hidden;">
                 <div class="slide-bg position-absolute w-100 h-100" style="background: linear-gradient(135deg, rgba(13, 59, 76, 0.6) 0%, rgba(6, 30, 40, 0.6) 100%), url('../images/Carusel2.png'); background-size: cover; background-position: center;"></div>
                 <div class="container h-100 position-relative z-2">
@@ -145,7 +133,6 @@
                 </div>
             </div>
             
-             <!-- Slide 3: Litigation Focus -->
             <div class="hero-slide position-absolute top-0 start-0 w-100 h-100" style="opacity: 0; visibility: hidden;">
                 <div class="slide-bg position-absolute w-100 h-100" style="background: linear-gradient(135deg, rgba(13, 59, 76, 0.6) 0%, rgba(6, 30, 40, 0.6) 100%), url('../images/Carules3Test.png'); background-size: cover; background-position: center top;"></div>
                 <div class="container h-100 position-relative z-2">
@@ -174,7 +161,6 @@
             </div>
         </div>
         
-        <!-- Custom Navigation Buttons -->
         <div class="slider-controls position-absolute z-3 d-flex gap-2" style="bottom: 110px; right: 5vw;">
             <button class="btn btn-outline-white border-white-10 rounded-circle p-0 d-flex align-items-center justify-content-center hover-lift" id="prevSlide" aria-label="Əvvəlki Slayd" style="width: 50px; height: 50px;">
                 <i class="bi bi-arrow-left"></i>
@@ -184,7 +170,6 @@
             </button>
         </div>
 
-        <!-- TICKER: Proof Points -->
         <div class="hero-bottom-wrapper position-absolute bottom-0 start-0 w-100 z-3">
             <div class="trust-ticker py-3 bg-dark border-bottom border-top border-white-10" aria-label="Təsdiqlənmiş Nəticələr Lenti">
                 <div class="marquee-wrapper">
@@ -212,7 +197,6 @@
                             <span class="text-secondary fw-normal text-uppercase">Fərdi Zədələnmə</span>
                         </div>
                         
-                        <!-- Loop Item -->
                         <span class="brand-divider opacity-25" style="height: 15px"></span>
                         <div class="d-flex align-items-center gap-2">
                             <span class="text-white fw-bold">Qazanıldı</span>
@@ -224,7 +208,6 @@
         </div>
       </header>
 
-      <!-- 2. PARTNERS -->
       <section class="py-5 bg-light-section border-bottom" aria-label="İnstitusional Tərəfdaşlar">
         <div class="container">
           <div class="row align-items-center">
@@ -256,7 +239,6 @@
         </div>
       </section>
 
-      <!-- 3. PRACTICE AREAS (Bento Grid) -->
       <section id="services" class="section-padding bg-white">
         <div class="container">
           <div class="row mb-5 class-to-animate">
@@ -267,7 +249,6 @@
           </div>
 
           <div class="bento-grid">
-            <!-- P1: Business -->
             <div class="bento-item bento-span-8 d-flex flex-column justify-content-between class-to-animate" style="background: var(--plh-base); color: white;">
               <div>
                 <i class="bi bi-building fs-1 text-accent mb-3"></i>
@@ -279,7 +260,6 @@
               </a>
             </div>
 
-            <!-- P2: Intellectual Property -->
             <div class="bento-item bento-span-4 class-to-animate" style="background: #f8f9fa;">
               <i class="bi bi-shield-shaded fs-2 text-dark mb-3"></i>
               <h4>İdeyalarınızın Qorunması</h4>
@@ -289,7 +269,6 @@
               </a>
             </div>
 
-            <!-- P3: Property -->
             <div class="bento-item bento-span-4 class-to-animate" style="background: #f8f9fa;">
               <i class="bi bi-house fs-2 text-dark mb-3"></i>
               <h4>Əmlak və Daşınmaz Əmlak</h4>
@@ -299,7 +278,6 @@
               </a>
             </div>
 
-            <!-- P4: Personal/Immigration -->
             <div class="bento-item bento-span-8 d-flex align-items-center position-relative overflow-hidden class-to-animate">
                <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('../images/image.png') center/cover; opacity: 0.1;"></div>
                <div class="position-relative z-2">
@@ -315,7 +293,6 @@
         </div>
       </section>
 
-      <!-- 4. TESTIMONIALS -->
       <section class="section-padding bg-white overflow-hidden">
         <div class="container-fluid px-0">
           <div class="row mb-5 justify-content-center text-center px-3 class-to-animate">
@@ -327,7 +304,6 @@
 
           <div class="marquee-wrapper">
             <div class="marquee-track-right">
-              <!-- Review Cards (Infinite Loop) -->
               <div class="review-glass-card">
                 <div class="d-flex align-items-center mb-3">
                   <i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i>
@@ -368,13 +344,10 @@
         </div>
       </section>
 
-      <!-- 5. PROTOCOL (Interactive Pinned Section) -->
-      <!-- Uses GSAP ScrollTrigger to pin the left side while cards reveal on the right -->
       <section id="protocol-section" class="bg-light-section position-relative">
         <div class="protocol-pin-container">
             <div class="container h-100">
                 <div class="row h-100">
-                    <!-- LEFT COL: Static Header (Pins) -->
                     <div class="col-lg-5 h-100 d-flex flex-column justify-content-center position-relative z-2">
                          <div class="protocol-header-content">
                              <h6 class="text-accent text-caps mb-3">Bizim 3 Addımlı Prosesimiz</h6>
@@ -390,9 +363,7 @@
                          </div>
                     </div>
 
-                    <!-- RIGHT COL: Card Stack (Scrolls) -->
                     <div class="col-lg-6 offset-lg-1 h-100 position-relative d-flex align-items-center justify-content-center" id="card-stack-wrapper">
-                         <!-- Card 1 -->
                          <div class="protocol-stack-card card-1 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 1;">
                              <div class="protocol-bg" style="background-image: url('../images/1.png');"></div>
                              <div class="protocol-overlay"></div>
@@ -405,7 +376,6 @@
                              </div>
                          </div>
 
-                         <!-- Card 2 -->
                          <div class="protocol-stack-card card-2 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 2; transform: translateY(110%);">
                              <div class="protocol-bg" style="background-image: url('../images/2.png');"></div>
                              <div class="protocol-overlay"></div>
@@ -419,7 +389,6 @@
                              </div>
                          </div>
 
-                         <!-- Card 3 -->
                          <div class="protocol-stack-card card-3 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 3; transform: translateY(130%);">
                              <div class="protocol-bg" style="background-image: url('../images/3.png');"></div>
                              <div class="protocol-overlay"></div>
@@ -437,7 +406,6 @@
         </div>
       </section>
 
-      <!-- 6. RESULTS STATS -->
       <section id="results" class="section-padding stats-bar mt-0 overflow-hidden">
           <div class="container">
               <div class="row mb-5 class-to-animate">
@@ -458,7 +426,6 @@
                           <p class="text-white-50 lead mb-0">Böyük bir inşaat şirkətini müqavilə pozuntusu iddialarına qarşı uğurla müdafiə edərək milyonlarla gəliri qoruduq.</p>
                       </div>
                   </div>
-                  <!-- Stats Card 2 -->
                   <div class="col-lg-4 result-card-gsap">
                       <div class="bento-result-card p-4 h-100 d-flex flex-column justify-content-center">
                           <h3 class="display-5 fw-bold text-accent mb-2">
@@ -468,7 +435,6 @@
                           <p class="text-white-50 small mb-0">Proqram təminatı və ideyaları rəqib tərəfindən istifadə edilən texnologiya şirkəti üçün milyonlar geri qaytarıldı.</p>
                       </div>
                   </div>
-                  <!-- Stats Card 3 -->
                   <div class="col-lg-4 result-card-gsap">
                       <div class="bento-result-card p-4">
                           <h3 class="display-5 fw-bold text-accent mb-2">
@@ -478,7 +444,6 @@
                           <p class="text-white-50 small mb-0">Mülkiyyət hüquqlarını və aktivləri qoruyaraq mürəkkəb bir əmlak mübahisəsi uğurla həll edildi.</p>
                       </div>
                   </div>
-                  <!-- Call to Action -->
                   <div class="col-lg-8 result-card-gsap">
                       <div class="bento-result-card d-flex align-items-center justify-content-center p-5 border-dashed">
                           <div class="text-center">
@@ -491,7 +456,6 @@
           </div>
       </section>
 
-      <!-- 7. ELITE COUNSEL -->
       <section class="section-padding bg-light-section">
         <div class="container">
           <div class="row align-items-end mb-5 class-to-animate">
@@ -504,28 +468,31 @@
             </div>
           </div>
           <div class="row g-4">
-            <!-- Attorney 1 -->
             <div class="col-lg-4 attorney-card-gsap">
               <div class="card-attorney border-0">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Julian Thorne" />
+                <div class="attorney-img-wrap mb-3">
+                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" alt="Julian Thorne" />
+                </div>
                 <h4 class="mb-1">Julian Thorne, Esq.</h4>
                 <p class="text-accent small text-caps fw-bold">Təsisçi Partnyor | Korporativ Strategiya</p>
                 <p class="text-secondary small">20+ ildir ki, transsərhəd satınalmalar və yüksək riskli korporativ müdafiə üzrə ixtisaslaşmışdır.</p>
               </div>
             </div>
-            <!-- Attorney 2 -->
             <div class="col-lg-4 attorney-card-gsap">
               <div class="card-attorney border-0">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Elena Vance" />
+                <div class="attorney-img-wrap mb-3">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Elena Vance" />
+                </div>
                 <h4 class="mb-1">Elena Vance, Esq.</h4>
                 <p class="text-accent small text-caps fw-bold">Baş Partnyor | Əqli Mülkiyyət</p>
                 <p class="text-secondary small">Silikon Vadisi texnologiya şirkətləri və ƏM qoruma strategiyaları üçün milli səviyyədə tanınan məsləhətçi.</p>
               </div>
             </div>
-            <!-- Attorney 3 -->
             <div class="col-lg-4 attorney-card-gsap">
               <div class="card-attorney border-0">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Marcus Sterling" />
+                <div class="attorney-img-wrap mb-3">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" alt="Marcus Sterling" />
+                </div>
                 <h4 class="mb-1">Marcus Sterling</h4>
                 <p class="text-accent small text-caps fw-bold">Aparıcı Vəkil | Kommersiya Mübahisələri</p>
                 <p class="text-secondary small">Federal məhkəmə mübahisələrində 95% uğur göstəricisi olan amansız vəkil.</p>
@@ -535,9 +502,6 @@
         </div>
       </section>
 
-
-
-      <!-- 9. FAQ -->
       <section class="section-padding bg-white">
         <div class="container">
           <div class="row mb-5 justify-content-center text-center">
@@ -562,7 +526,6 @@
                   </div>
                 </div>
 
-                <!-- (Other FAQ Items preserved) -->
                 <div class="accordion-item border-bottom py-3">
                   <h2 class="accordion-header" id="headingTwo">
                     <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2" aria-expanded="false" aria-controls="q2">
@@ -622,12 +585,11 @@
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="plh-footer" id="global-footer">
       <div class="container">
         <div class="row align-items-center mb-5 pb-5 border-bottom border-white-10">
           <div class="col-lg-6 mb-4 mb-lg-0">
-            <h3 class="fw-bold mb-3 text-white">Qlobal Baş Ofis</h3>
+            <h3 class="fw-bold mb-3 text-white">Baş Ofis</h3>
             <div class="map-container shadow-lg mb-3">
               <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3038.0061848378305!2d49.85997037601059!3d40.40871377144082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDI0JzMxLjQiTiA0OcKwNTEnNDUuMiJF!5e0!3m2!1sen!2saz!4v1769815983505!5m2!1sen!2saz" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PROBIZ Baş Ofis Xəritəsi"></iframe>
             </div>
@@ -658,14 +620,6 @@
               <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Mətbuat</a></li>
             </ul>
           </div>
-          <div class="col-6 col-lg-2">
-            <h6 class="text-accent text-caps mb-3 small">Ekspertiza</h6>
-            <ul class="list-unstyled text-white opacity-75">
-              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Korporativ</a></li>
-              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Məhkəmə Çəkişməsi</a></li>
-              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Əqli Mülkiyyət</a></li>
-            </ul>
-          </div>
           <div class="col-lg-3">
             <h6 class="text-accent text-caps mb-3 small">Əlaqə</h6>
             <ul class="list-unstyled opacity-75 mb-4">
@@ -689,21 +643,17 @@
       </div>
     </footer>
 
-    <!-- Mobile CTA -->
     <div class="mobile-sticky-cta d-md-none">
         <a href="tel:8776674265" class="mobile-cta-btn bg-white text-dark border-end">Ekspertlə Danışın</a>
         <a href="mailto:legal@probiz.com" class="mobile-cta-btn btn-accent text-white">Bizə Yazın</a>
     </div>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
 
-    <!-- App Logic -->
     <script src="../js/main.js"></script>
   </body>
 </html>

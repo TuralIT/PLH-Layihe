@@ -2,9 +2,7 @@
 
 window.PROBIZ = window.PROBIZ || {};
 
-/* --- 1. UI MODULE --- */
 PROBIZ.ui = (function() {
-    // Cache DOM Elements
     const navbar = document.querySelector('.plh-nav');
     const progressBar = document.getElementById("scroll-progress");
 
@@ -17,18 +15,15 @@ PROBIZ.ui = (function() {
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
 
-            // 1. Navbar Glassmorphism Transition
             if (scrollY > 50) navbar.classList.add('nav-scrolled');
             else navbar.classList.remove('nav-scrolled');
 
-            // 2. Reading Progress Bar (Top of screen)
             if (progressBar) {
                 const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 const scrolled = (scrollY / height) * 100;
                 progressBar.style.width = `${scrolled}%`;
             }
 
-            // 3. Mobile Sticky CTA Visibility
             const mobileCTA = document.querySelector('.mobile-sticky-cta');
             if (mobileCTA) {
                 if (scrollY > 300) mobileCTA.classList.add('cta-visible');
@@ -37,22 +32,16 @@ PROBIZ.ui = (function() {
         }, { passive: true });
     };
 
-    /**
-     * Clones testimonial cards for infinite marquee effect.
-     * Removes the need for manual HTML duplication.
-     */
     const _initTestimonials = () => {
         const track = document.querySelector('.marquee-track-right');
         if (!track) return;
 
-        // Clone all children to ensure seamless loop
         const items = Array.from(track.children);
         items.forEach(item => {
             const clone = item.cloneNode(true);
             track.appendChild(clone);
         });
         
-        // Clone one more set for extra wide screens if needed
          items.forEach(item => {
             const clone = item.cloneNode(true);
             track.appendChild(clone);
@@ -62,17 +51,11 @@ PROBIZ.ui = (function() {
     return { init };
 })();
 
-/* --- 2. MOTION MODULE (GSAP & Lenis) --- */
-/**
- * Manages all GSAP animations and smooth scrolling.
- * Checks for library existence to prevent runtime errors.
- */
 PROBIZ.motion = (function() {
     const isMobile = window.innerWidth < 992;
     let heroSliderInterval;
 
     const init = () => {
-        // Safety Check: Ensure GSAP is loaded via local libraries
         if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
             console.warn('PROBIZ Motion: GSAP or ScrollTrigger not found. Animations disabled.');
             return;
@@ -81,36 +64,30 @@ PROBIZ.motion = (function() {
         _initLenis();
         _registerGSAP();
 
-        // Initialize Sequences
-        _heroCarousel();      // Hero Slider Logic
-        _processPinning();    // Protocol Section (Scroll Pinning)
-        _scrollReveals();     // Standard Fade-ins
-        _initCounters();      // Number Counting
+        _heroCarousel();
+        _processPinning();
+        _scrollReveals();
+        _initCounters();
 
-        // Desktop Only: Magnetic Buttons
         if (!isMobile) {
             _magneticInteractions();
         }
     };
 
-    /**
-     * Initialize Lenis Smooth Scrolling.
-     */
     const _initLenis = () => {
         if (typeof Lenis === 'undefined' || isMobile) return;
 
         const lenis = new Lenis({
-            lerp: 0.05,             // Lower = Smoother, Higher = More responsive
+            lerp: 0.05,
             wheelMultiplier: 0.9,   
             smoothWheel: true,
             wrapper: window,        
             content: document.body 
         });
 
-        // Sync Lenis with GSAP ScrollTrigger
         lenis.on('scroll', ScrollTrigger.update);
         gsap.ticker.add((time) => {
-            lenis.raf(time * 1000); // Standardize time for Lenis
+            lenis.raf(time * 1000);
         });
         gsap.ticker.lagSmoothing(0);
     };
@@ -120,10 +97,6 @@ PROBIZ.motion = (function() {
         gsap.defaults({ ease: "power3.out", duration: 1.0 });
     };
 
-    /**
-     * Hero Section Custom Carousel.
-     * Manages slide transitions, text reveals, and auto-play.
-     */
     const _heroCarousel = () => {
         const slides = document.querySelectorAll('.hero-slide');
         const nextBtn = document.getElementById('nextSlide');
@@ -134,7 +107,6 @@ PROBIZ.motion = (function() {
         let currentIndex = 0;
         let isAnimating = false;
 
-        // Animate first slide on load
         _animateSlideContent(slides[0]);
 
         const changeSlide = (direction) => {
@@ -144,18 +116,15 @@ PROBIZ.motion = (function() {
             const currentSlide = slides[currentIndex];
             let nextIndex = (direction === 'next') ? currentIndex + 1 : currentIndex - 1;
 
-            // Loop logic
             if (nextIndex >= slides.length) nextIndex = 0;
             if (nextIndex < 0) nextIndex = slides.length - 1;
 
             const nextSlide = slides[nextIndex];
 
-            // 1. Set Initial State for Incoming Slide (Hidden/Offset)
             gsap.set(nextSlide.querySelectorAll('.slide-badge, .slide-title, .slide-desc, .slide-btns'), { 
                 y: 30, autoAlpha: 0 
             });
 
-            // 2. Timeline Sequence
             const tl = gsap.timeline({
                 onComplete: () => {
                     currentIndex = nextIndex;
@@ -165,11 +134,9 @@ PROBIZ.motion = (function() {
                 }
             });
 
-            // Crossfade Slides
             tl.to(currentSlide, { autoAlpha: 0, duration: 1.2, ease: "power2.inOut" })
               .to(nextSlide, { autoAlpha: 1, duration: 1.2, ease: "power2.inOut" }, "-=1.2");
 
-            // Animate Text Elements (Staggered)
             const elements = nextSlide.querySelectorAll('.slide-badge, .slide-title, .slide-desc, .slide-btns');
             tl.to(elements, {
                 y: 0,
@@ -180,7 +147,6 @@ PROBIZ.motion = (function() {
             }, "-=0.8");
         };
 
-        // Helper: Initial Slide Animation
         function _animateSlideContent(slide) {
             const elements = slide.querySelectorAll('.slide-badge, .slide-title, .slide-desc, .slide-btns');
             gsap.set(elements, { y: 30, autoAlpha: 0 });
@@ -189,7 +155,6 @@ PROBIZ.motion = (function() {
             });
         }
 
-        // Event Listeners
         if (nextBtn) nextBtn.addEventListener('click', () => {
             clearInterval(heroSliderInterval);
             changeSlide('next');
@@ -208,34 +173,27 @@ PROBIZ.motion = (function() {
         _startAutoPlay();
     };
 
-    /**
-     * Protocol Section Pinning.
-     * Pins the left column and reveals cards one by one on scroll.
-     */
     const _processPinning = () => {
         const pinContainer = document.querySelector('.protocol-pin-container');
         const cards = document.querySelectorAll('.protocol-stack-card');
         
         if (!pinContainer || cards.length === 0) return;
 
-        // Move cards off-screen (down)
         const offset = isMobile ? "150%" : "175%";
         gsap.set(cards, { y: offset, autoAlpha: 1 }); 
         
-        // Define ScrollTrigger
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: pinContainer,
-                start: "top top", // Start immediately when section hits top
-                end: isMobile ? "+=300%" : "+=200%", // Duration of the pin (how long to stay)
-                pin: true,       // Pin the container
-                scrub: 1,        // Smooth scrubbing
+                start: "top top",
+                end: isMobile ? "+=300%" : "+=200%",
+                pin: true,
+                scrub: 1,
                 anticipatePin: 1,
                 invalidateOnRefresh: true,
             }
         });
 
-        // Lift each card into view
         cards.forEach((card, index) => {
             tl.to(card, { 
                 y: "0%", 
@@ -245,9 +203,6 @@ PROBIZ.motion = (function() {
         });
     };
 
-    /**
-     * Standard fade-up reveals for sections.
-     */
     const _scrollReveals = () => {
         const revealElements = document.querySelectorAll('.class-to-animate, .row.mb-5');
 
@@ -266,7 +221,6 @@ PROBIZ.motion = (function() {
             );
         });
 
-        // Staggered reveals for grids
         _staggerReveal('.result-card-gsap', 0.15);
         _staggerReveal('.attorney-card-gsap', 0.2);
     };
@@ -295,7 +249,6 @@ PROBIZ.motion = (function() {
                     once: true
                 },
                 onUpdate: function() {
-                    // Format number with commas during animation
                     this.targets()[0].innerText = Math.ceil(this.targets()[0].innerText).toLocaleString();
                 }
             });
@@ -322,7 +275,6 @@ PROBIZ.motion = (function() {
 
 
 
-// App Bootstrap
 document.addEventListener('DOMContentLoaded', () => {
     PROBIZ.ui.init();
     PROBIZ.motion.init(); 

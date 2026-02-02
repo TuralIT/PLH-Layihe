@@ -1,54 +1,36 @@
-/* ==========================================================================
-   TABLE OF CONTENTS:
-   1. Variables & Palette
-   2. Reset & Base
-   3. Utilities (Color, Spacing, Animation)
-   4. Components (Buttons, Glossary)
-   5. Layout Regions (Nav, Hero, Footer)
-   6. Page Modules (Bento, Protocol, Stats)
-   7. Responsive Overrides (Mobile) 
-   8. Motion & Libs (GSAP/Lenis)
-   ========================================================================== */
 
-/* --- 1. VARIABLES & PALETTE --- */
 :root {
-    /* Brand Colors */
-    --plh-base: #092c3a;        /* Darker, richer Deep Teal for authority */
-    --plh-accent: #29a9bd;      /* Cyan - Primary Accent */
+    --plh-base: #092c3a;
+    --plh-accent: #29a9bd;
     --plh-accent-glow: rgba(41, 169, 189, 0.25);
     
-    /* Light Mode Utils */
     --plh-white: #ffffff;
-    --plh-light-bg: #f4f6f7;    /* Cool gray-white / Light Section Bg */
-    --plh-text-dark: #121e24;   /* Almost black */
+    --plh-light-bg: #f4f6f7;
+    --plh-text-dark: #121e24;
     --plh-text-muted: #5e6d75;  
     
-    /* Typography */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
     --font-brand: 'Cinzel', serif;
 
-    /* Spacing & Borders */
     --plh-radius-sm: 4px;
     --plh-radius-lg: 12px;
 }
 
-/* --- 2. RESET & BASE --- */
+
 html, body {
-    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+    overflow-x: hidden;
     width: 100%;
     position: relative;
 }
 
-/* Responsive Typography - Root Scaling */
-html { font-size: 16px; } /* Desktop Default */
+html { font-size: 16px; }
 
 @media (max-width: 1199px) { html { font-size: 15px; } }
 @media (max-width: 991px)  { html { font-size: 14.5px; } }
 @media (max-width: 768px)  { html { font-size: 14px; } }
 @media (max-width: 576px) { 
     html { font-size: 13px; } 
-    /* Clamp display headings so they don't break layout on very small screens */
     h1, .display-1, .display-2 { font-size: clamp(2rem, 8vw, 3.5rem) !important; }
 }
 
@@ -57,13 +39,13 @@ body {
     color: var(--plh-text-dark);
     font-family: var(--font-body);
     font-weight: 400;
-    font-size: 1.125rem; /* ~18px base text */
+    font-size: 1.125rem;
     line-height: 1.7;
 }
 
 h1, h2, h3, h4, h5 { font-family: var(--font-heading); font-weight: 700; color: var(--plh-base); }
 
-/* Desktop Typography Scale */
+
 @media (min-width: 992px) {
     h1, .h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1.5rem; }
     h2, .h2 { font-size: 2.75rem; line-height: 1.2; margin-bottom: 1.25rem; }
@@ -76,20 +58,17 @@ h1, h2, h3, h4, h5 { font-family: var(--font-heading); font-weight: 700; color: 
 }
 a { text-decoration: none; transition: 0.3s; }
 
-/* --- 3. UTILITIES --- */
 .text-accent { color: var(--plh-accent) !important; }
 .text-white { color: var(--plh-white) !important; }
 .bg-light-section { background-color: var(--plh-light-bg); }
 .border-white-10 { border-color: rgba(255,255,255,0.1) !important; }
 
-/* Opacity Helpers */
 .opacity-80 { opacity: 0.8; }
 .opacity-75 { opacity: 0.75; }
 .opacity-40 { opacity: 0.40; }
 .opacity-25 { opacity: 0.25; }
 .opacity-10 { opacity: 0.10; }
 
-/* Spacing & Typography Helpers */
 .section-padding { padding: 60px 0; }
 .letter-spacing-2 { letter-spacing: 2px; }
 .text-caps { 
@@ -98,13 +77,11 @@ a { text-decoration: none; transition: 0.3s; }
 }
 .lh-1 { line-height: 1; }
 
-/* Animations */
 .hover-lift { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 .hover-lift:hover { transform: translateY(-3px); }
 
 .counter { font-variant-numeric: tabular-nums; }
 
-/* Glassmorphism */
 .glass-card {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px);
@@ -121,9 +98,6 @@ a { text-decoration: none; transition: 0.3s; }
 }
 .shadow-lg { box-shadow: 0 1rem 3rem rgba(13, 59, 76, 0.15) !important; }
 
-/* --- 4. COMPONENTS --- */
-
-/* Buttons */
 .btn-accent {
     background-color: var(--plh-accent);
     color: white;
@@ -158,16 +132,15 @@ a { text-decoration: none; transition: 0.3s; }
 }
 .btn-outline-dark:hover { background-color: var(--plh-base); color: white; }
 
-/* Mobile Sticky CTA */
 .mobile-sticky-cta {
     position: fixed; bottom: 0; left: 0; width: 100%;
     z-index: 9999; display: flex;
     box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-    transform: translateY(100%); /* Start hidden */
+    transform: translateY(100%);
     transition: transform 0.4s ease-in-out;
 }
 .mobile-sticky-cta.cta-visible {
-    transform: translateY(0); /* Slide in */
+    transform: translateY(0);
 }
 .mobile-cta-btn {
     flex: 1; text-align: center; padding: 15px;
@@ -175,9 +148,6 @@ a { text-decoration: none; transition: 0.3s; }
     font-size: 0.9rem; letter-spacing: 1px;
 }
 
-/* --- 5. LAYOUT REGIONS --- */
-
-/* 5.1 Navbar */
 .plh-nav {
     background-color: transparent;
     border-bottom: 1px solid transparent;
@@ -202,7 +172,6 @@ a { text-decoration: none; transition: 0.3s; }
 }
 .brand-divider { height: 40px; width: 1px; background-color: rgba(255,255,255,0.15); }
 
-/* Brand Text */
 .brand-text .brand-title {
     font-family: var(--font-brand);
     font-weight: 500;
@@ -231,7 +200,6 @@ a { text-decoration: none; transition: 0.3s; }
 }
 
 
-/* Nav Link Items */
 .navbar-nav .nav-link {
     color: rgba(255,255,255,0.85) !important;
     font-weight: 500;
@@ -244,12 +212,9 @@ a { text-decoration: none; transition: 0.3s; }
 }
 .navbar-nav .nav-link:hover { color: var(--plh-accent) !important; }
 
-/* Dropdown Menus (Global) */
-/* Language & Utilities Toggle */
-/* Language & Utilities Toggle */
 .plh-nav .dropdown-toggle {
     color: rgba(255,255,255,0.85) !important;
-    font-size: 1.2rem !important; /* Match Nav Links */
+    font-size: 1.2rem !important;
     padding: 10px 0 !important;
     transition: all 0.3s ease;
     display: flex; align-items: center; gap: 8px;
@@ -258,10 +223,9 @@ a { text-decoration: none; transition: 0.3s; }
     color: var(--plh-accent) !important;
 }
 .plh-nav.nav-scrolled .dropdown-toggle {
-    font-size: 1rem !important; /* Shrink to match Nav Links */
+    font-size: 1rem !important;
 }
 
-/* Dropdown Menu Container */
 .dropdown-menu {
     background-color: rgba(13, 59, 76, 0.98) !important;
     backdrop-filter: blur(15px);
@@ -274,7 +238,6 @@ a { text-decoration: none; transition: 0.3s; }
     z-index: 9999;
     min-width: 240px;
     
-    /* Animation Initial State */
     display: block;
     opacity: 0;
     visibility: hidden;
@@ -294,7 +257,7 @@ a { text-decoration: none; transition: 0.3s; }
     color: rgba(255, 255, 255, 0.85) !important;
     padding: 10px 20px;
     font-weight: 500;
-    font-size: 1.4rem; /* Match Nav Links */
+    font-size: 1.4rem;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
@@ -302,7 +265,7 @@ a { text-decoration: none; transition: 0.3s; }
 }
 
 .plh-nav.nav-scrolled .dropdown-menu .dropdown-item {
-    font-size: 1.2rem; /* Shrink to match */
+    font-size: 1.2rem;
     padding: 8px 20px; 
 }
 .dropdown-menu .dropdown-item i {
@@ -314,10 +277,10 @@ a { text-decoration: none; transition: 0.3s; }
     background-color: rgba(41, 169, 189, 0.1) !important;
     color: #fff !important;
     border-left-color: var(--plh-accent);
-    padding-left: 25px; /* Slide effect */
+    padding-left: 25px;
 }
 .dropdown-menu .dropdown-item.active {
-    background-color: rgba(41, 169, 189, 0.2) !important; /* Slightly stronger for active */
+    background-color: rgba(41, 169, 189, 0.2) !important;
     color: var(--plh-accent) !important;
 }
 .dropdown-menu .dropdown-item:hover i, .dropdown-menu .dropdown-item.active i {
@@ -327,21 +290,18 @@ a { text-decoration: none; transition: 0.3s; }
 }
 .dropdown-divider { border-top: 1px solid rgba(255,255,255,0.1) !important; }
 
-/* 5.2 Hero Section */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding-top: 100px;
-    background: transparent; /* Handled by slides */
+    background: transparent;
     color: white;
 }
 .hero h1 { color: white; }
 
-/* 5.3 Stats Bar */
 .stats-bar { background-color: var(--plh-base); padding: 50px 0; color: white; }
 
-/* 5.4 Footer */
 .plh-footer {
     background-color: #061e26; 
     padding: 80px 0 30px 0;
@@ -379,15 +339,16 @@ a { text-decoration: none; transition: 0.3s; }
 }
 .map-container:hover { filter: grayscale(0%); border-color: var(--plh-accent); }
 
-/* --- 6. PAGE MODULES --- */
+.map-container iframe {
+    display: block;
+    width: 100%;
+}
 
-/* 6.1 Trust Ticker */
 .trust-ticker { overflow: hidden; white-space: nowrap; }
 .marquee-wrapper { width: 100%; overflow: hidden; }
 .marquee-content { display: inline-flex; animation: scroll-left 40s linear infinite; }
 @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-/* 6.2 Bento Grid */
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -412,16 +373,27 @@ a { text-decoration: none; transition: 0.3s; }
 .bento-span-8 { grid-column: span 8; }
 .bento-span-6 { grid-column: span 6; }
 
-/* 6.3 Attorneys */
-.card-attorney img {
-    filter: grayscale(100%);
-    transition: 0.5s;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-}
-.card-attorney:hover img { filter: grayscale(0%); transform: scale(1.02); }
+.card-attorney { cursor: pointer; }
 
-/* 6.4 Protocol / 3-Step Process (Pinned Layout) */
+.attorney-img-wrap {
+    overflow: hidden;
+    border-radius: var(--plh-radius-lg);
+    aspect-ratio: 4/5;
+    margin-bottom: 1rem;
+}
+.attorney-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.2, 1);
+    filter: grayscale(100%);
+    display: block;
+}
+.card-attorney:hover .attorney-img-wrap img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
 .protocol-bg {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -448,22 +420,18 @@ a { text-decoration: none; transition: 0.3s; }
     position: relative;
 }
 
-/* Stack Cards for Sequential Reveal */
 .protocol-stack-card {
     border-radius: var(--plh-radius-lg);
     overflow: hidden;
     background-color: var(--plh-base);
     transform-origin: center bottom;
     transition: box-shadow 0.3s;
-    box-shadow: 0 -10px 40px rgba(0,0,0,0.15); /* Shadow pointing up for better layering */
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
 }
 .protocol-stack-card:hover {
     box-shadow: 0 -20px 60px rgba(0,0,0,0.3);
 }
 
-
-
-/* 6.6 Result Boxes */
 .bento-result-card {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(20px);
@@ -492,7 +460,6 @@ a { text-decoration: none; transition: 0.3s; }
 }
 .border-dashed { border: 2px dashed rgba(255, 255, 255, 0.1); background: transparent; }
 
-/* 6.7 Review Cards */
 .marquee-track-right { display: flex; gap: 30px; padding: 20px 0; animation: scroll-right 25s linear infinite; }
 @keyframes scroll-right { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
@@ -514,7 +481,6 @@ a { text-decoration: none; transition: 0.3s; }
 .review-quote { font-style: italic; font-size: 1.05rem; line-height: 1.7; color: var(--plh-text-dark); margin-bottom: 25px; }
 .author-role { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--plh-accent); font-weight: 600; }
 
-/* 6.8 Social Icons */
 .social-icon-btn {
     display: inline-flex; align-items: center; justify-content: center;
     width: 40px; height: 40px;
@@ -529,7 +495,6 @@ a { text-decoration: none; transition: 0.3s; }
     text-shadow: 0 0 15px var(--plh-accent-glow);
 }
 
-/* 6.9 Watermark */
 .bg-watermark {
     position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
@@ -539,7 +504,6 @@ a { text-decoration: none; transition: 0.3s; }
     pointer-events: none; letter-spacing: -20px;
 }
 
-/* --- 7. MISC UTILITIES --- */
 #scroll-progress {
     position: fixed; top: 0; left: 0;
     width: 0%; height: 3px;
@@ -548,18 +512,12 @@ a { text-decoration: none; transition: 0.3s; }
     transition: width 0.1s ease-out;
 }
 
-/* --- 8. MOTION & LIBS --- */
-
-/* Lenis Recommended CSS */
-html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibility */
+html.lenis { margin: 0; overflow-y: hidden; }
 .lenis.lenis-smooth { scroll-behavior: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 .lenis.lenis-scrolling iframe { pointer-events: none; }
 
-/* --- 9. RESPONSIVE OVERRIDES --- */
-
-/* Mobile Nav & Dropdowns */
 @media (max-width: 991px) {
     .container .row { margin-right: 0 !important; margin-left: 0 !important; }
     .container-fluid { padding-right: 0 !important; padding-left: 0 !important; }
@@ -575,7 +533,6 @@ html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibi
         border-bottom: 2px solid var(--plh-accent);
     }
 
-    /* Reset Dropdown Animation for Mobile */
     .navbar-nav .dropdown-menu {
         position: static !important; float: none; width: 100%;
         margin-top: 0 !important; background-color: transparent !important;
@@ -588,7 +545,6 @@ html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibi
     .dropdown-menu .dropdown-item { color: rgba(255,255,255,0.7) !important; padding: 10px 15px; font-size: 0.9rem; }
     .dropdown-menu .dropdown-item:hover { background: transparent !important; color: var(--plh-accent) !important; padding-left: 20px; }
     
-    /* Utilities (Lang Switcher) */
     .nav-utilities { flex-wrap: wrap; }
     .nav-utilities .dropdown { position: static; }
     .nav-utilities .dropdown-menu {
@@ -599,7 +555,6 @@ html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibi
     .nav-utilities .dropdown-menu.show { display: block; width: 100%; animation: mobileFadeIn 0.3s ease; }
     .nav-utilities .dropdown-item { color: rgba(255,255,255,0.7) !important; padding: 8px 0; }
     
-    /* Restore overscroll for mobile nav if Lenis is active on body */
     .navbar-collapse {
         overscroll-behavior: contain;
     }
@@ -607,18 +562,15 @@ html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibi
 
 @keyframes mobileFadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Desktop Utilities Alignment */
 @media (min-width: 992px) {
     .nav-utilities .dropdown-menu { right: 0 !important; left: auto !important; margin-top: 15px !important; }
 }
 
-/* Mobile Layout Shifts */
 @media (max-width: 991px) {
     .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
     .bento-span-4, .bento-span-8, .bento-span-6 { grid-column: span 1; }
     .bento-item { min-height: 250px; }
 
-    /* Protocol Stack Mobile - Convert to Simple Scroll List */
     .protocol-pin-container { 
         height: 100vh !important;
         position: relative;
@@ -664,7 +616,7 @@ html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibi
         height: 60vh !important; 
         max-height: none !important;
         aspect-ratio: auto !important;
-        transform: translateY(110%); /* JS will handle reveal */
+        transform: translateY(110%);
         box-shadow: 0 -10px 30px rgba(0,0,0,0.15) !important;
     }
     
@@ -675,26 +627,23 @@ html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibi
     .protocol-content i { display: none; } 
 }
 
-@media (max-width: 768px) {
-    /* Dynamic Mobile Navbar */
+@media (max-width: 991px) {
     .plh-nav { 
-        padding: 25px 20px !important; /* Start larger on mobile */
+        padding: 25px 20px !important;
         transition: padding 0.4s ease;
     }
     .plh-nav.nav-scrolled { 
-        padding: 10px 20px !important; /* Shrink */
+        padding: 10px 20px !important;
     }
 
-    /* Mobile Logo Scaling - Forced Priority */
     .nav-logo { 
-        height: 70px !important; /* Force Large Size */
+        height: 70px !important;
         transition: height 0.4s ease; 
     }
     .plh-nav.nav-scrolled .nav-logo { 
-        height: 50px !important; /* Explicit shrink */
+        height: 50px !important;
     }
 
-    /* Mobile Brand Text Scaling */
     .brand-text .brand-title { 
         font-size: 1.5rem !important; 
         transition: font-size 0.4s ease;
@@ -711,26 +660,25 @@ html.lenis { margin: 0; overflow-y: hidden; } /* Recommended for Lenis compatibi
         font-size: 0.65rem !important; margin-top: 0;
     }
 
-    /* Mobile Toggler Icon Scaling */
     .navbar-toggler i {
-        font-size: 2.5rem !important; /* Start Big */
+        font-size: 2.5rem !important;
         transition: font-size 0.4s ease;
     }
     .plh-nav.nav-scrolled .navbar-toggler i {
-        font-size: 1.75rem !important; /* Shrink to match flow */
+        font-size: 1.75rem !important;
     }
+}
+
+@media (max-width: 768px) {
 
     .marquee-content { gap: 2rem; }
     
-    /* Faster reviews on mobile */
     .marquee-track-right { animation-duration: 5.5s; }
 
-    /* Ensure footer content is visible above sticky CTA */
     .plh-footer { padding-bottom: 80px !important; }
 }
 
 @media (max-width: 411px) {
-    /* Small Screen - Allow slight shrinking */
     .brand-title { 
         font-size: 1.3rem !important; 
         transition: font-size 0.4s ease;
