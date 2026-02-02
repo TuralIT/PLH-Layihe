@@ -7,24 +7,26 @@
     
     <title>PROBIZ LEGAL HUB | Стратегия Корпоративной Защиты</title>
     
-    <!-- External Dependencies -->
+    <!-- External Dependencies (CDN) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     
-    <link rel="icon" href="../PLHLogo.png" type="image/png" />
+    <!-- Local Assets -->
+    <link rel="icon" href="../images/PLHLogo.png" type="image/png" />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   
   <body class="d-flex flex-column min-vh-100">
+    <!-- Smooth Scroll Progress Bar -->
     <div id="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
     <!-- MAIN NAVIGATION -->
-    <nav class="navbar navbar-expand-xl fixed-top plh-nav" aria-label="Main navigation">
-      <div class="container-fluid px-lg-5">
-        <a class="navbar-brand d-flex align-items-center" href="#" aria-label="PROBIZ Legal Hub Home">
-          <img src="../PLHLogo.png" alt="PROBIZ Legal Hub Logo" class="nav-logo">
+    <!-- Fixed top with glassmorphism effect on scroll -->
+    <nav class="navbar navbar-expand-md fixed-top plh-nav" aria-label="Основная навигация">
+      <div class="container-fluid px-md-5">
+        <a class="navbar-brand d-flex align-items-center" href="#" aria-label="PROBIZ Legal Hub Главная">
+          <img src="../images/PLHLogo.png" alt="PROBIZ Legal Hub Логотип" class="nav-logo">
           <div class="brand-divider mx-3"></div>
           <div class="brand-text">
             <span class="d-block brand-title">PROBIZ</span>
@@ -32,185 +34,203 @@
           </div>
         </a>
 
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#plhNavbar" aria-controls="plhNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#plhNavbar" aria-controls="plhNavbar" aria-expanded="false" aria-label="Переключить навигацию">
           <i class="bi bi-list text-accent fs-1"></i>
         </button>
 
         <div class="collapse navbar-collapse" id="plhNavbar">
           <ul class="navbar-nav ms-auto align-items-center">
-            <li class="nav-item">
-              <a class="nav-link" href="#results">Наши Результаты</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#global-footer">Офисы</a>
-            </li>
-            <li class="nav-item dropdown has-megamenu">
-              <a class="nav-link btn-outlined-accent dropdown-toggle" href="#" id="practiceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Сферы Деятельности
+            <li class="nav-item"><a class="nav-link" href="#results">Наши Результаты</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Команда</a></li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="practiceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Сферы Практики
               </a>
-              <div class="dropdown-menu megamenu shadow-lg" aria-labelledby="practiceDropdown">
-                <div class="container py-4">
-                  <div class="row g-4 justify-content-center">
-                    <div class="col-md-3">
-                      <a href="#" class="mega-card-mini">
-                        <i class="bi bi-car-front text-accent"></i>
-                        <span>Автомобильные Аварии</span>
-                      </a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="#" class="mega-card-mini">
-                        <i class="bi bi-hospital text-accent"></i>
-                        <span>Медицинская Халатность</span>
-                      </a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="#" class="mega-card-mini">
-                        <i class="bi bi-person-walking text-accent"></i>
-                        <span>Несчастные Случаи</span>
-                      </a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="#" class="mega-card-mini">
-                        <i class="bi bi-truck text-accent"></i>
-                        <span>Грузовые Перевозки</span>
-                      </a>
-                    </div>
-                    <div class="col-12 text-center mt-5 pt-3 border-top border-white-10">
-                      <a href="#" class="text-accent text-decoration-none fw-bold letter-spacing-2 small more-link">
-                        СМОТРЕТЬ ВСЕ ПРАКТИКИ
-                        <i class="bi bi-arrow-right ms-2"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ul class="dropdown-menu shadow-lg" aria-labelledby="practiceDropdown">
+                <li><a class="dropdown-item" href="#"><i class="bi bi-car-front me-2"></i> ДТП</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-hospital me-2"></i> Врачебная Халатность</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-person-walking me-2"></i> Несчастные Случаи</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-truck me-2"></i> Грузоперевозки</a></li>
+                <li><hr class="dropdown-divider bg-light opacity-10 my-2"></li>
+                <li>
+                    <a class="dropdown-item fs-6 text-accent small" href="#">ВСЕ СФЕРЫ <i class="bi bi-arrow-right ms-1"></i></a>
+                </li>
+              </ul>
             </li>
+
             <li class="nav-item"><a class="nav-link" href="#">О Нас</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Контакты</a></li>
           </ul>
 
           <div class="nav-utilities d-flex align-items-center ms-xl-4 gap-3 mt-3 mt-xl-0">
-             <!-- Language Switcher -->
-             <div class="dropdown">
-                <a href="#" class="text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-label="Change Language"><i class="bi bi-globe2 small"></i> RU</a>
+            <!-- Language Switcher -->
+            <div class="dropdown">
+                <a href="#" class="text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-label="Сменить язык"><i class="bi bi-globe2 small"></i> RU</a>
                 <ul class="dropdown-menu dropdown-menu-dark">
                     <li><a class="dropdown-item" href="../en/index.html">English</a></li>
                     <li><a class="dropdown-item" href="../az/index.html">Azerbaijani</a></li>
                     <li><a class="dropdown-item active" href="../ru/index.html">Russian</a></li>
                 </ul>
             </div>
-            
-            <button class="btn btn-link text-white p-0 border-0" id="search-trigger" aria-label="Toggle Search"><i class="bi bi-search"></i></button>
-            
-            <div id="search-dropdown" class="search-dropdown">
-              <div class="search-inner">
-                <label for="dropdown-search-input" class="visually-hidden">Search insights</label>
-                <input type="text" id="dropdown-search-input" class="dropdown-search-field" placeholder="Поиск..." />
-                <button type="button" id="close-dropdown-search" class="search-submit-icon" aria-label="Submit Search">
-                  <i class="bi bi-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-            
-            <a href="tel:8776674265" class="phone-cta">(877) 667-4265</a>
           </div>
         </div>
       </div>
     </nav>
 
+    <!-- MAIN CONTENT WRAPPER -->
     <main class="flex-grow-1">
       
-      <!-- HERO -->
+      <!-- 1. HERO SECTION -->
+      <!-- Features a custom GSAP Carousel with separated logic for backgrounds and content -->
       <header class="hero position-relative overflow-hidden">
-        <div class="video-bg-overlay"></div>
-        <div class="container position-relative z-2">
-          <div class="row min-vh-100 align-items-center pb-5">
-            <div class="col-lg-9 pt-5">
-              <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3 mb-4">
-                  <span class="d-inline-block py-1 px-3 border border-white-50 rounded-pill text-white small text-uppercase letter-spacing-2">
-                    <i class="bi bi-shield-check me-2 text-accent"></i> Элитная Корпоративная Защита
-                  </span>
-                  <div class="d-flex gap-2">
-                      <span class="badge bg-white text-dark rounded-pill fw-bold small"><i class="bi bi-award-fill text-accent"></i> Топ-100 Адвокатов</span>
-                      <span class="badge bg-white text-dark rounded-pill fw-bold small"><i class="bi bi-star-fill text-accent"></i> Super Lawyers</span>
-                  </div>
-              </div>
-              
-              <h1 class="display-2 fw-bold text-white mb-4 lh-sm">
-                Элитная Корпоративная Защита и<br />
-                <span class="text-accent fst-italic">Стратегические Споры.</span>
-              </h1>
-              <p class="lead text-white-50 mb-5 col-lg-8">
-                Мы создаем результаты для самых амбициозных предприятий мира. Нам доверяют Fortune 500 в вопросах, где ставки высоки.
-              </p>
-              
-              <div class="d-flex gap-3 flex-column flex-sm-row">
-                <a href="#assessmentForm" class="btn btn-accent px-5 py-3 shadow-lg hover-lift">
-                  <i class="bi bi-calendar-check me-2"></i> Назначить Консультацию
-                </a>
-                <a href="#results" class="btn btn-outline-white px-5 py-3 hover-lift">
-                  Истории Успеха
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- HERO BOTTOM CONTAINER (Ticker + Mobile CTA) -->
-        <div class="hero-bottom-wrapper position-absolute bottom-0 start-0 w-100 z-3">
+        
+        <!-- SLIDER WRAPPER -->
+        <div class="hero-slider-wrapper position-absolute top-0 start-0 w-100 h-100 z-1">
             
-            <!-- TRUST TICKER -->
-            <div class="trust-ticker py-3 bg-dark border-bottom border-top border-white-10" aria-label="Verified Results Ticker">
-                <div class="marquee-wrapper">
-                <div class="marquee-content d-flex gap-5 align-items-center">
-                    <span class="text-white-50 small text-uppercase letter-spacing-2">Подтвержденные Результаты:</span>
-                    
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="text-white fw-bold">$42.5M</span>
-                        <span class="text-secondary fw-normal text-uppercase">Экологич. Комплаенс</span>
-                    </div>
-                    <span class="brand-divider opacity-25" style="height: 15px"></span>
-                    
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="text-white fw-bold">$18.2M</span>
-                        <span class="text-secondary fw-normal text-uppercase">Возврат ИС</span>
-                    </div>
-                    <span class="brand-divider opacity-25" style="height: 15px"></span>
-                    
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="text-white fw-bold">$9.8M</span>
-                        <span class="text-secondary fw-normal text-uppercase">Спор по Недвижимости</span>
-                    </div>
-                    <span class="brand-divider opacity-25" style="height: 15px"></span>
-                    
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="text-white fw-bold">ОТКЛОНЕНО</span>
-                        <span class="text-secondary fw-normal text-uppercase">Групповой Иск (NY)</span>
-                    </div>
-                    
-                    <!-- Duplicated for Infinite Effect -->
-                    <span class="brand-divider opacity-25" style="height: 15px"></span>
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="text-white fw-bold">$42.5M</span>
-                        <span class="text-secondary fw-normal text-uppercase">Экологич. Комплаенс</span>
-                    </div>
-                    <span class="brand-divider opacity-25" style="height: 15px"></span>
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="text-white fw-bold">$18.2M</span>
-                        <span class="text-secondary fw-normal text-uppercase">Возврат ИС</span>
+            <!-- Slide 1: General Introduction -->
+            <div class="hero-slide active position-absolute top-0 start-0 w-100 h-100" style="opacity: 1; visibility: visible;">
+                <div class="slide-bg position-absolute w-100 h-100" style="background: linear-gradient(135deg, rgba(13, 59, 76, 0.6) 0%, rgba(6, 30, 40, 0.6) 100%), url('../images/Carusel1.png'); background-size: cover; background-position: center;"></div>
+                <div class="container h-100 position-relative z-2">
+                    <div class="row min-vh-100 align-items-center pb-5">
+                        <div class="col-lg-9 pt-5">
+                            <div class="slide-content">
+                                <span class="d-inline-block py-1 px-3 border border-white-50 rounded-pill text-white small text-caps mb-4 slide-badge">
+                                    <i class="bi bi-shield-check me-2 text-accent"></i> Надежная Правовая Защита
+                                </span>
+                                <h1 class="display-2 fw-bold text-white mb-4 lh-sm slide-title">
+                                    Экспертная Защита. <br />
+                                    <span class="text-accent fst-italic">Для Бизнеса.</span> <br />
+                                    <span class="text-white fst-italic">Для Семьи.</span>
+                                </h1>
+                                <p class="lead text-white-50 mb-5 col-lg-8 slide-desc">
+                                    Управляете ли вы глобальной компанией или защищаете права своей семьи — мы предоставим вам экспертную помощь, которую вы заслуживаете.
+                                </p>
+                                <div class="d-flex gap-3 flex-column flex-sm-row slide-btns">
+                                    <a href="#global-footer" class="btn btn-accent px-5 py-3 shadow-lg hover-lift">
+                                        <i class="bi bi-telephone-fill me-2"></i> Связаться с Нами
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Slide 2: Corporate Focus -->
+            <div class="hero-slide position-absolute top-0 start-0 w-100 h-100" style="opacity: 0; visibility: hidden;">
+                <div class="slide-bg position-absolute w-100 h-100" style="background: linear-gradient(135deg, rgba(13, 59, 76, 0.6) 0%, rgba(6, 30, 40, 0.6) 100%), url('../images/Carusel2.png'); background-size: cover; background-position: center;"></div>
+                <div class="container h-100 position-relative z-2">
+                    <div class="row min-vh-100 align-items-center pb-5">
+                        <div class="col-lg-9 pt-5">
+                            <div class="slide-content">
+                                <span class="d-inline-block py-1 px-3 border border-white-50 rounded-pill text-white small text-caps mb-4 slide-badge">
+                                    <i class="bi bi-building me-2 text-accent"></i> Корпоративная Защита
+                                </span>
+                                <h1 class="display-2 fw-bold text-white mb-4 lh-sm slide-title">
+                                    Защищаем Вашу Компанию <br />
+                                    <span class="text-accent fst-italic">От Рисков.</span>
+                                </h1>
+                                <p class="lead text-white-50 mb-5 col-lg-8 slide-desc">
+                                    Стратегические судебные процессы и защита для самых амбициозных компаний, работающих в Каспийском регионе.
+                                </p>
+                                <div class="d-flex gap-3 flex-column flex-sm-row slide-btns">
+                                    <a href="#services" class="btn btn-outline-white px-5 py-3 hover-lift">
+                                        Корпоративные Услуги
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+             <!-- Slide 3: Litigation Focus -->
+            <div class="hero-slide position-absolute top-0 start-0 w-100 h-100" style="opacity: 0; visibility: hidden;">
+                <div class="slide-bg position-absolute w-100 h-100" style="background: linear-gradient(135deg, rgba(13, 59, 76, 0.6) 0%, rgba(6, 30, 40, 0.6) 100%), url('../images/Carules3Test.png'); background-size: cover; background-position: center top;"></div>
+                <div class="container h-100 position-relative z-2">
+                    <div class="row min-vh-100 align-items-center pb-5">
+                        <div class="col-lg-9 pt-5">
+                            <div class="slide-content">
+                                <span class="d-inline-block py-1 px-3 border border-white-50 rounded-pill text-white small text-caps mb-4 slide-badge">
+                                    <i class="bi bi-gavel me-2 text-accent"></i> Правосудие Свершилось
+                                </span>
+                                <h1 class="display-2 fw-bold text-white mb-4 lh-sm slide-title">
+                                    Бескомпромиссная Защита <br />
+                                    <span class="text-accent fst-italic">В Зале Суда.</span>
+                                </h1>
+                                <p class="lead text-white-50 mb-5 col-lg-8 slide-desc">
+                                    Когда ставки высоки, вам нужна команда судебных юристов с доказанным опытом побед в невозможных делах.
+                                </p>
+                                <div class="d-flex gap-3 flex-column flex-sm-row slide-btns">
+                                    <a href="#results" class="btn btn-accent px-5 py-3 shadow-lg hover-lift">
+                                        Наши Результаты
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Custom Navigation Buttons -->
+        <div class="slider-controls position-absolute z-3 d-flex gap-2" style="bottom: 110px; right: 5vw;">
+            <button class="btn btn-outline-white border-white-10 rounded-circle p-0 d-flex align-items-center justify-content-center hover-lift" id="prevSlide" aria-label="Предыдущий Слайд" style="width: 50px; height: 50px;">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+            <button class="btn btn-outline-white border-white-10 rounded-circle p-0 d-flex align-items-center justify-content-center hover-lift" id="nextSlide" aria-label="Следующий Слайд" style="width: 50px; height: 50px;">
+                <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- TICKER: Proof Points -->
+        <div class="hero-bottom-wrapper position-absolute bottom-0 start-0 w-100 z-3">
+            <div class="trust-ticker py-3 bg-dark border-bottom border-top border-white-10" aria-label="Лента Результатов">
+                <div class="marquee-wrapper">
+                    <div class="marquee-content d-flex gap-5 align-items-center">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-white fw-bold">$42.5M</span>
+                            <span class="text-secondary fw-normal text-uppercase">Корпоративный Иск</span>
+                        </div>
+                        <span class="brand-divider opacity-25" style="height: 15px"></span>
+                        
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-white fw-bold">$18.2M</span>
+                            <span class="text-secondary fw-normal text-uppercase">Защита Интеллектуальной Собственности</span>
+                        </div>
+                        <span class="brand-divider opacity-25" style="height: 15px"></span>
+                        
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-white fw-bold">$9.8M</span>
+                            <span class="text-secondary fw-normal text-uppercase">Имущественный Спор</span>
+                        </div>
+                        <span class="brand-divider opacity-25" style="height: 15px"></span>
+                        
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-white fw-bold">$1.2M</span>
+                            <span class="text-secondary fw-normal text-uppercase">Личный Ущерб</span>
+                        </div>
+                        
+                        <!-- Loop Item -->
+                        <span class="brand-divider opacity-25" style="height: 15px"></span>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-white fw-bold">Выиграно</span>
+                            <span class="text-secondary fw-normal text-uppercase">Медицинские Споры</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
       </header>
 
-      <!-- PARTNERS LOGOS -->
-      <section class="py-5 bg-light-section border-bottom" aria-label="Institutional Partners">
+      <!-- 2. PARTNERS -->
+      <section class="py-5 bg-light-section border-bottom" aria-label="Наши Партнеры">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-3 text-center text-lg-start mb-4 mb-lg-0">
-              <h6 class="text-accent text-uppercase mb-0 fw-bold letter-spacing-2" style="font-size: 0.75rem">
-                Институциональные <br class="d-none d-lg-block" /> Партнеры
+              <h6 class="text-accent fw-bold letter-spacing-2 text-uppercase mb-0" style="font-size: 0.9rem">
+                Кого Мы <br class="d-none d-lg-block" /> Представляем
               </h6>
             </div>
             <div class="col-lg-9">
@@ -236,327 +256,292 @@
         </div>
       </section>
 
-      <!-- PRACTICE AREAS (Bento Grid) -->
+      <!-- 3. PRACTICE AREAS (Bento Grid) -->
       <section id="services" class="section-padding bg-white">
         <div class="container">
-          <div class="row mb-5" data-aos="fade-up">
+          <div class="row mb-5 class-to-animate">
             <div class="col-lg-8">
-              <h6 class="text-accent text-uppercase letter-spacing-2">Сферы Деятельности</h6>
-              <h2 class="display-4 text-dark">Стратегические Возможности</h2>
+              <h6 class="text-accent text-caps">Сферы Практики</h6>
+              <h2 class="display-4 text-dark">Как Мы Помогаем</h2>
             </div>
           </div>
 
           <div class="bento-grid">
-            <!-- Main Feature -->
-            <div class="bento-item bento-span-8 d-flex flex-column justify-content-between" style="background: var(--plh-base); color: white;">
+            <!-- P1: Business -->
+            <div class="bento-item bento-span-8 d-flex flex-column justify-content-between class-to-animate" style="background: var(--plh-base); color: white;">
               <div>
-                <i class="bi bi-shield-lock fs-1 text-accent mb-3"></i>
-                <h3 class="text-white">Корпоративная Защита и Суды</h3>
-                <p class="opacity-75 col-md-8">Защита стоимости предприятия от высоких регуляторных рисков и групповых исков. Мы строим стены безопасности вокруг ваших активов.</p>
+                <i class="bi bi-building fs-1 text-accent mb-3"></i>
+                <h3 class="text-white">Бизнес-Право и Защита</h3>
+                <p class="opacity-75 col-md-8">Мы защищаем вашу компанию от судебных исков и правовых рисков на рынке Азербайджана.</p>
               </div>
-              <a href="#" class="text-accent text-decoration-none fw-bold small text-uppercase letter-spacing-2">
-                Изучить Практику <i class="bi bi-arrow-right ms-2"></i>
+              <a href="#" class="text-accent text-decoration-none fw-bold small text-caps">
+                Подробнее <i class="bi bi-arrow-right ms-2"></i>
               </a>
             </div>
 
-            <!-- Secondary -->
-            <div class="bento-item bento-span-4" style="background: #f8f9fa;">
-              <i class="bi bi-cpu fs-2 text-dark mb-3"></i>
-              <h4>Интеллектуальная Собственность</h4>
-              <p class="text-muted small">Агрессивная защита патентов, коммерческих тайн и цифровых активов.</p>
+            <!-- P2: Intellectual Property -->
+            <div class="bento-item bento-span-4 class-to-animate" style="background: #f8f9fa;">
+              <i class="bi bi-shield-shaded fs-2 text-dark mb-3"></i>
+              <h4>Защита Ваших Идей</h4>
+              <p class="text-muted small">Помогаем защитить патенты, торговые марки и цифровые права для вашего бренда или технологии.</p>
+              <a href="#" class="text-accent text-decoration-none fw-bold small text-caps">
+                Подробнее <i class="bi bi-arrow-right ms-2"></i>
+              </a>
             </div>
 
-            <!-- Third -->
-            <div class="bento-item bento-span-4" style="background: #f8f9fa;">
-              <i class="bi bi-building fs-2 text-dark mb-3"></i>
-              <h4>Коммерческая Недвижимость</h4>
-              <p class="text-muted small">Зонирование, приобретения и сложные девелоперские споры.</p>
+            <!-- P3: Property -->
+            <div class="bento-item bento-span-4 class-to-animate" style="background: #f8f9fa;">
+              <i class="bi bi-house fs-2 text-dark mb-3"></i>
+              <h4>Недвижимость и Активы</h4>
+              <p class="text-muted small">Профессиональная помощь в купле-продаже и решении имущественных споров в Баку и за его пределами.</p>
+              <a href="#" class="text-accent text-decoration-none fw-bold small text-caps">
+                Подробнее <i class="bi bi-arrow-right ms-2"></i>
+              </a>
             </div>
 
-            <!-- Fourth -->
-            <div class="bento-item bento-span-8 d-flex align-items-center position-relative overflow-hidden">
-               <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80') center/cover; opacity: 0.1;"></div>
+            <!-- P4: Personal/Immigration -->
+            <div class="bento-item bento-span-8 d-flex align-items-center position-relative overflow-hidden class-to-animate">
+               <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('../images/image.png') center/cover; opacity: 0.1;"></div>
                <div class="position-relative z-2">
-                 <i class="bi bi-briefcase fs-2 text-accent mb-3"></i>
-                 <h3>Слияния и Поглощения</h3>
-                 <p class="text-dark col-md-9">Безупречное проведение внутренних и трансграничных сделок. Мы берем на себя due diligence, который другие упускают.</p>
+                 <i class="bi bi-person-raised-hand fs-2 text-accent mb-3"></i>
+                 <h3>Личные Права и Происшествия</h3>
+                 <p class="text-dark col-md-9">Поддержка частных лиц по искам о возмещении ущерба, медицинским вопросам и личным правовым нуждам.</p>
+                 <a href="#" class="text-accent text-decoration-none fw-bold small text-caps">
+                   Подробнее <i class="bi bi-arrow-right ms-2"></i>
+                 </a>               
                </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- TESTIMONIALS -->
+      <!-- 4. TESTIMONIALS -->
       <section class="section-padding bg-white overflow-hidden">
         <div class="container-fluid px-0">
-          <div class="row mb-5 justify-content-center text-center px-3">
+          <div class="row mb-5 justify-content-center text-center px-3 class-to-animate">
             <div class="col-lg-8">
-              <h6 class="text-accent text-uppercase letter-spacing-2">Отзывы Клиентов</h6>
-              <h2 class="display-5 text-dark">Стратегическая Обратная Связь</h2>
+              <h6 class="text-accent text-caps">Отзывы Клиентов</h6>
+              <h2 class="display-5 text-dark">Истории Успеха</h2>
             </div>
           </div>
 
           <div class="marquee-wrapper">
             <div class="marquee-track-right">
+              <!-- Review Cards (Infinite Loop) -->
               <div class="review-glass-card">
                 <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i>
                 </div>
-                <p class="review-quote">"Стратегическая глубина, обеспеченная PROBIZ, спасла наше предприятие во время судебного процесса Thorne."</p>
+                <p class="review-quote">"Стратегическая глубина, обеспеченная PROBIZ, спасла нашу компанию во время судебного процесса Thorne."</p>
                 <div class="review-author mt-auto">
                   <span class="d-block fw-bold text-base">Александр Райт</span>
                   <span class="author-role">CEO, Thorne Dynamics</span>
                 </div>
               </div>
-
+              
               <div class="review-glass-card">
                 <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i>
                 </div>
                 <p class="review-quote">"Мастер-класс по адвокатуре в сфере медицинской халатности. Их подход, основанный на доказательствах, не имеет равных."</p>
                 <div class="review-author mt-auto">
-                  <span class="d-block fw-bold text-base">Д-р Елена Вэнс</span>
+                  <span class="d-block fw-bold text-base">Др. Елена Вэнс</span>
                   <span class="author-role">Главный Врач</span>
                 </div>
               </div>
 
               <div class="review-glass-card">
                 <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
-                  <i class="bi bi-star-fill text-accent me-1 small"></i>
+                  <i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i><i class="bi bi-star-fill text-accent me-1 small"></i>
                 </div>
-                <p class="review-quote">"Агрессивный судебный процесс с хирургическим вниманием к фактам. Они создают результат."</p>
+                <p class="review-quote">"Агрессивное судебное разбирательство с хирургической точностью к фактам. Они создают результаты."</p>
                 <div class="review-author mt-auto">
                   <span class="d-block fw-bold text-base">Маркус Стерлинг</span>
                   <span class="author-role">Управляющий Директор</span>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- PROTOCOL (Methodology) -->
-      <section class="section-padding bg-white overflow-hidden">
-        <div class="container">
-          <div class="row mb-5" data-aos="fade-up">
-            <div class="col-lg-8">
-              <h6 class="text-accent text-uppercase letter-spacing-2">Протокол PLH</h6>
-              <h2 class="display-4 text-dark">Архитектура Победы</h2>
-            </div>
-          </div>
-          <div class="row g-4">
-             <!-- Step 1 -->
-             <div class="col-lg-4" data-aos="fade-up">
-                 <article class="protocol-card">
-                     <div class="protocol-bg" style="background-image: url('https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&q=80&w=600');"></div>
-                     <div class="protocol-overlay"></div>
-                     <div class="protocol-content">
-                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">01</div>
-                         <h3 class="h4 fw-bold mb-2">Немедленное Реагирование</h3>
-                         <p class="small opacity-75">Свяжитесь с нашей кризисной командой 24/7. Мы отправляем следователей на место происшествия в течение часов, а не дней.</p>
-                     </div>
-                 </article>
-             </div>
-             <!-- Step 2 -->
-             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                 <article class="protocol-card">
-                     <div class="protocol-bg" style="background-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=600');"></div>
-                     <div class="protocol-overlay"></div>
-                     <div class="protocol-content">
-                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">02</div>
-                         <h3 class="h4 fw-bold mb-2">Стратегическая Экспертиза</h3>
-                         <p class="small opacity-75">Мы строим "Историю Победы", используя экспертные показания, реконструкцию и твердые доказательства.</p>
-                     </div>
-                 </article>
-             </div>
-             <!-- Step 3 -->
-             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                 <article class="protocol-card">
-                     <div class="protocol-bg" style="background-image: url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=600');"></div>
-                     <div class="protocol-overlay"></div>
-                     <div class="protocol-content">
-                         <div class="step-num-large opacity-25 fw-bold display-1 text-white mb-auto">03</div>
-                         <h3 class="h4 fw-bold mb-2">Решительная Реализация</h3>
-                         <p class="small opacity-75">Мы судимся с точностью. Будь то мировое соглашение или битва в зале суда, мы не остановимся, пока вы не победите.</p>
-                     </div>
-                 </article>
-             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- RESULTS STATS -->
-      <section id="results" class="section-padding stats-bar mt-0">
-        <div class="container">
-          <div class="row mb-5 text-center">
-            <div class="col-12" data-aos="fade-up">
-              <h6 class="text-accent text-uppercase letter-spacing-2">Институциональные Победы</h6>
-              <h2 class="display-5 text-white">Крупные Соглашения и Вердикты</h2>
-            </div>
-          </div>
-          <div class="row g-4">
-            <div class="col-md-4" data-aos="zoom-in">
-              <div class="result-box p-4 border border-white-10">
-                <h3 class="text-accent fw-bold">$42,500,000</h3>
-                <p class="small text-uppercase text-white-50">Корпоративная Халатность</p>
-                <hr class="border-white-10" />
-                <p class="text-light-blue small">Многоштатный судебный процесс, включающий сложные экологические нарушения и регуляторный комплаенс.</p>
-              </div>
-            </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-              <div class="result-box p-4 border border-white-10">
-                <h3 class="text-accent fw-bold">$18,200,000</h3>
-                <p class="small text-uppercase text-white-50">Кража Интеллектуальной Собственности</p>
-                <hr class="border-white-10" />
-                <p class="text-light-blue small">Агрессивная защита проприетарных алгоритмов технологического новатора от глобального конкурента.</p>
-              </div>
-            </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-              <div class="result-box p-4 border border-white-10">
-                <h3 class="text-accent fw-bold">$9,800,000</h3>
-                <p class="small text-uppercase text-white-50">Спор по Коммерческой Недвижимости</p>
-                <hr class="border-white-10" />
-                <p class="text-light-blue small">Успешное разрешение спора о роспуске партнерства с высокими ставками в финансовом районе Нью-Йорка.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ATTORNEYS -->
+      <!-- 5. PROTOCOL (Interactive Pinned Section) -->
+      <!-- Uses GSAP ScrollTrigger to pin the left side while cards reveal on the right -->
+      <section id="protocol-section" class="bg-light-section position-relative">
+        <div class="protocol-pin-container">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <!-- LEFT COL: Static Header (Pins) -->
+                    <div class="col-lg-5 h-100 d-flex flex-column justify-content-center position-relative z-2">
+                         <div class="protocol-header-content">
+                             <h6 class="text-accent text-caps mb-3">Наш Процесс из 3 Шагов</h6>
+                             <h2 class="display-3 text-dark fw-bold mb-4">Как Мы Побеждаем <br> Для Вас.</h2>
+                             <p class="lead text-secondary opacity-75">
+                                 Мы не полагаемся на удачу. Мы опираемся на проверенную, испытанную в боях стратегию, которая принесла миллионы результатов.
+                             </p>
+                             <div class="d-none d-lg-block mt-5">
+                                 <div class="d-flex align-items-center gap-3 mb-3 text-accent fw-bold">
+                                     <i class="bi bi-arrow-down-circle fs-3 p-0"></i> <span>Прокрутите, чтобы узнать</span>
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+
+                    <!-- RIGHT COL: Card Stack (Scrolls) -->
+                    <div class="col-lg-6 offset-lg-1 h-100 position-relative d-flex align-items-center justify-content-center" id="card-stack-wrapper">
+                         <!-- Card 1 -->
+                         <div class="protocol-stack-card card-1 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 1;">
+                             <div class="protocol-bg" style="background-image: url('../images/1.png');"></div>
+                             <div class="protocol-overlay"></div>
+                             <div class="protocol-content p-5 h-100 d-flex flex-column justify-content-end">
+                                 <div class="d-flex justify-content-between align-items-end mb-4">
+                                    <div class="step-num-large text-white display-1 fw-bold opacity-25 lh-1">1</div>
+                                 </div>
+                                 <h3 class="h2 text-white fw-bold mb-3">Быстрый Старт</h3>
+                                 <p class="text-white opacity-80 lead">Свяжитесь с нашей круглосуточной командой. Мы начнем работать над вашим делом в течение нескольких часов, немедленно закрепляя доказательства.</p>
+                             </div>
+                         </div>
+
+                         <!-- Card 2 -->
+                         <div class="protocol-stack-card card-2 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 2; transform: translateY(110%);">
+                             <div class="protocol-bg" style="background-image: url('../images/2.png');"></div>
+                             <div class="protocol-overlay"></div>
+                             <div class="protocol-content p-5 h-100 d-flex flex-column justify-content-end">
+                                 <div class="d-flex justify-content-between align-items-end mb-4">
+                                    <div class="step-num-large text-white display-1 fw-bold opacity-25 lh-1">2</div>
+                                    <i class="bi bi-strategy text-accent fs-1"></i>
+                                 </div>
+                                 <h3 class="h2 text-white fw-bold mb-3">Четкая Стратегия</h3>
+                                 <p class="text-white opacity-80 lead">Мы анализируем факты и просчитываем каждый возможный исход, чтобы гарантировать победу еще до того, как войдем в зал суда.</p>
+                             </div>
+                         </div>
+
+                         <!-- Card 3 -->
+                         <div class="protocol-stack-card card-3 position-absolute w-100 shadow-lg" style="aspect-ratio: 4/5; max-height: 70vh; z-index: 3; transform: translateY(130%);">
+                             <div class="protocol-bg" style="background-image: url('../images/3.png');"></div>
+                             <div class="protocol-overlay"></div>
+                             <div class="protocol-content p-5 h-100 d-flex flex-column justify-content-end">
+                                 <div class="d-flex justify-content-between align-items-end mb-4">
+                                    <div class="step-num-large text-white display-1 fw-bold opacity-25 lh-1">3</div>
+                                 </div>
+                                 <h3 class="h2 text-white fw-bold mb-3">Победные Результаты</h3>
+                                 <p class="text-white opacity-80 lead">Мы представляем вас в суде или на переговорах, пока дело не будет завершено. Ваш успех — наша главная цель.</p>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- 6. RESULTS STATS -->
+      <section id="results" class="section-padding stats-bar mt-0 overflow-hidden">
+          <div class="container">
+              <div class="row mb-5 class-to-animate">
+                  <div class="col-lg-8">
+                      <h6 class="text-accent text-caps">Наши Доказанные Результаты</h6>
+                      <h2 class="display-4 text-white">Победы Для Наших Клиентов</h2>
+                  </div>
+              </div>
+              <div class="row g-4">
+                  <div class="col-lg-8 result-card-gsap">
+                      <div class="bento-result-card featured p-5">
+                          <div class="d-flex justify-content-between align-items-start mb-4">
+                              <h3 class="display-3 fw-bold text-accent mb-0">
+                                  $<span class="counter" data-target="42500000">0</span>
+                              </h3>
+                          </div>
+                          <h4 class="text-white h5 text-caps mb-3">Бизнес-Иски и Защита</h4>
+                          <p class="text-white-50 lead mb-0">Успешно защитили крупную строительную фирму от исков о нарушении контракта, сохранив миллионы дохода.</p>
+                      </div>
+                  </div>
+                  <!-- Stats Card 2 -->
+                  <div class="col-lg-4 result-card-gsap">
+                      <div class="bento-result-card p-4 h-100 d-flex flex-column justify-content-center">
+                          <h3 class="display-5 fw-bold text-accent mb-2">
+                              $<span class="counter" data-target="18200000">0</span>
+                          </h3>
+                          <h4 class="text-white small text-caps mb-3">Защита Идей</h4>
+                          <p class="text-white-50 small mb-0">Вернули миллионы для технологической компании, чье ПО и идеи использовались конкурентом.</p>
+                      </div>
+                  </div>
+                  <!-- Stats Card 3 -->
+                  <div class="col-lg-4 result-card-gsap">
+                      <div class="bento-result-card p-4">
+                          <h3 class="display-5 fw-bold text-accent mb-2">
+                              $<span class="counter" data-target="9800000">0</span>
+                          </h3>
+                          <h4 class="text-white small text-caps mb-3">Имущественные Споры</h4>
+                          <p class="text-white-50 small mb-0">Успешно разрешили сложный имущественный спор, защитив права собственности и активы.</p>
+                      </div>
+                  </div>
+                  <!-- Call to Action -->
+                  <div class="col-lg-8 result-card-gsap">
+                      <div class="bento-result-card d-flex align-items-center justify-content-center p-5 border-dashed">
+                          <div class="text-center">
+                              <h3 class="text-white h4 mb-3">Ваша История Успеха Начинается Здесь.</h3>
+                              <a href="#global-footer" class="btn btn-outline-white btn-sm px-4">Связаться с Нами</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- 7. ELITE COUNSEL -->
       <section class="section-padding bg-light-section">
         <div class="container">
-          <div class="row align-items-end mb-5">
-            <div class="col-lg-7" data-aos="fade-right">
-              <h6 class="text-accent text-uppercase letter-spacing-2">Элитные Советники</h6>
-              <h2 class="display-5">Непревзойденный Юридический Интеллект</h2>
+          <div class="row align-items-end mb-5 class-to-animate">
+            <div class="col-lg-7">
+              <h6 class="text-accent text-caps">Элитные Советники</h6>
+              <h2 class="display-5">Непревзойденный Интеллект</h2>
             </div>
-            <div class="col-lg-5 text-lg-end" data-aos="fade-left">
+            <div class="col-lg-5 text-lg-end">
               <a href="#" class="btn btn-outline-dark px-4 py-2 mb-2">Вся Команда</a>
             </div>
           </div>
           <div class="row g-4">
-            <div class="col-lg-4" data-aos="fade-up">
+            <!-- Attorney 1 -->
+            <div class="col-lg-4 attorney-card-gsap">
               <div class="card-attorney border-0">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Julian Thorne" />
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Джулиан Торн" />
                 <h4 class="mb-1">Джулиан Торн, Esq.</h4>
-                <p class="text-accent small text-uppercase fw-bold">Партнер-основатель | Корпоративная Стратегия</p>
-                <p class="text-secondary small">Специализируется на трансграничных приобретениях и корпоративной защите с высокими ставками более 20 лет.</p>
+                <p class="text-accent small text-caps fw-bold">Управляющий Партнер | Корпоративная Стратегия</p>
+                <p class="text-secondary small">Специализируется на трансграничных сделках и корпоративной защите высокого риска более 20 лет.</p>
               </div>
             </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <!-- Attorney 2 -->
+            <div class="col-lg-4 attorney-card-gsap">
               <div class="card-attorney border-0">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Elena Vance" />
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Елена Вэнс" />
                 <h4 class="mb-1">Елена Вэнс, Esq.</h4>
-                <p class="text-accent small text-uppercase fw-bold">Старший Партнер | Интеллектуальная Собственность</p>
-                <p class="text-secondary small">Признанный на национальном уровне консультант технологических фирм Силиконовой долины и стратегий защиты ИС.</p>
+                <p class="text-accent small text-caps fw-bold">Старший Партнер | Интеллектуальная Собственность</p>
+                <p class="text-secondary small">Признанный советник для технологических фирм Кремниевой долины и стратегий защиты ИС.</p>
               </div>
             </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <!-- Attorney 3 -->
+            <div class="col-lg-4 attorney-card-gsap">
               <div class="card-attorney border-0">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Marcus Sterling" />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" class="img-fluid mb-3" alt="Маркус Стерлинг" />
                 <h4 class="mb-1">Маркус Стерлинг</h4>
-                <p class="text-accent small text-uppercase fw-bold">Ведущий Адвокат | Коммерческие Споры</p>
-                <p class="text-secondary small">Неустанный адвокат с 95% успехом в судебных разбирательствах федерального суда.</p>
+                <p class="text-accent small text-caps fw-bold">Ведущий Юрисконсульт | Коммерческие Споры</p>
+                <p class="text-secondary small">Неустанный адвокат с 95% успехом в федеральных судебных разбирательствах.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- INTAKE & ASSESSMENT -->
-      <section class="section-padding bg-light-section position-relative overflow-hidden">
-        <div class="bg-watermark">PLH</div>
-
-        <div class="container position-relative">
-          <div class="row g-0 shadow-lg">
-            <div class="col-lg-5 btn-accent p-5 d-flex flex-column justify-content-center">
-              <h2 class="text-white mb-4">Защитите Свое Будущее Сегодня.</h2>
-              <p class="text-white opacity-75 mb-4">Наши советники готовы разработать вашу стратегическую защиту. Ожидайте ответа в течение 4 рабочих часов.</p>
-              <ul class="list-unstyled text-white">
-                <li class="mb-2"><i class="bi bi-check-circle-fill me-2"></i> 100% Конфиденциальная Консультация</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill me-2"></i> Нет Победы - Нет Оплаты</li>
-                <li><i class="bi bi-check-circle-fill me-2"></i> Прямой Доступ к Партнеру</li>
-              </ul>
-            </div>
-            <div class="col-lg-7 bg-white p-5">
-              <!-- Assessment Engine Form -->
-              <form id="assessmentForm" class="assessment-engine">
-                <!-- Progress Indicator -->
-                <div class="step-indicator">
-                  <div class="step-dot active" data-step="1"></div>
-                  <div class="step-dot" data-step="2"></div>
-                  <div class="step-dot" data-step="3"></div>
-                </div>
-
-                <!-- Step 1: Case Type -->
-                <div class="assessment-step active" data-step="1">
-                  <h4 class="mb-4">С какой юридической проблемой вы столкнулись?</h4>
-                  <div class="d-grid gap-2">
-                    <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
-                        <i class="bi bi-building me-2 text-accent"></i> Корпоративные Суды
-                    </button>
-                    <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
-                        <i class="bi bi-cpu me-2 text-accent"></i> Интеллектуальная Собственность
-                    </button>
-                    <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
-                        <i class="bi bi-shield-x me-2 text-accent"></i> Регуляторная Защита
-                    </button>
-                    <button type="button" class="choice-btn" onclick="PROBIZ.assessment.selectOption(this, 2)">
-                        <i class="bi bi-globe me-2 text-accent"></i> Международные Споры
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Step 2: Details -->
-                <div class="assessment-step" data-step="2">
-                  <h4 class="mb-4">Кратко опишите ситуацию.</h4>
-                  <p class="small text-muted mb-3"><i class="bi bi-lock-fill"></i> Ваши данные зашифрованы и защищены привилегией.</p>
-                  <label for="caseDetails" class="visually-hidden">Детали Дела</label>
-                  <textarea id="caseDetails" class="form-control rounded-0 border-light-subtle p-3 mb-4" rows="5" placeholder="Пожалуйста, предоставьте контекст высокого уровня..."></textarea>
-                  <button type="button" class="btn btn-accent w-100" onclick="PROBIZ.assessment.next(3)">Продолжить <i class="bi bi-arrow-right ms-2"></i></button>
-                  <button type="button" class="btn btn-link text-muted w-100 mt-2 text-decoration-none small" onclick="PROBIZ.assessment.prev(1)">Назад</button>
-                </div>
-
-                <!-- Step 3: Contact -->
-                <div class="assessment-step" data-step="3">
-                  <h4 class="mb-4">Куда нам отправить досье?</h4>
-                  <div class="mb-3">
-                    <label for="fullName" class="form-label small fw-bold text-uppercase">ФИО</label>
-                    <input type="text" id="fullName" class="form-control rounded-0 border-light-subtle p-3" placeholder="Иван Петров">
-                  </div>
-                  <div class="mb-4">
-                    <label for="email" class="form-label small fw-bold text-uppercase">Рабочий Email</label>
-                    <input type="email" id="email" class="form-control rounded-0 border-light-subtle p-3" placeholder="ivan@company.com">
-                  </div>
-                  <button type="submit" class="btn btn-accent w-100 py-3 fs-5">Запросить Приоритетный Обзор</button>
-                  <button type="button" class="btn btn-link text-muted w-100 mt-2 text-decoration-none small" onclick="PROBIZ.assessment.prev(2)">Назад</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
+      <!-- 9. FAQ -->
       <section class="section-padding bg-white">
         <div class="container">
           <div class="row mb-5 justify-content-center text-center">
-            <div class="col-lg-8" data-aos="fade-up">
-              <h6 class="text-accent text-uppercase letter-spacing-2">Стратегический Брифинг</h6>
-              <h2 class="display-5 text-dark">Стратегические FAQ</h2>
+            <div class="col-lg-8">
+              <h6 class="text-accent text-caps">Часто Задаваемые Вопросы</h6>
+              <h2 class="display-5 text-dark">Вопросы и Ответы</h2>
             </div>
           </div>
           <div class="row justify-content-center">
@@ -565,25 +550,65 @@
                 <div class="accordion-item border-bottom py-3">
                   <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#q1" aria-expanded="true" aria-controls="q1">
-                      Как быстро PROBIZ реагирует на новые запросы?
+                      Как быстро PROBIZ отвечает на новые запросы?
                     </button>
                   </h2>
                   <div id="q1" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
                     <div class="accordion-body text-secondary lh-lg">
-                       Наша элитная группа реагирования доступна 24/7. По вопросам корпоративных споров и срочным делам партнер рассмотрит ваш запрос и ответит в течение 4 рабочих часов.
+                      Наша команда доступна 24/7. Для срочных вопросов в Азербайджане юрист рассмотрит ваше дело и свяжется с вами в течение 4 рабочих часов.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- (Other FAQ Items preserved) -->
+                <div class="accordion-item border-bottom py-3">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2" aria-expanded="false" aria-controls="q2">
+                      Кого вы представляете?
+                    </button>
+                  </h2>
+                  <div id="q2" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg">
+                      Мы работаем с местными азербайджанскими компаниями, международным бизнесом и частными лицами (местными и иностранцами), нуждающимися в правовой защите в Азербайджане.
                     </div>
                   </div>
                 </div>
 
                 <div class="accordion-item border-bottom py-3">
-                  <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2" aria-expanded="false" aria-controls="q2">
-                      Какова структура гонораров за бутиковую корпоративную защиту?
+                  <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3" aria-expanded="false" aria-controls="q3">
+                      Ведете ли вы международные дела?
                     </button>
                   </h2>
-                  <div id="q2" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                  <div id="q3" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
                     <div class="accordion-body text-secondary lh-lg">
-                      Мы предлагаем гибкие условия оплаты, адаптированные к сложности дела, включая фиксированную проектную оплату, почасовые ставки консультантов и модели, основанные на результате (гонорар успеха) для определенных судебных дел.
+                      Да, мы представляем иностранных инвесторов и компании, выходящие на рынок Азербайджана, а также азербайджанских клиентов с международными юридическими потребностями.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item border-bottom py-3">
+                  <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4" aria-expanded="false" aria-controls="q4">
+                      Как вы работаете с конфиденциальной информацией?
+                    </button>
+                  </h2>
+                  <div id="q4" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg">
+                      Конфиденциальность — наш главный приоритет. Вся информация клиентов защищена адвокатской тайной и строгими протоколами безопасности данных.
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="accordion-item border-bottom py-3">
+                  <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button bg-transparent fw-bold fs-5 text-dark shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6" aria-expanded="false" aria-controls="q6">
+                      Как начать работать с PLH?
+                    </button>
+                  </h2>
+                  <div id="q6" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg">
+                      Вы можете связаться с нами через наш сайт, по электронной почте или телефону. Наша команда назначит первичную консультацию, чтобы обсудить ваше дело и определить лучшую юридическую стратегию.
                     </div>
                   </div>
                 </div>
@@ -602,16 +627,15 @@
           <div class="col-lg-6 mb-4 mb-lg-0">
             <h3 class="fw-bold mb-3 text-white">Глобальная Штаб-квартира</h3>
             <div class="map-container shadow-lg mb-3">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3038.0061848378305!2d49.85997037601059!3d40.40871377144082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDI0JzMxLjQiTiA0OcKwNTEnNDUuMiJF!5e0!3m2!1sen!2saz!4v1769815983505!5m2!1sen!2saz" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PROBIZ HQ Map"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3038.0061848378305!2d49.85997037601059!3d40.40871377144082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDI0JzMxLjQiTiA0OcKwNTEnNDUuMiJF!5e0!3m2!1sen!2saz!4v1769815983505!5m2!1sen!2saz" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PROBIZ HQ Карта"></iframe>
             </div>
-            <div class="d-flex gap-2 map-actions"></div>
           </div>
           <div class="col-lg-5 offset-lg-1">
-            <h3 class="fw-bold mb-4">Будьте на шаг впереди.</h3>
-            <p class="mb-4 opacity-75">Свяжитесь с нашими стратегическими консультантами напрямую в Баку или Нью-Йорке.</p>
+            <h3 class="fw-bold mb-4">Будьте На Шаг Впереди.</h3>
+            <p class="mb-4 opacity-75">Свяжитесь с нашими стратегическими советниками прямо в Баку.</p>
             <div class="d-flex gap-3">
-              <a href="#" class="btn btn-outline-white"><i class="bi bi-geo-alt-fill me-2"></i> Проложить Маршрут</a>
-              <a href="tel:8776674265" class="btn btn-accent"><i class="bi bi-telephone-fill me-2"></i> Позвонить Сейчас</a>
+              <a href="#" class="btn btn-outline-white"><i class="bi bi-geo-alt-fill me-2"></i> Маршрут</a>
+              <a href="tel:8776674265" class="btn btn-accent"><i class="bi bi-telephone-fill me-2"></i> Позвонить</a>
             </div>
           </div>
         </div>
@@ -619,13 +643,13 @@
         <div class="row g-5 mb-5 h-100">
           <div class="col-lg-4">
             <div class="d-flex align-items-center mb-4">
-              <img src="../PLHLogo.png" alt="PROBIZ Logo" width="100" class="me-3">
+              <img src="../images/PLHLogo.png" alt="PROBIZ Логотип" width="100" class="me-3">
               <span class="brand-footer-text">PROBIZ LEGAL HUB</span>
             </div>
-            <p class="opacity-75">Штаб-квартира в Баку с глобальным охватом. Мы защищаем новаторов, формирующих экономику 2026 года.</p>
+            <p class="opacity-75">Ваш надежный юридический партнер в Баку. Мы защищаем людей и бизнес, формирующих будущее Азербайджана.</p>
           </div>
           <div class="col-6 col-lg-2 offset-lg-1">
-            <h6 class="text-accent text-uppercase mb-3 small">Фирма</h6>
+            <h6 class="text-accent text-caps mb-3 small">Фирма</h6>
             <ul class="list-unstyled text-white opacity-75">
               <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">О Нас</a></li>
               <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Карьера</a></li>
@@ -633,22 +657,22 @@
             </ul>
           </div>
           <div class="col-6 col-lg-2">
-            <h6 class="text-accent text-uppercase mb-3 small">Экспертиза</h6>
+            <h6 class="text-accent text-caps mb-3 small">Экспертиза</h6>
             <ul class="list-unstyled text-white opacity-75">
-              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Корпоративная</a></li>
-              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Судебная</a></li>
-              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">ИС</a></li>
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Корпоративное</a></li>
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Судебные Споры</a></li>
+              <li class="mb-2"><a href="#" class="text-white text-decoration-none footer-link-anim">Интеллектуальная Собственность</a></li>
             </ul>
           </div>
           <div class="col-lg-3">
-            <h6 class="text-accent text-uppercase mb-3 small">Контакты</h6>
+            <h6 class="text-accent text-caps mb-3 small">Контакты</h6>
             <ul class="list-unstyled opacity-75 mb-4">
               <li class="mb-2"><i class="bi bi-geo-alt me-2 text-accent"></i> Баку, Азербайджан</li>
               <li class="mb-2"><i class="bi bi-telephone me-2 text-accent"></i> (877) 667-4265</li>
               <li class="mb-2"><i class="bi bi-envelope me-2 text-accent"></i> legal@probiz.com</li>
             </ul>
             
-            <h6 class="text-accent text-uppercase mb-3 small">Социальные Сети</h6>
+            <h6 class="text-accent text-caps mb-3 small">Соцсети</h6>
             <div class="d-flex gap-2">
               <a href="#" class="social-icon-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
               <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
@@ -658,20 +682,26 @@
           </div>
         </div>
         <div class="row pt-4 border-top border-white-10">
-          <div class="col-md-6 text-center text-md-start"><p class="small opacity-50 mb-0">&copy; 2026 PROBIZ LEGAL HUB. Все Права Защищены. | <span class="text-accent">Стратегия: Турал</span></p></div>
+          <div class="col-md-6 text-center text-md-start"><p class="small opacity-50 mb-0">&copy; 2026 PROBIZ LEGAL HUB. Все Права Защищены. | <span class="text-accent">Дизайн: Tural</span></p></div>
         </div>
       </div>
     </footer>
 
     <!-- Mobile CTA -->
     <div class="mobile-sticky-cta d-md-none">
-        <a href="tel:8776674265" class="mobile-cta-btn bg-white text-dark border-end">Позвонить</a>
-        <a href="#assessmentForm" class="mobile-cta-btn btn-accent text-white">Оценка Дела</a>
+        <a href="tel:8776674265" class="mobile-cta-btn bg-white text-dark border-end">Говорить с Экспертом</a>
+        <a href="mailto:legal@probiz.com" class="mobile-cta-btn btn-accent text-white">Написать Нам</a>
     </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+
+    <!-- App Logic -->
     <script src="../js/main.js"></script>
   </body>
 </html>
