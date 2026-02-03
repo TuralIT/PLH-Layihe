@@ -37,15 +37,13 @@ PROBIZ.ui = (function() {
         if (!track) return;
 
         const items = Array.from(track.children);
-        items.forEach(item => {
-            const clone = item.cloneNode(true);
-            track.appendChild(clone);
-        });
         
-         items.forEach(item => {
-            const clone = item.cloneNode(true);
-            track.appendChild(clone);
-        });
+        for (let i = 0; i < 2; i++) {
+            items.forEach(item => {
+                const clone = item.cloneNode(true);
+                track.appendChild(clone);
+            });
+        }
     };
 
     return { init };
