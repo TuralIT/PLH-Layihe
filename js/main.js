@@ -65,7 +65,7 @@ PROBIZ.motion = (function() {
         _heroCarousel();
         _processPinning();
         _scrollReveals();
-        _initCounters();
+
 
         if (!isMobile) {
             _magneticInteractions();
@@ -219,7 +219,7 @@ PROBIZ.motion = (function() {
             );
         });
 
-        _staggerReveal('.result-card-gsap', 0.15);
+
         _staggerReveal('.attorney-card-gsap', 0.2);
     };
 
@@ -234,24 +234,7 @@ PROBIZ.motion = (function() {
         });
     };
 
-    const _initCounters = () => {
-        document.querySelectorAll('.counter').forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            gsap.to(counter, {
-                innerText: target,
-                duration: 2.5,
-                snap: { innerText: 1 },
-                scrollTrigger: {
-                    trigger: counter,
-                    start: "top 90%",
-                    once: true
-                },
-                onUpdate: function() {
-                    this.targets()[0].innerText = Math.ceil(this.targets()[0].innerText).toLocaleString();
-                }
-            });
-        });
-    };
+
 
     const _magneticInteractions = () => {
         const buttons = document.querySelectorAll('.btn-accent, .btn-outline-white');
