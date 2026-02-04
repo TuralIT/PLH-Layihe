@@ -1,0 +1,553 @@
+/* PROBIZ Team Page - Hybrid Light/Dark Theme */
+
+:root {
+    --plh-base: #092c3a;
+    --plh-accent: #29a9bd;
+    --plh-accent-hover: #208b9d;
+    --plh-white: #ffffff;
+    --plh-light-bg: #f8f9fa; /* Bootstrap light gray */
+    --plh-text-dark: #121e24;
+    --plh-text-muted: #5e6d75;
+    
+    /* Card Styles */
+    --card-bg: #ffffff;
+    --card-border: #eef2f3;
+    --card-radius: 12px;
+    --transition-smooth: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Base Setup */
+body {
+    background-color: var(--plh-white); /* Main Body is now White */
+    font-family: 'Manrope', sans-serif;
+    color: var(--plh-text-dark);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Preloader (Keep Dark for Logo Contrast/Consistency with index load) */
+#preloader {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--plh-base);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loading-bar {
+    width: 100px;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.loading-bar::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; height: 100%; width: 0%;
+    background: var(--plh-accent);
+    animation: loaderAnim 1.5s infinite ease-in-out;
+}
+@keyframes loaderAnim {
+    0% { left: 0; width: 0%; }
+    50% { left: 0; width: 100%; }
+    100% { left: 100%; width: 0%; }
+}
+
+/* --- SECTION 1: DARK HEADER (Navbar + Title) --- */
+.team-hero-header {
+    background-color: var(--plh-base);
+    background-image: radial-gradient(circle at 70% 30%, #154452 0%, var(--plh-base) 70%); /* Premium Spotlight Gradient */
+    color: white;
+    padding-bottom: 80px; /* Space for content below */
+    padding-top: 140px; /* Space for Navbar */
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); /* Subtle angled cut */
+    margin-bottom: -40px; /* Overlap with next section */
+    z-index: 10;
+    overflow: hidden; /* For pseudo-element shapes if needed later */
+}
+
+/* Navbar Wrapper */
+.nav-static-wrapper {
+    position: absolute;
+    top: 0; left: 0; width: 100%;
+    z-index: 100;
+}
+
+/* Background Noise for Header Only */
+.header-noise {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+}
+
+/* --- SECTION 2: LIGHT GRID SECTION --- */
+.team-grid-section {
+    background-color: var(--plh-white);
+    padding-top: 60px; /* Compensate for header overlap */
+    padding-bottom: 100px;
+    position: relative;
+    z-index: 5;
+    overflow: hidden; /* Contain the geometric shapes */
+}
+
+/* Geometric Accent 1: Large subtle circle top-left */
+.team-grid-section::before {
+    content: '';
+    position: absolute;
+    top: -10%; left: -5%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(9, 44, 58, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Geometric Accent 2: Dot Pattern bottom-right */
+.team-grid-section::after {
+    content: '';
+    position: absolute;
+    bottom: 5%; right: 5%;
+    width: 300px; height: 300px;
+    background-image: radial-gradient(rgba(13, 59, 76, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: linear-gradient(to top left, black, transparent);
+    -webkit-mask-image: linear-gradient(to top left, black, transparent);
+}
+
+/* Filter Tabs (Light Theme) */
+.filter-tabs-container {
+    display: inline-flex;
+    background: #f1f3f5;
+    padding: 6px;
+    border-radius: 50px;
+    gap: 5px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    color: var(--plh-text-muted);
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.filter-btn:hover { color: var(--plh-base); }
+.filter-btn.active {
+    background: white;
+    color: var(--plh-base);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Custom Bento Grid */
+.custom-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 400px;
+    gap: 24px;
+    width: 100%;
+    grid-auto-flow: dense;
+}
+
+/* Responsive Grid */
+@media (max-width: 1200px) {
+    .custom-bento-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 992px) {
+    .custom-bento-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 576px) {
+    .custom-bento-grid { grid-template-columns: 1fr; grid-auto-rows: 450px; }
+}
+
+/* Cards (Executive Grid Style - Unified Light Theme) */
+.bento-card {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid #e1e8ed; /* Clearer, distcint border */
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* Option 2: Distinct elevation by default so it looks like a box */
+    box-shadow: 0 10px 30px rgba(9, 44, 58, 0.08);
+}
+
+/* Hover: Lift + Accent Border */
+.bento-card:hover {
+    transform: translateY(-8px);
+    /* Deeper shadow on lift */
+    box-shadow: 0 25px 50px rgba(9, 44, 58, 0.15);
+    border-color: rgba(41, 169, 189, 0.6);
+}
+/* Bottom border accent on hover */
+.bento-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 3px;
+    background: var(--plh-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: 10;
+}
+.bento-card:hover::after {
+    transform: scaleX(1);
+}
+
+/* --- Layout Variants --- */
+
+/* Standard Card (Vertical) */
+.bento-card:not(.span-2) .card-image-wrapper {
+    height: 70%;
+}
+
+/* Feature Layout (Span 2) - Side by Side */
+.bento-card.span-2 { 
+    grid-column: span 2; 
+    flex-direction: row !important; /* Force Horizontal layout */
+}
+.bento-card.span-2 .card-image-wrapper {
+    width: 50%;
+    height: 100% !important; /* Full height */
+    position: relative; /* Reset absolute */
+}
+.bento-card.span-2 .card-content {
+    width: 50%;
+    /* Reset gradient from previous design */
+    background: white !important;
+    align-items: flex-start; /* Left align text */
+    justify-content: center;
+    border-left: 1px solid var(--card-border);
+}
+/* Reset text colors for Span-2 to be Dark (since bg is now white) */
+.bento-card.span-2 .card-name { color: var(--plh-base) !important; }
+.bento-card.span-2 .card-role { color: var(--plh-text-muted) !important; }
+
+/* Tall Card (Span Tall) */
+.bento-card.span-tall { grid-row: span 2; }
+.bento-card.span-tall .card-image-wrapper { height: 55%; }
+.bento-card.span-tall .card-content {
+    background: white; /* Unified Light Theme */
+    color: var(--plh-text-dark);
+    justify-content: flex-start;
+    padding-top: 30px;
+}
+/* Reset text colors for Tall Card */
+.bento-card.span-tall .card-name { color: var(--plh-base); }
+.bento-card.span-tall .card-role { color: var(--plh-text-muted); }
+
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .bento-card.span-2, .bento-card.span-tall { grid-column: span 1; grid-row: span 1; }
+    
+    /* Revert Feature Card to Vertical on Mobile */
+    .bento-card.span-2 { flex-direction: column !important; }
+    .bento-card.span-2 .card-image-wrapper { width: 100%; height: 60% !important; }
+    .bento-card.span-2 .card-content { width: 100%; border-left: none; }
+}
+
+/* Image Styling */
+.card-image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #eef2f3; /* Placeholder color */
+}
+
+.card-bg-image {
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center top;
+    transition: transform 0.8s ease, filter 0.5s ease;
+    filter: saturate(0.85); /* Premium Low Saturation (Better than Grayscale) */
+}
+
+.bento-card:hover .card-bg-image {
+    transform: scale(1.05); /* Subtle smooth zoom */
+    filter: saturate(1.1); /* Full color bloom */
+}
+
+/* Content Typography */
+.card-content {
+    padding: 24px 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    position: relative;
+    z-index: 2;
+}
+
+.card-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: rgba(41, 169, 189, 0.08);
+    color: var(--plh-accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    align-self: flex-start;
+}
+
+.card-name {
+    color: var(--plh-base);
+    font-weight: 700;
+    font-size: 1.35rem; /* Slightly larger */
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+.bento-card:hover .card-name {
+    color: var(--plh-accent); /* Name lights up on hover */
+    transition: color 0.3s;
+}
+
+.card-role {
+    color: var(--plh-text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Skill Tags for Tall Card */
+.skill-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--plh-text-muted);
+    background: #f1f3f5;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
+
+/* Modal Base Styles (Restored) */
+.team-modal-backdrop {
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100vw; height: 100vh;
+    background: rgba(9, 44, 58, 0.85); /* Darker backdrop for focus */
+    backdrop-filter: blur(8px);
+    z-index: 1040;
+    opacity: 0; 
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+.team-modal-backdrop.active { 
+    opacity: 1; 
+    pointer-events: all; 
+}
+
+.team-modal {
+    position: fixed; 
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    width: 90%; max-width: 1000px;
+    height: 80vh;
+    max-height: 800px;
+    background: white;
+    border-radius: 20px;
+    z-index: 1050; /* Above everything */
+    overflow: hidden;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+    opacity: 0; 
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.team-modal.active { 
+    opacity: 1; 
+    pointer-events: all; 
+    transform: translate(-50%, -50%) scale(1); 
+}
+
+.modal-close-btn {
+    position: absolute; 
+    top: 20px; right: 20px;
+    width: 44px; height: 44px;
+    background: #f1f3f5;
+    border-radius: 50%; 
+    border: none;
+    color: var(--plh-base);
+    font-size: 1.2rem;
+    z-index: 1060; /* Above modal content */
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-close-btn:hover { 
+    background: var(--plh-accent); 
+    color: white; 
+    transform: rotate(90deg);
+}
+
+/* Modal Customization (Executive Profile) */
+.modal-content-wrapper {
+    background: white;
+}
+
+.modal-image-col {
+    width: 35%; /* Option 1: 35/65 Split */
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-image {
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center top;
+}
+
+.modal-image-overlay {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 50%;
+    background: linear-gradient(to top, rgba(9, 44, 58, 0.8), transparent);
+}
+
+.modal-info-col {
+    width: 65%; /* Wider content area */
+    padding: 0; /* Reset internal padding */
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header-section {
+    padding: 40px 50px 20px 50px;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.modal-body-section {
+    padding: 30px 50px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.modal-footer-section {
+    padding: 20px 50px 30px 50px;
+    border-top: 1px solid #f1f3f5;
+    background: #fcfdfe;
+}
+
+/* Typography Updates */
+.modal-role-badge {
+    background: rgba(41, 169, 189, 0.1);
+    color: var(--plh-accent);
+    border: 1px solid rgba(41, 169, 189, 0.2);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.modal-name {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--plh-base);
+    font-size: 2.5rem; /* Balanced size */
+    margin-bottom: 5px;
+    line-height: 1.1;
+}
+
+.modal-subtitle {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.1rem;
+    color: var(--plh-text-muted);
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+/* Stats Bar */
+.modal-stats-bar {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.stat-item {
+    flex: 1;
+    background: #f8f9fa;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border-left: 3px solid var(--plh-accent);
+}
+
+.stat-value {
+    font-weight: 800;
+    color: var(--plh-base);
+    font-size: 1.1rem;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--plh-text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* Content Typography */
+.modal-section-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--plh-text-muted);
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.modal-section-title::after {
+    content: '';
+    height: 1px;
+    flex-grow: 1;
+    background: #eef2f3;
+}
+
+.modal-bio-text {
+    color: var(--plh-text-dark);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .modal-image-col, .modal-info-col { width: 100%; }
+    .modal-image-col { height: 300px; }
+    .modal-header-section, .modal-body-section, .modal-footer-section { padding-left: 25px; padding-right: 25px; }
+    .modal-name { font-size: 2rem; }
+}
+
+/* Animations */
+.animate-card { opacity: 0; visibility: visible; }
+.animate-fade-up { opacity: 0; transform: translateY(30px); transition: 1s ease; }
+.animate-fade-up.visible { opacity: 1; transform: translateY(0); }

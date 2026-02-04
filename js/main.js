@@ -166,7 +166,7 @@ PROBIZ.motion = (function() {
         });
 
         const _startAutoPlay = () => {
-            heroSliderInterval = setInterval(() => changeSlide('next'), 6000);
+            heroSliderInterval = setInterval(() => changeSlide('next'), 3800);
         };
         _startAutoPlay();
     };
@@ -192,7 +192,7 @@ PROBIZ.motion = (function() {
             }
         });
 
-        cards.forEach((card, index) => {
+        cards.forEach((card) => {
             tl.to(card, { 
                 y: "0%", 
                 ease: "power1.inOut", 

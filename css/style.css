@@ -266,7 +266,7 @@ a {
 }
 
 .nav-logo {
-  height: 90px;
+  height: 135px;
   width: auto;
   transition: height 0.4s ease;
 }
@@ -274,9 +274,15 @@ a {
   height: 70px;
 }
 .brand-divider {
-  height: 40px;
+  height: 55px;
   width: 1px;
   background-color: rgba(255, 255, 255, 0.15);
+  transition: height 0.4s ease;
+  margin-top: 10px;
+}
+.plh-nav.nav-scrolled .brand-divider {
+  height: 35px;
+  margin-top: 0px;
 }
 
 .brand-text .brand-title {
@@ -288,35 +294,27 @@ a {
   color: var(--plh-white);
   text-transform: uppercase;
   transition: font-size 0.4s ease;
+  display: inline-block;
+  border-bottom: 2px solid var(--plh-white);
+  padding-bottom: 5px;
+  padding-top: 9px;
 }
 .plh-nav.nav-scrolled .brand-text .brand-title {
   font-size: 1.4rem;
-}
-
-.brand-text .brand-subtitle {
-  font-family: var(--font-brand);
-  font-size: 0.9rem;
-  letter-spacing: 3px;
-  color: var(--plh-accent);
-  margin-top: 4px;
-  font-weight: 600;
-  transition: all 0.4s ease;
-}
-.plh-nav.nav-scrolled .brand-text .brand-subtitle {
-  font-size: 0.7rem;
+  padding-top: 0px;
 }
 
 .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 0.85) !important;
   font-weight: 500;
-  font-size: 1.2rem !important;
+  font-size: 1.35rem !important;
   padding: 10px 15px !important;
   transition:
     color 0.3s ease,
     font-size 0.4s ease !important;
 }
 .plh-nav.nav-scrolled .navbar-nav .nav-link {
-  font-size: 1rem !important;
+  font-size: 1.15rem !important;
 }
 .navbar-nav .nav-link:hover {
   color: var(--plh-accent) !important;
@@ -324,7 +322,7 @@ a {
 
 .plh-nav .dropdown-toggle {
   color: rgba(255, 255, 255, 0.85) !important;
-  font-size: 1.2rem !important;
+  font-size: 1.35rem !important;
   padding: 10px 0 !important;
   transition: all 0.3s ease;
   display: flex;
@@ -336,7 +334,7 @@ a {
   color: var(--plh-accent) !important;
 }
 .plh-nav.nav-scrolled .dropdown-toggle {
-  font-size: 1rem !important;
+  font-size: 1.15rem !important;
 }
 
 .dropdown-menu {
@@ -461,6 +459,7 @@ a {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   filter: grayscale(100%);
+  height: 280px;;
   transition: 0.5s;
 }
 .map-container:hover {
@@ -471,6 +470,7 @@ a {
 .map-container iframe {
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .marquee-wrapper {
