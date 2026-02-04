@@ -61,7 +61,12 @@ body {
 /* --- SECTION 1: DARK HEADER (Navbar + Title) --- */
 .team-hero-header {
     background-color: var(--plh-base);
-    background-image: radial-gradient(circle at 70% 30%, #154452 0%, var(--plh-base) 70%); /* Premium Spotlight Gradient */
+    /* Overlay for readability */
+    /* background-image: radial-gradient(circle at 70% 30%, #154452 0%, var(--plh-base) 70%); */
+    background-image: linear-gradient(to bottom, rgba(9, 44, 58, 0.85), rgba(9, 44, 58, 0.7)), url('../images/Teamhead.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: white;
     padding-bottom: 80px; /* Space for content below */
     padding-top: 140px; /* Space for Navbar */
@@ -452,6 +457,27 @@ body {
     background: #fcfdfe;
 }
 
+.social-circle-btn {
+    width: 45px; height: 45px;
+    background: white;
+    border: 1px solid #e1e8ed;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--plh-base);
+    font-size: 1.4rem; /* Bigger Icon */
+    transition: 0.3s;
+    text-decoration: none;
+}
+.social-circle-btn:hover {
+    background: var(--plh-base);
+    color: white;
+    border-color: var(--plh-base);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(9, 44, 58, 0.15);
+}
+
 /* Typography Updates */
 .modal-role-badge {
     background: rgba(41, 169, 189, 0.1);
@@ -539,12 +565,69 @@ body {
     margin-bottom: 30px;
 }
 
-/* Responsive */
+/* Responsive Modal Fixes */
 @media (max-width: 992px) {
-    .modal-image-col, .modal-info-col { width: 100%; }
-    .modal-image-col { height: 300px; }
-    .modal-header-section, .modal-body-section, .modal-footer-section { padding-left: 25px; padding-right: 25px; }
+    /* Modal Container: Full Screen & Scrollable */
+    .team-modal {
+        width: 100% !important;
+        height: 100% !important;
+        max-height: none !important;
+        border-radius: 0 !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        overflow-y: auto !important; /* Allow the modal itself to scroll */
+        -webkit-overflow-scrolling: touch;
+        display: block !important; /* Force block layout */
+    }
+
+    .modal-content-wrapper {
+        height: auto !important; /* Content determines height */
+        min-height: 100%;
+        overflow: visible !important;
+    }
+
+    .row.g-0.h-100 {
+        height: auto !important;
+    }
+
+    /* Stack Image on Top */
+    .modal-image-col {
+        width: 100% !important;
+        height: 300px !important;
+        flex: 0 0 100% !important; /* Fix: Full width, don't limit to 300px */
+        padding: 0 !important;
+    }
+
+    /* Stack Content Below */
+    .modal-info-col {
+        width: 100% !important;
+        height: auto !important; /* Let content grow */
+        overflow: visible !important; /* No internal scrollbars, use window scroll */
+    }
+
+    .modal-body-section {
+        overflow: visible !important; /* Disable internal scroll */
+    }
+
+    /* Adjust Padding for Mobile */
+    .modal-header-section, 
+    .modal-body-section, 
+    .modal-footer-section { 
+        padding-left: 20px !important; 
+        padding-right: 20px !important; 
+    }
+    
     .modal-name { font-size: 2rem; }
+    
+    /* Ensure close button is fixed visible or absolute safely */
+    .modal-close-btn {
+        position: fixed; /* Stick to screen */
+        top: 15px;
+        right: 15px;
+        background: rgba(255,255,255,0.9);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
 }
 
 /* Animations */
