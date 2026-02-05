@@ -252,7 +252,7 @@ PROBIZ.motion = (function() {
 
 
     const _magneticInteractions = () => {
-        const buttons = document.querySelectorAll('.btn-accent, .btn-outline-white');
+        const buttons = document.querySelectorAll('.btn-accent, .btn-outline-white, .btn-outline-accent');
         buttons.forEach(btn => {
             btn.addEventListener('mousemove', (e) => {
                 const rect = btn.getBoundingClientRect();
@@ -266,12 +266,51 @@ PROBIZ.motion = (function() {
         });
     };
 
-    return { init };
+    // Counter Animation
+    const _counterAnimation = () => {
+        const counters = document.querySelectorAll('.counter');
+        
+        if (counters.length === 0) return;
+
+        const animateCounter = (counter) => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000; // 2 seconds
+            const increment = target / (duration / 16); // 60fps
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    counter.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+
+            updateCounter();
+        };
+
+        // Use Intersection Observer to trigger animation when visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    animateCounter(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => observer.observe(counter));
+    };
+
+    return { init, _counterAnimation };
 })();
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
     PROBIZ.ui.init();
-    PROBIZ.motion.init(); 
+    PROBIZ.motion.init();
+    PROBIZ.motion._counterAnimation();
 });

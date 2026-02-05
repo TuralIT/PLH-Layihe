@@ -1043,3 +1043,104 @@ html.lenis {
   opacity: 0;
   transform: translateY(30px);
 }
+
+/* =========================================
+   Stats Counter Animation & Box Styles
+   ========================================= */
+
+.stat-box {
+  background: linear-gradient(135deg, rgba(41, 169, 189, 0.04) 0%, rgba(41, 169, 189, 0.08) 100%);
+  border: 2px solid rgba(41, 169, 189, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(41, 169, 189, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.stat-box:hover::before {
+  left: 100%;
+}
+
+.stat-box:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(41, 169, 189, 0.2);
+  border-color: var(--plh-accent);
+  background: linear-gradient(135deg, rgba(41, 169, 189, 0.08) 0%, rgba(41, 169, 189, 0.12) 100%);
+}
+
+.counter {
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+/* =========================================
+   Ghost Button with Hover Fill
+   ========================================= */
+
+.btn-outline-accent {
+  color: var(--plh-accent);
+  border: 2px solid var(--plh-accent);
+  background: white;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-outline-accent:hover {
+  color: white;
+  background: var(--plh-accent);
+  border-color: var(--plh-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(41, 169, 189, 0.25);
+}
+
+
+/* =========================================
+   Card Hover Effects
+   ========================================= */
+
+/* Timeline Cards Enhancement */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(13, 59, 76, 0.15) !important;
+}
+
+/* Timeline cards specific */
+.card.hover-lift:hover {
+  border-color: rgba(41, 169, 189, 0.3);
+}
+
+/* Legal Practice Cards - subtle glow */
+.card.border-0.shadow-sm.h-100.hover-lift:hover {
+  box-shadow: 0 10px 30px rgba(41, 169, 189, 0.12) !important;
+}
+
+.card.border-0.shadow-sm.h-100.hover-lift:hover .bi {
+  color: var(--plh-accent);
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+/* Principles Cards Enhancement */
+.card.border-0.shadow-sm.h-100.hover-lift[style*="background: var(--plh-base)"]:hover,
+.card.border-0.shadow-sm.h-100.hover-lift[style*="background: linear-gradient"]:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(13, 59, 76, 0.25) !important;
+}
+
+
