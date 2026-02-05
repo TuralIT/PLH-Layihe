@@ -220,6 +220,21 @@ PROBIZ.motion = (function() {
         });
 
 
+        // Stat Cards Animation
+        gsap.fromTo('.stat-card', 
+            { y: 50, autoAlpha: 0 },
+            {
+                y: 0, autoAlpha: 1, 
+                duration: 0.8, 
+                stagger: 0.15,
+                scrollTrigger: {
+                    trigger: '.stat-card',
+                    start: 'top 85%',
+                    toggleActions: "play none none none"
+                }
+            }
+        );
+
         _staggerReveal('.attorney-card-gsap', 0.2);
     };
 

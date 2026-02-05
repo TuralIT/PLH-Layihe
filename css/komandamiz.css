@@ -1,0 +1,94 @@
+/* Team Showcase Page Specific Styles */
+
+/* Hero Section with Custom Background */
+.team-hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13, 59, 76, 0.9) 0%,
+      rgba(6, 30, 40, 0.95) 100%
+    ),
+    url("../images/navlinkshead.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-badge {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Team Cards Styling */
+.card-team {
+  cursor: pointer;
+  background: transparent;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-team:hover {
+  transform: translateY(-10px);
+}
+
+.team-img-wrap {
+  overflow: hidden;
+  border-radius: var(--plh-radius-lg);
+  aspect-ratio: 4/5;
+  margin-bottom: 1.25rem;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.team-img-wrap::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgba(9, 44, 58, 0.8), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-team:hover .team-img-wrap::after {
+  opacity: 1;
+}
+
+.team-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.8s cubic-bezier(0.2, 1, 0.2, 1),
+    filter 0.4s ease;
+  filter: grayscale(100%);
+  display: block;
+}
+
+.card-team:hover .team-img-wrap img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* Stats Section */
+.bg-accent {
+  background-color: var(--plh-accent);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .team-hero {
+    min-height: 50vh;
+    background-attachment: scroll;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}

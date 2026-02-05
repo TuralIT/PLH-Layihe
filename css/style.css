@@ -982,3 +982,64 @@ html.lenis {
     height: 40px !important;
   }
 }
+
+/* =========================================
+   Why Us Section Styles & Animations
+   ========================================= */
+
+.bg-gradient-subtle {
+  background: linear-gradient(180deg, 
+    rgba(248, 249, 250, 0) 0%, 
+    rgba(248, 249, 250, 1) 50%, 
+    rgba(248, 249, 250, 0) 100%
+  );
+}
+
+.stat-card {
+  background: white;
+  border-radius: var(--plh-radius-lg);
+  border: 1px solid rgba(13, 59, 76, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(13, 59, 76, 0.1);
+  border-color: var(--plh-accent);
+}
+
+.stat-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(41, 169, 189, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.stat-card:hover .stat-icon {
+  background: var(--plh-accent);
+}
+
+.stat-card:hover .stat-icon i {
+  color: white !important;
+}
+
+.stat-icon i {
+  font-size: 2.5rem;
+  transition: 0.3s;
+}
+
+/* Base state for JS animation */
+.stat-card {
+  opacity: 0;
+  transform: translateY(30px);
+}
